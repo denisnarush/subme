@@ -1,0 +1,44 @@
+{
+  "npmScope": "submeorg",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "NDBhZTZkYmEtM2QxYi00NzliLTk3NTUtNjJhNjQxNTg1MzlhfHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "flowers": {
+      "tags": []
+    },
+    "flowers-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "flowers"
+      ]
+    }
+  }
+}

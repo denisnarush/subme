@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "projects": {
+    "flowers": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      },
+      "root": "apps/flowers",
+      "sourceRoot": "apps/flowers/src",
+      "prefix": "submeorg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/flowers",
+            "index": "apps/flowers/src/index.html",
+            "main": "apps/flowers/src/main.ts",
+            "polyfills": "apps/flowers/src/polyfills.ts",
+            "tsConfig": "apps/flowers/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/flowers/src/favicon.ico",
+              "apps/flowers/src/assets"
+            ],
+            "styles": ["apps/flowers/src/styles.less"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/flowers/src/environments/environment.ts",
+                  "with": "apps/flowers/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "flowers:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "flowers:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "flowers:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/flowers/tsconfig.app.json",
+              "apps/flowers/tsconfig.spec.json",
+              "apps/flowers/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/flowers/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/flowers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "flowers-e2e": {
+      "root": "apps/flowers-e2e",
+      "sourceRoot": "apps/flowers-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/flowers-e2e/cypress.json",
+            "tsConfig": "apps/flowers-e2e/tsconfig.e2e.json",
+            "devServerTarget": "flowers:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "flowers:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/flowers-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/flowers-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "flowers"
+}
