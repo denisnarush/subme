@@ -1,5 +1,5 @@
 {
-  "npmScope": "submeorg",
+  "npmScope": "s",
   "affected": {
     "defaultBase": "master"
   },
@@ -34,6 +34,9 @@
       "implicitDependencies": ["flowers"]
     },
     "api": {
+      "tags": []
+    },
+    "ui": {
       "tags": []
     }
   }

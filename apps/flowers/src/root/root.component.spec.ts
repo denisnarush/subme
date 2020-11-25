@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RootComponent } from './root.component';
 import { Location } from '@angular/common';
 
+import { UiModule } from '@s/ui';
 import { SRoutes } from '../routes/routes';
 import { Router } from '@angular/router';
 
@@ -12,7 +13,7 @@ describe('RootComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(SRoutes)],
+      imports: [RouterTestingModule.withRoutes(SRoutes), UiModule],
       declarations: [RootComponent],
     }).compileComponents();
 
