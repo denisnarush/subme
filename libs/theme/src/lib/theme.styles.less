@@ -7,16 +7,45 @@ body {
   margin: 0;
 }
 
-p,
-a {
-  color: var(--gray-1);
-  font: var(--font-main-thin-regular);
-
-  span {
-    font: var(--font-main-thin-elight);
+/* TEXT */
+.txt {
+  // font
+  &_f {
+    // main
+    &_main {
+      &-thin {
+        font: var(--font-main-thin);
+      }
+      &-elight {
+        font: var(--font-main-elight);
+      }
+      &-light {
+        font: var(--font-main-light);
+      }
+      &-regular {
+        font: var(--font-main-regular);
+      }
+    }
+  }
+  // size
+  &_s {
+    &_1 {
+      font-size: 1rem;
+    }
+    &_2 {
+      font-size: 1.125rem;
+    }
+  }
+  // color
+  &_c {
+    &_gray {
+      &-1 {
+        color: var(--gray-1);
+      }
+    }
   }
 }
-
-a {
+/* LINK */
+.link {
   text-decoration: none;
 }
