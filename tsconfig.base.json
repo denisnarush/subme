@@ -16,8 +16,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@s/ui": ["libs/ui/src/index.ts"],
-      "@s/theme": ["libs/theme/src/index.ts"]
+      "@s/theme": ["libs/theme/src/index.ts"],
+      "@s/shared/pages/feature-not-found": [
+        "libs/shared/pages/feature-not-found/src/index.ts"
+      ],
+      "@s/flowers/pages/feature-home": [
+        "libs/flowers/pages/feature-home/src/index.ts"
+      ],
+      "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
+      "@s/ui/ui-content": ["libs/ui/ui-content/src/index.ts"],
+      "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
