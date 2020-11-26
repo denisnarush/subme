@@ -19,12 +19,13 @@ Very important description!
 - `nx g component <name> --project=<project>`
 - `nx g module <name> --project=<project>`
 
-- `nx serve api` - serves API. Default url is **http://localhost:3333/api**
+- `nx serve api` - serves API. Default url is **://localhost:3333/api**
 - `nx serve <project>` - serves \<project\>
 
 - `nx build <project>` - builds the \<project\> project
 
 ```text
-  TODO: white-labeling & themes [fonts, variables, colors]
+  + TODO: white-labeling & themes [fonts, variables, colors]
+  TODO: one assets folder
   TODO: i18n [text, pictures]
 ```

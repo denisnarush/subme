@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/flowers',
     '<rootDir>/apps/api',
     '<rootDir>/libs/ui',
+    '<rootDir>/libs/theme',
   ],
 };

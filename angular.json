@@ -25,7 +25,10 @@
               "apps/flowers/src/favicon.ico",
               "apps/flowers/src/assets"
             ],
-            "styles": ["apps/flowers/src/styles.less"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/theme/src/lib/default"]
+            },
+            "styles": ["libs/theme/src/lib/theme.styles.less"],
             "scripts": []
           },
           "configurations": {
@@ -196,6 +199,36 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
+    },
+    "theme": {
+      "projectType": "library",
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/theme/tsconfig.lib.json",
+              "libs/theme/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/theme/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/theme/jest.config.js",
             "passWithNoTests": true
           }
         }
