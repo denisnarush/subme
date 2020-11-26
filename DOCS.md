@@ -1,5 +1,7 @@
 # S
 
+Very important description!
+
 ## Unit Test
 
 - `nx test` run test for all projects (flowers, api, ui & etc.)
@@ -21,3 +23,8 @@
 - `nx serve <project>` - serves \<project\>
 
 - `nx build <project>` - builds the \<project\> project
+
+```text
+  TODO: white-labeling & themes [fonts, variables, colors]
+  TODO: i18n [text, pictures]
+```
