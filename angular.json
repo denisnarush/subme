@@ -23,7 +23,11 @@
             "aot": true,
             "assets": [
               "apps/flowers/src/favicon.ico",
-              "apps/flowers/src/assets"
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "assets"
+              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["libs/theme/src/lib/default"]
