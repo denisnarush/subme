@@ -40,17 +40,18 @@ Very important description!
 
 ## Contributers
 
-- Denis Narush<child.denis@gmail.com>
-- Dev > Alexand Bazukevich<alex.bazukevich@mail.com>
-- QA > Viacheslav Dontsov<dontsov@gmail.com>
-- UX > Anna Narush<anna.narush@mail.com>
+- Denis Narush <child.denis@gmail.com>
+- Dev > Alexand Bazukevich <alex.bazukevich@mail.com>
+- QA > Viacheslav Dontsov <dontsov@gmail.com>
+- UX > Anna Narush <anna.narush@mail.com>
 
 ```text
-  + TODO: white-labeling & themes [fonts, variables, colors]
-  TODO: one assets folder
   TODO: i18n [text, pictures]
   TODO: add Prisma
   TODO: add Akita
+  TODO: setup CRM app
+  TODO: setup CSM app
+  TODO: setup `shared` lib for common modules like 404 page and etc.
   TODO: move production configuration to default in angular.json
   TODO: create CI Actions in GitHub
 ```
