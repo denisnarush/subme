@@ -12,6 +12,10 @@ Very important description!
 - Jest
 - Nx
 
+## Wireframes
+
+- ://www.figma.com/file/2Hu3IfAPQgwUV2zDMsQ0fl/subme.by
+
 ## Unit Test
 
 - `nx test` run test for all projects (flowers, api, ui & etc.)
@@ -33,6 +37,13 @@ Very important description!
 - `nx serve api` - serves API. Default url is **://localhost:3333/api**
 
 - `nx build <project>` - builds the \<project\> project
+
+## Contributers
+
+- Denis Narush<child.denis@gmail.com>
+- Dev > Alexand Bazukevich<alex.bazukevich@mail.com>
+- QA > Viacheslav Dontsov<dontsov@gmail.com>
+- UX > Anna Narush<anna.narush@mail.com>
 
 ```text
   + TODO: white-labeling & themes [fonts, variables, colors]
