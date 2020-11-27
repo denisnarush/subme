@@ -4,7 +4,7 @@
 - [Use GitHub and create branch from *master* with name *#N*]
 - [In *#N* branch made commits]
 
-  commit message should start like: "updates ...", "creates ...", "adds ...", "removes ..."
+  commit message should start like: "#N updates ...", "#N creates ...", "#N adds ...", "#N removes ..."
 
 - \* [It will be nice to write some unit test]
 - \* [It will be awesome to have e2e test]
