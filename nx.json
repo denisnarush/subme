@@ -29,6 +29,10 @@
     "flowers": {
       "tags": []
     },
+    "flowers-pages-feature-home": {
+      "tags": [],
+      "implicitDependencies": ["flowers"]
+    },
     "flowers-e2e": {
       "tags": [],
       "implicitDependencies": ["flowers"]
@@ -36,10 +40,19 @@
     "api": {
       "tags": []
     },
-    "ui": {
+    "theme": {
       "tags": []
     },
-    "theme": {
+    "shared-pages-feature-not-found": {
+      "tags": []
+    },
+    "ui-ui-header": {
+      "tags": []
+    },
+    "ui-ui-content": {
+      "tags": []
+    },
+    "ui-ui-footer": {
       "tags": []
     }
   }

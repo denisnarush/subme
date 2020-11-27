@@ -3,7 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RootComponent } from './root.component';
 import { Location } from '@angular/common';
 
-import { UiModule } from '@s/ui';
 import { SRoutes } from '../routes/routes';
 import { Router } from '@angular/router';
 
@@ -13,7 +12,7 @@ describe('RootComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(SRoutes), UiModule],
+      imports: [RouterTestingModule.withRoutes(SRoutes)],
       declarations: [RootComponent],
     }).compileComponents();
 
@@ -25,18 +24,5 @@ describe('RootComponent', () => {
     const fixture = TestBed.createComponent(RootComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'flowers'`, () => {
-    const fixture = TestBed.createComponent(RootComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('flowers');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(RootComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Subscribe Me');
   });
 });

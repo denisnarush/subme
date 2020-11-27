@@ -6,11 +6,9 @@ import { RouterModule } from '@angular/router';
 
 import { SRoutes } from '../routes/routes';
 
-import { UiModule } from '@s/ui';
-
 @NgModule({
   declarations: [RootComponent],
-  imports: [BrowserModule, UiModule, RouterModule.forRoot(SRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(SRoutes)],
   providers: [],
   bootstrap: [RootComponent],
 })
