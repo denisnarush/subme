@@ -16,6 +16,8 @@ Very important description!
 
 - ://www.figma.com/file/2Hu3IfAPQgwUV2zDMsQ0fl/subme.by
 
+- [Worflow](workflow.md)
+
 ## Unit Test
 
 - `nx test` run test for all projects (flowers, api, ui & etc.)
