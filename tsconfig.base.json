@@ -25,7 +25,10 @@
       ],
       "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
       "@s/ui/ui-content": ["libs/ui/ui-content/src/index.ts"],
-      "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"]
+      "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"],
+      "@s/shared/pages/feature-confirmation": [
+        "libs/shared/pages/feature-confirmation/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

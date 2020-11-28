@@ -54,6 +54,9 @@
     },
     "ui-ui-footer": {
       "tags": []
+    },
+    "shared-pages-feature-confirmation": {
+      "tags": []
     }
   }
 }

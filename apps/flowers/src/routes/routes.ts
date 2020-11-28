@@ -9,6 +9,13 @@ export const SRoutes: Routes = [
       ),
   },
   {
+    path: 'confirmation',
+    loadChildren: () =>
+      import('@s/shared/pages/feature-confirmation').then(
+        (m) => m.SharedPagesFeatureConfirmationModule
+      ),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
