@@ -1,6 +1,6 @@
 {
   "name": "submeorg",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -11,6 +11,9 @@
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
+    "backstop:flowers:test": "backstop test --config=apps/flowers/backstop.json",
+    "backstop:flowers:approve": "backstop approve --config=apps/flowers/backstop.json",
+    "backstop:flowers:reference": "backstop reference --config=apps/flowers/backstop.json",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -63,6 +66,7 @@
     "@nrwl/workspace": "10.4.4",
     "@types/jest": "26.0.15",
     "@types/node": "~14.14.9",
+    "backstopjs": "^5.0.7",
     "codelyzer": "~6.0.1",
     "cypress": "^6.0.0",
     "dotenv": "8.2.0",
