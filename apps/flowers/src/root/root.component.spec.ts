@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RootComponent } from './root.component';
 import { Location } from '@angular/common';
@@ -7,6 +7,8 @@ import { SRoutes } from '../routes/routes';
 import { Router } from '@angular/router';
 
 describe('RootComponent', () => {
+  let fixture: ComponentFixture<RootComponent>;
+  let root: RootComponent;
   let location: Location;
   let router: Router;
 
@@ -18,11 +20,68 @@ describe('RootComponent', () => {
 
     router = TestBed.inject(Router);
     location = TestBed.inject(Location);
+
+    fixture = TestBed.createComponent(RootComponent);
+    root = fixture.componentInstance;
+
+    fixture.ngZone.run(() => {
+      router.initialNavigation();
+    });
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(RootComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(root).toBeTruthy();
   });
+  it(
+    'should have /home page',
+    waitForAsync(() => {
+      fixture.ngZone.run(() => {
+        fixture.whenStable().then(() => {
+          router.navigate(['home']).then(() => {
+            expect(location.path()).toBe('/home');
+          });
+        });
+      });
+    })
+  );
+
+  it(
+    'should redirect from "" to /home',
+    waitForAsync(() => {
+      fixture.ngZone.run(() => {
+        fixture.whenStable().then(() => {
+          router.navigate(['']).then(() => {
+            expect(location.path()).toBe('/home');
+          });
+        });
+      });
+    })
+  );
+
+  it(
+    'should stay on unknown page',
+    waitForAsync(() => {
+      fixture.ngZone.run(() => {
+        fixture.whenStable().then(() => {
+          router.navigate(['wrong-page-name']).then(() => {
+            expect(location.path()).toBe('/wrong-page-name');
+          });
+        });
+      });
+    })
+  );
+
+  it(
+    'should display "Not Found" if it is unknown pag',
+    waitForAsync(() => {
+      fixture.ngZone.run(() => {
+        fixture.whenStable().then(() => {
+          router.navigate(['wrong-page-name']).then(() => {
+            const h1 = fixture.nativeElement.querySelector('h1');
+            expect(h1.textContent).toContain('Not Found');
+          });
+        });
+      });
+    })
+  );
 });

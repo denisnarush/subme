@@ -6,6 +6,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./root.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class RootComponent {
-  title = 'flowers';
-}
+export class RootComponent {}
