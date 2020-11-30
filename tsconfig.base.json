@@ -17,6 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@s/theme": ["libs/theme/src/index.ts"],
+      "@s/shared/pages/feature-confirmed": [
+        "libs/shared/pages/feature-confirmed/src/index.ts"
+      ],
       "@s/shared/pages/feature-not-found": [
         "libs/shared/pages/feature-not-found/src/index.ts"
       ],
