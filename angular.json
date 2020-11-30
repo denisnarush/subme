@@ -401,6 +401,39 @@
           "style": "less"
         }
       }
+    },
+    "flowers-pages-feature-payment-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-payment-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-payment-confirmed/tsconfig.lib.json",
+              "libs/flowers/pages/feature-payment-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-payment-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
     }
   },
   "cli": {
