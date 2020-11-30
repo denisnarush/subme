@@ -27,11 +27,14 @@ describe('RootComponent', () => {
     fixture.ngZone.run(() => {
       router.initialNavigation();
     });
+
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
     expect(root).toBeTruthy();
   });
+
   it(
     'should have /home page',
     waitForAsync(() => {
