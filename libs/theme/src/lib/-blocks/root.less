@@ -1,0 +1,16 @@
+.root {
+  display: block;
+  display: grid;
+  margin: 0 auto;
+  max-width: 640px;
+
+  height: 100%;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0 1fr;
+  grid-template-areas: 'router-outlet' 'content';
+
+  router-outlet {
+    grid-area: router-outlet;
+  }
+}

@@ -1,0 +1,42 @@
+// .root {
+//   background: url('assets/wireframes/Init state 4x.png') center 1px no-repeat;
+//   image-rendering: pixelated;
+//   background-size: 100% 100%;
+// }
+
+[s-feature-home] {
+  .content {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 92px auto;
+    grid-template-areas:
+      'image'
+      'title'
+      'text';
+  }
+
+  .l {
+    &__image {
+      grid-area: image;
+      // vertical
+      align-self: end;
+    }
+    &__title {
+      grid-area: title;
+      // vertical
+      align-self: center;
+    }
+    &__text {
+      grid-area: text;
+      // vertical
+      align-self: start;
+    }
+  }
+
+  .image {
+    display: block;
+    width: ~'calc(100% + 20px)';
+    margin-left: -10px;
+  }
+}
