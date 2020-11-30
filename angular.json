@@ -368,6 +368,39 @@
           "style": "less"
         }
       }
+    },
+    "shared-pages-feature-confirmed": {
+      "projectType": "library",
+      "root": "libs/shared/pages/feature-confirmed",
+      "sourceRoot": "libs/shared/pages/feature-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/pages/feature-confirmed/tsconfig.lib.json",
+              "libs/shared/pages/feature-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/pages/feature-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
     }
   },
   "cli": {
