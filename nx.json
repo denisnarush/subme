@@ -33,6 +33,10 @@
       "tags": [],
       "implicitDependencies": ["flowers"]
     },
+    "flowers-pages-feature-payment-confirmed": {
+      "tags": [],
+      "implicitDependencies": ["flowers"]
+    },
     "flowers-e2e": {
       "tags": [],
       "implicitDependencies": ["flowers"]

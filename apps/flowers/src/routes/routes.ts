@@ -9,6 +9,13 @@ export const SRoutes: Routes = [
       ),
   },
   {
+    path: 'payment-confirmed',
+    loadChildren: () =>
+      import('@s/flowers/pages/feature-payment-confirmed').then(
+        (m) => m.FlowersPagesFeaturePaymentConfirmedModule
+      ),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',

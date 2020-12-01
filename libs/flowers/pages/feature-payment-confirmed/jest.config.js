@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-pages-feature-confirmed',
+  displayName: 'flowers-pages-feature-payment-confirmed',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,8 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/shared/pages/feature-confirmed',
+  coverageDirectory:
+    '../../../../coverage/libs/flowers/pages/feature-payment-confirmed',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
