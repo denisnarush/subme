@@ -1,0 +1,10 @@
+{
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 120,
+  "npm.runInTerminal": true,
+  "prettier.endOfLine": "crlf",
+  "todo-tree.filtering.excludeGlobs": ["node_modules"],
+  "typescript.updateImportsOnFileMove.enabled": "never"
+}
