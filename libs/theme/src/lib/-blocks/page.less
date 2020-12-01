@@ -1,0 +1,17 @@
+.page {
+  display: grid;
+  max-width: ~'calc(320px * 1.5)';
+  max-height: ~'calc(568px * 1.5)';
+
+  grid-area: content;
+
+  width: 100%;
+  height: 100%;
+
+  grid-template-columns: var(--root-gap) 1fr var(--root-gap);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header header header'
+    '. content .'
+    'footer footer footer';
+}

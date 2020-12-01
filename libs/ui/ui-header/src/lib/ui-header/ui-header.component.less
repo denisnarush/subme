@@ -1,17 +1,32 @@
 .header {
-  display: flex;
+  display: grid;
   grid-area: header;
+  grid-template-columns: var(--root-gap) 1fr auto 1fr var(--root-gap);
+  grid-template-rows: auto;
+  grid-template-areas: '. left center right .';
+  height: var(--root-header-height);
 
   &__item {
+    &_left,
+    &_center,
+    &_right {
+      // vertical
+      align-self: center;
+    }
     &_left {
-      margin-right: auto;
+      grid-area: left;
+      // horizontal
+      justify-self: start;
     }
     &_center {
-      margin-right: auto;
-      margin-left: auto;
+      grid-area: center;
+      // horizontal
+      justify-self: center;
     }
     &_right {
-      margin-left: auto;
+      grid-area: right;
+      // horizontal
+      justify-self: end;
     }
   }
 }

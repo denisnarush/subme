@@ -1,87 +1,15 @@
 @import 'styles.less';
+@import './-blocks/';
 
 html,
 body {
   height: 100%;
-  padding: 0;
+}
+
+html,
+body,
+h1,
+p {
   margin: 0;
-}
-
-/* TEXT */
-.txt {
-  // font
-  &_f {
-    // main
-    &_main {
-      &-thin {
-        font: var(--font-main-thin);
-      }
-      &-elight {
-        font: var(--font-main-elight);
-      }
-      &-light {
-        font: var(--font-main-light);
-      }
-      &-regular {
-        font: var(--font-main-regular);
-      }
-    }
-  }
-  // size
-  &_s {
-    &_1 {
-      font-size: 1rem;
-    }
-    &_2 {
-      font-size: 1.125rem;
-    }
-  }
-  // color
-  &_c {
-    &_gray {
-      &-1 {
-        color: var(--gray-1);
-      }
-    }
-  }
-}
-/* LINK */
-.link {
-  text-decoration: none;
-}
-/* ROOT */
-.root {
-  display: block;
-  display: grid;
-  margin: 0 auto;
-  max-width: 640px;
-
-  height: 100%;
-  justify-content: center;
-  grid-template-columns: ~'calc(100% - 60px)';
-  grid-template-rows: 0 1fr;
-  grid-template-areas: 'router-outlet' 'content';
-
-  router-outlet {
-    grid-area: router-outlet;
-  }
-}
-/* PAGE */
-.page {
-  display: block;
-  display: grid;
-  margin: 0 auto;
-  max-width: 640px;
-
-  grid-area: content;
-
-  width: 100%;
-  height: 100%;
-
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    'header'
-    'content'
-    'footer';
+  padding: 0;
 }

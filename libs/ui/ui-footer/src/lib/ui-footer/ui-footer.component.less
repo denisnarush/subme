@@ -1,17 +1,32 @@
 .footer {
-  display: flex;
+  display: grid;
   grid-area: footer;
+  grid-template-columns: var(--root-gap) 1fr auto 1fr var(--root-gap);
+  grid-template-rows: auto;
+  grid-template-areas: '. left center right .';
+  height: var(--root-footer-height);
 
   &__item {
+    &_left,
+    &_center,
+    &_right {
+      // vertical
+      align-self: start;
+    }
     &_left {
-      margin-right: auto;
+      grid-area: left;
+      // horizontal
+      justify-self: start;
     }
     &_center {
-      margin-right: auto;
-      margin-left: auto;
+      grid-area: center;
+      // horizontal
+      justify-self: center;
     }
     &_right {
-      margin-left: auto;
+      grid-area: right;
+      // horizontal
+      justify-self: end;
     }
   }
 }
