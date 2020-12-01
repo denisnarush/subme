@@ -1,0 +1,31 @@
+[s-feature-payment-confirmed] {
+  .content {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 92px auto;
+    grid-template-areas:
+      'image'
+      'title';
+  }
+
+  .l {
+    &__image {
+      grid-area: image;
+      // vertical
+      align-self: end;
+      position: relative;
+      top: 11.5px;
+    }
+    &__title {
+      grid-area: title;
+      // vertical
+      align-self: center;
+    }
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+  }
+}
