@@ -4,6 +4,10 @@
 
 - `nx serve flowers` - serves flowers project
 
+## start local `api` project
+
+- `nx serve api` - serves flowers project
+
 ## Backstop
 
 - `npx backstop test --config=apps/<project>/backstop.json` Create test screenshots and compare against the set you previously approved/referenced.
@@ -22,7 +26,7 @@
 - `nx g component <name> --project=<project>`
 - `nx g module <name> --project=<project>`
 
-- `nx serve <project>` - serves \<project\>. Default url is **://localhost:4200/api**
+- `nx serve <project>` - serves \<project\>. Default url is **://localhost:4200**
 - `nx serve api` - serves API. Default url is **://localhost:3333/api**
 
 - `nx build <project>` - builds the \<project\> project
