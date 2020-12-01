@@ -34,7 +34,8 @@
       "implicitDependencies": ["flowers"]
     },
     "flowers-pages-feature-payment-confirmed": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["flowers"]
     },
     "flowers-e2e": {
       "tags": [],
