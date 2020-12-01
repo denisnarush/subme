@@ -28,6 +28,25 @@
       "expect": 0,
       "misMatchThreshold": 0,
       "requireSameDimensions": true
+    },
+    {
+      "label": "Flowers Payment Confirmed",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:4200/payment-confirmed",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
     }
   ],
   "paths": {
