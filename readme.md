@@ -1,6 +1,9 @@
-# S
+# Subme
 
 Very important description!
+
+- [Commands](commands.md)
+- [Workflow](workflow.md)
 
 ## Technologies & Tools/Libs/Frameworks
 
@@ -15,8 +18,6 @@ Very important description!
 ## Wireframes
 
 - ://www.figma.com/file/2Hu3IfAPQgwUV2zDMsQ0fl/subme.by
-
-- [Worflow](workflow.md)
 
 ## Contributers
 
