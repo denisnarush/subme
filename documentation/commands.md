@@ -4,6 +4,12 @@
 
 - `nx serve flowers` - serves flowers project
 
+## Backstop
+
+- `npx backstop test --config=apps/<project>/backstop.json` Create test screenshots and compare against the set you previously approved/referenced.
+- `npx backstop approve --config=apps/<project>/backstop.json` Promotes all test bitmaps from last test run to reference bitmaps.
+- `npx backstop reference --config=apps/<project>/backstop.json` Creates new reference screenshots. Deletes all existing reference files.
+
 ## Prisma
 
 - `npx prisma introspect` Introspect an existing database
