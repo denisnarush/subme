@@ -43,7 +43,10 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/theme/src/lib/default"]
+              "includePaths": [
+                "libs/theme/src/lib/-mixins",
+                "libs/theme/src/lib/default"
+              ]
             },
             "styles": ["libs/theme/src/lib/theme.styles.less"],
             "scripts": []
@@ -425,6 +428,66 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
+    },
+    "ui-ui-modal": {
+      "projectType": "library",
+      "root": "libs/ui/ui-modal",
+      "sourceRoot": "libs/ui/ui-modal/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/ui-modal/tsconfig.lib.json",
+              "libs/ui/ui-modal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/ui-modal/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/ui-modal/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
           }
         }

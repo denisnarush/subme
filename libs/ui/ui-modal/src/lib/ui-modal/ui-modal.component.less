@@ -1,0 +1,60 @@
+@import 'mixins';
+.modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: var(--root-gap) auto var(--root-gap);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    '. . .'
+    '. inner .'
+    '. . .';
+
+  &__inner {
+    grid-area: inner;
+    background-color: #fff;
+
+    border-radius: 32px;
+
+    min-width: 280px;
+    min-height: 280px;
+    max-width: ~'calc(320px * 1.5)';
+    max-height: 80%;
+
+    align-self: center;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      'header'
+      'content'
+      'footer';
+  }
+
+  .header {
+    &:empty {
+      height: var(--root-gap);
+    }
+  }
+
+  // .content {
+  // }
+
+  // .footer {
+  // }
+
+  &__item {
+    &_side_center {
+      grid-area: center;
+    }
+
+    .item-aligment();
+  }
+}

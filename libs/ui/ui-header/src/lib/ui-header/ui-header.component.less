@@ -1,3 +1,4 @@
+@import 'mixins';
 .header {
   display: grid;
   grid-area: header;
@@ -7,26 +8,16 @@
   height: var(--root-header-height);
 
   &__item {
-    &_left,
-    &_center,
-    &_right {
-      // vertical
-      align-self: center;
-    }
-    &_left {
+    &_side_left {
       grid-area: left;
-      // horizontal
-      justify-self: start;
     }
-    &_center {
+    &_side_center {
       grid-area: center;
-      // horizontal
-      justify-self: center;
     }
-    &_right {
+    &_side_right {
       grid-area: right;
-      // horizontal
-      justify-self: end;
     }
+
+    .item-aligment();
   }
 }

@@ -29,9 +29,11 @@
       "@s/shared/pages/feature-not-found": [
         "libs/shared/pages/feature-not-found/src/index.ts"
       ],
+      "@s/ui": ["libs/ui/src/index.ts"],
       "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
       "@s/ui/ui-content": ["libs/ui/ui-content/src/index.ts"],
-      "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"]
+      "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"],
+      "@s/ui/ui-modal": ["libs/ui/ui-modal/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

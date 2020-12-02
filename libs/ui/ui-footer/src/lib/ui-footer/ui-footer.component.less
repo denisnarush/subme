@@ -1,3 +1,4 @@
+@import 'mixins';
 .footer {
   display: grid;
   grid-area: footer;
@@ -7,26 +8,16 @@
   height: var(--root-footer-height);
 
   &__item {
-    &_left,
-    &_center,
-    &_right {
-      // vertical
-      align-self: start;
-    }
-    &_left {
+    &_side_left {
       grid-area: left;
-      // horizontal
-      justify-self: start;
     }
-    &_center {
+    &_side_center {
       grid-area: center;
-      // horizontal
-      justify-self: center;
     }
-    &_right {
+    &_side_right {
       grid-area: right;
-      // horizontal
-      justify-self: end;
     }
+
+    .item-aligment();
   }
 }

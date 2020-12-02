@@ -1,3 +1,8 @@
 .content {
+  display: grid;
   grid-area: content;
+  grid-template-columns: var(--root-gap) 1fr var(--root-gap);
+  grid-template-rows: 1fr;
+  grid-template-areas: '. center .';
+  overflow-y: auto;
 }
