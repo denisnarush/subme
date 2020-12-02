@@ -3,37 +3,31 @@
     display: grid;
 
     grid-template-columns: 1fr;
-    grid-template-rows: 50% 92px auto;
-    grid-template-areas:
-      'text'
-      'image';
+    grid-template-rows: 1fr;
+    grid-template-areas: 'text';
   }
 
   .l {
-    &__image {
-      grid-area: image;
-      // vertical
-      align-self: end;
-      position: relative;
-      left: -196px;
-      top: calc(100% * 2 + 10px);
-      bottom: 0;
-      opacity: 0.5;
-      transform: scaleX(-1);
-    }
     &__text {
       grid-area: text;
       // vertical
       align-self: start;
 
       & > .txt {
-        margin-top: 31px;
+        margin-top: 22px;
       }
     }
   }
 
   .image {
     display: block;
-    width: calc(100% - 10px);
+    width: 100%;
+    min-width: 270px;
+    max-width: 370px;
+    position: absolute;
+    left: -198px;
+    bottom: 0;
+    opacity: 0.5;
+    transform: scaleX(-1);
   }
 }
