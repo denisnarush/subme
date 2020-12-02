@@ -17,6 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@s/theme": ["libs/theme/src/index.ts"],
+      "@s/flowers/pages/feature-about": [
+        "libs/flowers/pages/feature-about/src/index.ts"
+      ],
       "@s/flowers/pages/feature-home": [
         "libs/flowers/pages/feature-home/src/index.ts"
       ],

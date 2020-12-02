@@ -29,6 +29,10 @@
     "flowers": {
       "tags": []
     },
+    "flowers-pages-feature-about": {
+      "tags": [],
+      "implicitDependencies": ["flowers"]
+    },
     "flowers-pages-feature-home": {
       "tags": [],
       "implicitDependencies": ["flowers"]

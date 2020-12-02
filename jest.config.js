@@ -3,6 +3,7 @@ module.exports = {
     '<rootDir>/apps/flowers',
     '<rootDir>/apps/api',
     '<rootDir>/libs/theme',
+    '<rootDir>/libs/flowers/pages/feature-about',
     '<rootDir>/libs/flowers/pages/feature-home',
     '<rootDir>/libs/flowers/pages/feature-payment-confirmed',
     '<rootDir>/libs/shared/directives',

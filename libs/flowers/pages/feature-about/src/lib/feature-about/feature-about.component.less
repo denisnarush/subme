@@ -1,0 +1,29 @@
+[s-feature-about] {
+  .content {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'text';
+  }
+
+  .l {
+    &__text {
+      grid-area: text;
+      // vertical
+      align-self: start;
+    }
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    min-width: 270px;
+    max-width: 370px;
+    position: absolute;
+    left: -198px;
+    bottom: 0;
+    opacity: 0.5;
+    transform: scaleX(-1);
+  }
+}
