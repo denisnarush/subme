@@ -9,6 +9,13 @@ export const SRoutes: Routes = [
       ),
   },
   {
+    path: 'about',
+    loadChildren: () =>
+      import('@s/flowers/pages/feature-about').then(
+        (m) => m.FlowersPagesFeatureAboutModule
+      ),
+  },
+  {
     path: 'payment-confirmed',
     loadChildren: () =>
       import('@s/flowers/pages/feature-payment-confirmed').then(
