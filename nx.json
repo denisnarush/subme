@@ -47,6 +47,9 @@
     "theme": {
       "tags": []
     },
+    "shared-directives": {
+      "tags": []
+    },
     "shared-pages-feature-confirmed": {
       "tags": []
     },

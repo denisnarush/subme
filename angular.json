@@ -497,6 +497,36 @@
           "style": "less"
         }
       }
+    },
+    "shared-directives": {
+      "projectType": "library",
+      "root": "libs/shared/directives",
+      "sourceRoot": "libs/shared/directives/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/directives/tsconfig.lib.json",
+              "libs/shared/directives/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/directives/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/directives/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
     }
   },
   "cli": {
