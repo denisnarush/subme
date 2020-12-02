@@ -1,0 +1,18 @@
+<div class="modal__inner">
+  <header class="header">
+    <ng-content select="[modal--title]"></ng-content>
+  </header>
+  <div class="content">
+    <div class="modal__item modal__item_side_center modal__item_cc">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer__item footer__item_side_left footer__item_cc">
+      <ng-content select="[modal--cancel]"></ng-content>
+    </div>
+    <div class="footer__item footer__item_side_right footer__item_cc">
+      <ng-content select="[modal--submit]"></ng-content>
+    </div>
+  </footer>
+</div>

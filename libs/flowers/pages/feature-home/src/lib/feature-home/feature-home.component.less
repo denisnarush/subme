@@ -5,15 +5,12 @@
 // }
 
 [s-feature-home] {
-  .content {
-    display: grid;
-
-    grid-template-columns: 1fr;
+  > .content {
     grid-template-rows: 50% 92px auto;
     grid-template-areas:
-      'image'
-      'title'
-      'text';
+      '. image .'
+      '. title .'
+      '. text .';
   }
 
   .l {

@@ -2,11 +2,11 @@
   .content {
     display: grid;
 
-    grid-template-columns: 1fr;
     grid-template-rows: 50% 92px auto;
     grid-template-areas:
-      'image'
-      'title';
+      '. image .'
+      '. title .'
+      '. . .';
   }
 
   .l {
@@ -26,6 +26,7 @@
 
   .image {
     display: block;
-    width: 100%;
+    width: ~'calc(100% - 40px)';
+    margin: 0 auto;
   }
 }

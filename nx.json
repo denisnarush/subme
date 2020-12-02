@@ -51,10 +51,16 @@
     "theme": {
       "tags": []
     },
+    "shared-directives": {
+      "tags": []
+    },
     "shared-pages-feature-confirmed": {
       "tags": []
     },
     "shared-pages-feature-not-found": {
+      "tags": []
+    },
+    "ui": {
       "tags": []
     },
     "ui-ui-header": {
@@ -64,6 +70,9 @@
       "tags": []
     },
     "ui-ui-footer": {
+      "tags": []
+    },
+    "ui-ui-modal": {
       "tags": []
     }
   }
