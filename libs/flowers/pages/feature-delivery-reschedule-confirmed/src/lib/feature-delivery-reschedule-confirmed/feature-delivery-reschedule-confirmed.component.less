@@ -1,0 +1,29 @@
+[s-feature-delivery-reschedule-confirmed] {
+  .content {
+    display: grid;
+
+    grid-template-rows: 50% 92px auto;
+    grid-template-areas:
+      '. image .'
+      '. title .'
+      '. . .';
+  }
+
+  .l {
+    &__image {
+      grid-area: image;
+      // vertical
+      align-self: end;
+    }
+    &__title {
+      grid-area: title;
+      // vertical
+      align-self: center;
+    }
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+  }
+}

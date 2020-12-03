@@ -560,6 +560,39 @@
           "style": "less"
         }
       }
+    },
+    "flowers-pages-feature-delivery-reschedule-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.lib.json",
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-delivery-reschedule-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
     }
   },
   "cli": {

@@ -33,6 +33,9 @@
       "tags": [],
       "implicitDependencies": ["flowers"]
     },
+    "flowers-pages-feature-delivery-reschedule-confirmed": {
+      "tags": []
+    },
     "flowers-pages-feature-home": {
       "tags": [],
       "implicitDependencies": ["flowers"]
