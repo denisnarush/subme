@@ -7,7 +7,9 @@ import { SharedPagesFeatureConfirmedModule } from '@s/shared/pages/feature-confi
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([{ path: '', component: FeaturePaymentConfirmedComponent }]),
+    RouterModule.forChild([
+      { path: '', component: FeaturePaymentConfirmedComponent },
+    ]),
     SharedPagesFeatureConfirmedModule,
   ],
   declarations: [FeaturePaymentConfirmedComponent],
