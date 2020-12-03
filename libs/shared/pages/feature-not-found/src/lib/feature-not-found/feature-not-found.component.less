@@ -1,5 +1,7 @@
 [s-feature-not-found] {
   .content {
+    display: grid;
+
     grid-template-rows: 50% 92px auto;
     grid-template-areas:
       '. image .'
@@ -18,16 +20,10 @@
       // vertical
       align-self: center;
     }
-    &__text {
-      grid-area: text;
-      // vertical
-      align-self: start;
-    }
   }
 
   .image {
     display: block;
-    width: ~'calc(100% + 20px)';
-    margin-left: -10px;
+    width: 100%;
   }
 }
