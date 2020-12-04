@@ -16,6 +16,13 @@ export const SRoutes: Routes = [
       ),
   },
   {
+    path: 'delivery-confirmed',
+    loadChildren: () =>
+      import('@s/flowers/pages/feature-delivery-confirmed').then(
+        (m) => m.FlowersPagesFeatureDeliveryConfirmedModule
+      ),
+  },
+  {
     path: 'delivery-reschedule-confirmed',
     loadChildren: () =>
       import('@s/flowers/pages/feature-delivery-reschedule-confirmed').then(

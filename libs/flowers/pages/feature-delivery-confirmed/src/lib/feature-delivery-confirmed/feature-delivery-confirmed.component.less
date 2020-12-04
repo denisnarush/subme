@@ -1,0 +1,30 @@
+[s-feature-delivery-confirmed] {
+  .content {
+    display: grid;
+
+    grid-template-rows: 50% 92px auto;
+    grid-template-areas:
+      '. image .'
+      '. title .'
+      '. . .';
+  }
+
+  .l {
+    &__image {
+      grid-area: image;
+      // vertical
+      align-self: end;
+    }
+    &__title {
+      grid-area: title;
+      // vertical
+      align-self: center;
+    }
+  }
+
+  .image {
+    display: block;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+  }
+}
