@@ -33,11 +33,17 @@
       "tags": [],
       "implicitDependencies": ["flowers"]
     },
+    "flowers-pages-feature-dashboard": {
+      "tags": [],
+      "implicitDependencies": ["flowers"]
+    },
     "flowers-pages-feature-delivery-confirmed": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["flowers"]
     },
     "flowers-pages-feature-delivery-reschedule-confirmed": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["flowers"]
     },
     "flowers-pages-feature-home": {
       "tags": [],

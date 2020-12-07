@@ -626,6 +626,39 @@
           "style": "less"
         }
       }
+    },
+    "flowers-pages-feature-dashboard": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-dashboard",
+      "sourceRoot": "libs/flowers/pages/feature-dashboard/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-dashboard/tsconfig.lib.json",
+              "libs/flowers/pages/feature-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-dashboard/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      }
     }
   },
   "cli": {

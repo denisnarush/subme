@@ -16,6 +16,13 @@ export const SRoutes: Routes = [
       ),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('@s/flowers/pages/feature-dashboard').then(
+        (m) => m.FlowersPagesFeatureDashboardModule
+      ),
+  },
+  {
     path: 'delivery-confirmed',
     loadChildren: () =>
       import('@s/flowers/pages/feature-delivery-confirmed').then(
