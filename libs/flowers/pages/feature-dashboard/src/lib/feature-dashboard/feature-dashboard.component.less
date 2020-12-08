@@ -1,6 +1,6 @@
 [s-feature-dashboard] {
   > .content {
-    grid-template-rows: 235px 135px auto;
+    grid-template-rows: 50% 140px auto;
     grid-template-areas:
       '. image .'
       '. text .'
@@ -12,15 +12,14 @@
       grid-area: image;
       // vertical
       align-self: start;
-
-      position: relative;
-      left: 6px;
-      top: -10px;
+      height: 100%;
+      display: flex;
+      align-content: end;
     }
     &__text {
       grid-area: text;
       // vertical
-      align-self: top;
+      align-self: start;
     }
     &__list {
       grid-area: list;
@@ -29,21 +28,8 @@
     }
   }
 
-  .icon {
-    margin-top: 5px;
-    height: 26px;
-  }
-
-  .txt {
-    margin-top: 0;
-  }
-
-  ul {
-    margin: 0 0 10px 10px;
-    list-style: none;
-    padding: 0;
-    li {
-      margin: 0 0 0 30px;
-    }
+  .image {
+    display: block;
+    margin-left: auto;
   }
 }

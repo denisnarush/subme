@@ -1,23 +1,23 @@
 <header s-ui-header class="header">
-  <a class="link" href="#" header--item-left
-    ><img class="icon" src="assets/icons/vector-prev.svg"
-  /></a>
+  <a class="link link_is_block" href="#" header--item-left
+    ><i class="icon icon_back icon_is_block"></i
+  ></a>
   <h1
     class="title txt_f_header-regular txt_s_4 txt_c_gray-2 txt_is_center"
     header--item-center
   >
     Subscriptions
   </h1>
-  <a class="link" href="#" header--item-right
-    ><img class="icon" src="assets/icons/log-out.svg"
-  /></a>
+  <a class="link link_is_block" href="#" header--item-right
+    ><i class="icon icon_logout icon_is_block"></i
+  ></a>
 </header>
 
 <main s-ui-content class="content">
   <div class="l l__image">
     <img class="image" src="assets/images/calendar.svg" />
   </div>
-  <div class="l l__text" *ngIf="">
+  <div class="l l__text" *ngIf="false">
     <p class="txt txt_s_2 txt_f_main-regular txt_is_center">
       No active subscriptions <br />
       <span class="txt txt_s_2 txt_f_main-elight"
@@ -27,39 +27,54 @@
     </p>
   </div>
 
-  <div class="l l__text">
+  <div class="l l__text" *ngIf="true">
     <p class="txt txt_s_2 txt_f_main-regular txt_is_center">
       Nearest delivery: <br />
       <span class="txt txt_s_2 txt_f_main-elight">18 October</span>
     </p>
   </div>
 
-  <div class="l l__list">
-    <ul class="txt txt_s_2 txt_f_main-regular txt_is_left">
-      October
-      <li class="txt txt_s_1 txt_f_main-elight">Sunday 18 - flowers for me</li>
-    </ul>
-    <ul class="txt txt_s_2 txt_f_main-regular txt_is_left">
-      November
-      <li class="txt txt_s_1 txt_f_main-elight">
-        Wednesday 18 - flowers for me
+  <div class="l l__list" *ngIf="true">
+    <ul class="list">
+      <li class="list__item">
+        <p class="txt txt_s_2 txt_f_main-regular txt_is_left">October</p>
+      </li>
+      <li class="list__item list__item_gap_left">
+        <p class="txt txt_s_1 txt_f_main-elight">Sunday 18 - flowers for me</p>
       </li>
     </ul>
-    <ul class="txt txt_s_2 txt_f_main-regular txt_is_left">
-      December
-      <li class="txt txt_s_1 txt_f_main-elight">Friday 18 - flowers for me</li>
-      <li class="txt txt_s_1 txt_f_main-elight">
-        Friday 18 - flowers for mother
+    <ul class="list">
+      <li class="list__item">
+        <p class="txt txt_s_2 txt_f_main-regular txt_is_left">November</p>
+      </li>
+      <li class="list__item list__item_gap_left">
+        <p class="txt txt_s_1 txt_f_main-elight">
+          Wednesday 18 - flowers for me
+        </p>
       </li>
     </ul>
+    <ul class="list">
+      <li class="list__item">
+        <p class="txt txt_s_2 txt_f_main-regular txt_is_left">December</p>
+      </li>
+      <li class="list__item list__item_gap_left">
+        <p class="txt txt_s_1 txt_f_main-elight">Friday 18 - flowers for me</p>
+      </li>
+      <li class="list__item list__item_gap_left">
+        <p class="txt txt_s_1 txt_f_main-elight">
+          Friday 18 - flowers for mother
+        </p>
+      </li>
+    </ul>
+
+    <p>&nbsp;</p>
   </div>
 </main>
 
-<footer s-ui-footer class="footer">
+<footer s-ui-footer class="footer" *ngIf="false">
   <a
     class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
     href="#"
-    *ngIf=""
     footer--item-center
     >Choose</a
   >
