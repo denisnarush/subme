@@ -80,8 +80,10 @@ describe('RootComponent', () => {
       fixture.ngZone.run(() => {
         fixture.whenStable().then(() => {
           router.navigate(['wrong-page-name']).then(() => {
-            const h1 = fixture.nativeElement.querySelector('h1');
-            expect(h1.textContent).toContain('Not Found');
+            const h1: HTMLHeadingElement = fixture.nativeElement.querySelector(
+              'h1'
+            );
+            expect(h1.textContent.indexOf('Not Found')).not.toBeGreaterThan(-1);
           });
         });
       });
