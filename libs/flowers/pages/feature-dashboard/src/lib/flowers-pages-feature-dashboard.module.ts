@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { UiModule } from '@s/ui';
-import { FeatureDashboardComponent } from './feature-dashboard/feature-dashboard.component';
+import { FeatureDashboardClientComponent } from './feature-dashboard-client/feature-dashboard-client.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([{ path: '', component: FeatureDashboardComponent }]),
+    RouterModule.forChild([
+      { path: '', component: FeatureDashboardClientComponent },
+    ]),
     UiModule,
   ],
-  declarations: [FeatureDashboardComponent],
-  exports: [FeatureDashboardComponent],
+  declarations: [FeatureDashboardClientComponent],
+  exports: [FeatureDashboardClientComponent],
 })
 export class FlowersPagesFeatureDashboardModule {}
