@@ -17,7 +17,7 @@
   <div class="l l__image">
     <img class="image" src="assets/images/calendar.svg" />
   </div>
-  <div class="l l__text">
+  <div class="l l__text" *ngIf="">
     <p class="txt txt_s_2 txt_f_main-regular txt_is_center">
       No active subscriptions <br />
       <span class="txt txt_s_2 txt_f_main-elight"
@@ -27,42 +27,39 @@
     </p>
   </div>
 
-  <ng-template class="l l__text" #dashboardTitle>
+  <div class="l l__text">
     <p class="txt txt_s_2 txt_f_main-regular txt_is_center">
       Nearest delivery: <br />
       <span class="txt txt_s_2 txt_f_main-elight">18 October</span>
     </p>
-  </ng-template>
+  </div>
 
-  <ng-template class="l l__list" #dashboardContent>
-    <p class="txt txt_s_2 txt_f_main-regular txt_is_left">
-      October <br />
-      <span class="txt txt_s_2 txt_f_main-elight txt_is_center"
-        >Sunday 18 - flowers for me</span
-      >
-    </p>
-    <p class="txt txt_s_2 txt_f_main-regular txt_is_left">
-      November <br />
-      <span class="txt txt_s_2 txt_f_main-elight txt_is_center"
-        >Wednesday 18 - flowers for me</span
-      >
-    </p>
-    <p class="txt txt_s_2 txt_f_main-regular txt_is_left">
-      December <br />
-      <span class="txt txt_s_2 txt_f_main-elight txt_is_center"
-        >Friday 18 - flowers for me</span
-      ><br />
-      <span class="txt txt_s_2 txt_f_main-elight txt_is_center"
-        >Friday 18 - flowers for mother</span
-      >
-    </p>
-  </ng-template>
+  <div class="l l__list">
+    <ul class="txt txt_s_2 txt_f_main-regular txt_is_left">
+      October
+      <li class="txt txt_s_1 txt_f_main-elight">Sunday 18 - flowers for me</li>
+    </ul>
+    <ul class="txt txt_s_2 txt_f_main-regular txt_is_left">
+      November
+      <li class="txt txt_s_1 txt_f_main-elight">
+        Wednesday 18 - flowers for me
+      </li>
+    </ul>
+    <ul class="txt txt_s_2 txt_f_main-regular txt_is_left">
+      December
+      <li class="txt txt_s_1 txt_f_main-elight">Friday 18 - flowers for me</li>
+      <li class="txt txt_s_1 txt_f_main-elight">
+        Friday 18 - flowers for mother
+      </li>
+    </ul>
+  </div>
 </main>
 
 <footer s-ui-footer class="footer">
   <a
     class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
     href="#"
+    *ngIf=""
     footer--item-center
     >Choose</a
   >

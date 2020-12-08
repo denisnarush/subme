@@ -1,6 +1,6 @@
 [s-feature-dashboard] {
   > .content {
-    grid-template-rows: 50% 100px auto;
+    grid-template-rows: 235px 135px auto;
     grid-template-areas:
       '. image .'
       '. text .'
@@ -15,12 +15,12 @@
 
       position: relative;
       left: 6px;
-      top: -25px;
+      top: -10px;
     }
     &__text {
       grid-area: text;
       // vertical
-      align-self: start;
+      align-self: top;
     }
     &__list {
       grid-area: list;
@@ -32,5 +32,18 @@
   .icon {
     margin-top: 5px;
     height: 26px;
+  }
+
+  .txt {
+    margin-top: 0;
+  }
+
+  ul {
+    margin: 0 0 10px 10px;
+    list-style: none;
+    padding: 0;
+    li {
+      margin: 0 0 0 30px;
+    }
   }
 }
