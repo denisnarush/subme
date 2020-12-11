@@ -1,0 +1,17 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  + .list {
+    margin-top: 20px;
+  }
+
+  &__item {
+    &_gap {
+      &_left {
+        margin-left: var(--root-gap);
+      }
+    }
+  }
+}

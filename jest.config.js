@@ -4,6 +4,7 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/libs/theme',
     '<rootDir>/libs/flowers/pages/feature-about',
+    '<rootDir>/libs/flowers/pages/feature-dashboard',
     '<rootDir>/libs/flowers/pages/feature-delivery-confirmed',
     '<rootDir>/libs/flowers/pages/feature-delivery-reschedule-confirmed',
     '<rootDir>/libs/flowers/pages/feature-home',

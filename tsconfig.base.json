@@ -20,6 +20,9 @@
       "@s/flowers/pages/feature-about": [
         "libs/flowers/pages/feature-about/src/index.ts"
       ],
+      "@s/flowers/pages/feature-dashboard": [
+        "libs/flowers/pages/feature-dashboard/src/index.ts"
+      ],
       "@s/flowers/pages/feature-delivery-confirmed": [
         "libs/flowers/pages/feature-delivery-confirmed/src/index.ts"
       ],

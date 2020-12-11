@@ -1,0 +1,35 @@
+[s-feature-dashboard-client] {
+  > .content {
+    grid-template-rows: 50% 140px auto;
+    grid-template-areas:
+      '. image .'
+      '. text .'
+      '. list .';
+  }
+
+  .l {
+    &__image {
+      grid-area: image;
+      // vertical
+      align-self: start;
+      height: 100%;
+      display: flex;
+      align-content: end;
+    }
+    &__text {
+      grid-area: text;
+      // vertical
+      align-self: start;
+    }
+    &__list {
+      grid-area: list;
+      // vertical
+      align-self: start;
+    }
+  }
+
+  .image {
+    display: block;
+    margin-left: auto;
+  }
+}
