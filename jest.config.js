@@ -8,6 +8,7 @@ module.exports = {
     '<rootDir>/libs/flowers/pages/feature-delivery-confirmed',
     '<rootDir>/libs/flowers/pages/feature-delivery-reschedule-confirmed',
     '<rootDir>/libs/flowers/pages/feature-home',
+    '<rootDir>/libs/flowers/pages/feature-order',
     '<rootDir>/libs/flowers/pages/feature-payment-confirmed',
     '<rootDir>/libs/shared/directives',
     '<rootDir>/libs/shared/pages/feature-confirmed',

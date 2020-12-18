@@ -1,0 +1,52 @@
+[s-feature-order] {
+  > .content {
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+      '. text .'
+      '. slider .';
+  }
+
+  .l {
+    &__text {
+      grid-area: text;
+      display: flex;
+      align-items: center;
+      // vertical
+      align-self: start;
+    }
+
+    &__slider {
+      grid-area: slider;
+      // vertical
+      justify-self: center;
+      height: 260px;
+      width: 260px;
+    }
+  }
+
+  .price {
+    margin-left: auto;
+  }
+
+  .slider {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid: 1fr / auto-flow 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+    touch-action: pan-x;
+    border-radius: 16px;
+  }
+
+  .slider__item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background-image: var(--bg);
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
