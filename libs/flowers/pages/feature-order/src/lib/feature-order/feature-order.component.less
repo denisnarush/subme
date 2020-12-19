@@ -35,7 +35,7 @@
   }
 
   .slider__item {
-    display: grid;
+    padding-bottom: 100%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     background-image: var(--bg);
@@ -43,11 +43,5 @@
     background-position-y: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    &::before {
-      content: '';
-      display: block;
-      padding-bottom: 100%;
-    }
   }
 }
