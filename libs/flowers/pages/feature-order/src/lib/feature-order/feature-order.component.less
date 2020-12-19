@@ -17,10 +17,6 @@
 
     &__slider {
       grid-area: slider;
-      // vertical
-      justify-self: center;
-      height: 260px;
-      width: 260px;
     }
   }
 
@@ -30,8 +26,6 @@
 
   .slider {
     display: grid;
-    width: 100%;
-    height: 100%;
     grid: 1fr / auto-flow 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -41,6 +35,7 @@
   }
 
   .slider__item {
+    display: grid;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     background-image: var(--bg);
@@ -48,5 +43,11 @@
     background-position-y: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
   }
 }
