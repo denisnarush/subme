@@ -14,19 +14,23 @@
       grid-area: image;
       // vertical
       align-self: end;
+      margin: 0 auto;
+
+      width: calc(100% - 40px);
+      height: 100%;
+
       position: relative;
       top: 11.5px;
+
+      background-image: url(assets/images/online-payments.svg);
+      background-position: bottom center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     &__title {
       grid-area: title;
       // vertical
       align-self: center;
     }
-  }
-
-  .image {
-    display: block;
-    width: ~'calc(100% - 40px)';
-    margin: 0 auto;
   }
 }

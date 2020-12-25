@@ -14,17 +14,20 @@
       grid-area: image;
       // vertical
       align-self: end;
+      height: 100%;
+      width: calc(100% + 20px);
+      position: relative;
+      left: -10px;
+
+      background-image: url(assets/images/on-the-way.svg);
+      background-position: bottom center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     &__title {
       grid-area: title;
       // vertical
       align-self: center;
     }
-  }
-
-  .image {
-    display: block;
-    width: calc(100% + 20px);
-    margin-left: -10px;
   }
 }
