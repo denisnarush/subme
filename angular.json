@@ -66,7 +66,8 @@
               "namedChunks": false,
               "vendorChunk": false
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -101,7 +102,8 @@
           "options": {
             "jestConfig": "apps/flowers/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/flowers"]
         }
       }
     },
@@ -159,7 +161,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -182,7 +185,8 @@
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/api"]
         }
       }
     },
@@ -207,7 +211,8 @@
           "options": {
             "jestConfig": "libs/theme/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/theme"]
         }
       },
       "schematics": {
@@ -240,7 +245,8 @@
           "options": {
             "jestConfig": "libs/shared/pages/feature-not-found/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/shared/pages/feature-not-found"]
         }
       },
       "schematics": {
@@ -273,7 +279,8 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-home/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-home"]
         }
       },
       "schematics": {
@@ -303,7 +310,8 @@
           "options": {
             "jestConfig": "libs/ui/ui-content/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/ui/ui-content"]
         }
       },
       "schematics": {
@@ -333,7 +341,8 @@
           "options": {
             "jestConfig": "libs/ui/ui-header/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/ui/ui-header"]
         }
       },
       "schematics": {
@@ -363,7 +372,8 @@
           "options": {
             "jestConfig": "libs/ui/ui-footer/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/ui/ui-footer"]
         }
       },
       "schematics": {
@@ -396,7 +406,8 @@
           "options": {
             "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/shared/pages/feature-confirmed"]
         }
       },
       "schematics": {
@@ -429,7 +440,8 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-about/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-about"]
         }
       },
       "schematics": {
@@ -462,7 +474,8 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-payment-confirmed"]
         }
       },
       "schematics": {
@@ -492,7 +505,8 @@
           "options": {
             "jestConfig": "libs/ui/ui-modal/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/ui/ui-modal"]
         }
       },
       "schematics": {
@@ -522,7 +536,8 @@
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/ui"]
         }
       },
       "schematics": {
@@ -552,7 +567,8 @@
           "options": {
             "jestConfig": "libs/shared/directives/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/shared/directives"]
         }
       },
       "schematics": {
@@ -585,7 +601,10 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/flowers/pages/feature-delivery-reschedule-confirmed"
+          ]
         }
       },
       "schematics": {
@@ -618,7 +637,8 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-delivery-confirmed"]
         }
       },
       "schematics": {
@@ -651,7 +671,8 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-dashboard"]
         }
       },
       "schematics": {
