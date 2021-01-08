@@ -9,8 +9,6 @@
   .l {
     &__text {
       grid-area: text;
-      display: flex;
-      align-items: center;
       // vertical
       align-self: start;
     }
@@ -21,7 +19,9 @@
   }
 
   .price {
-    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .slider {
