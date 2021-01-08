@@ -1,0 +1,47 @@
+[s-feature-order] {
+  > .content {
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+      '. text .'
+      '. slider .';
+  }
+
+  .l {
+    &__text {
+      grid-area: text;
+      // vertical
+      align-self: start;
+    }
+
+    &__slider {
+      grid-area: slider;
+    }
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .slider {
+    display: grid;
+    grid: 1fr / auto-flow 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+    touch-action: pan-x;
+    border-radius: 16px;
+  }
+
+  .slider__item {
+    padding-bottom: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background-image: var(--bg);
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

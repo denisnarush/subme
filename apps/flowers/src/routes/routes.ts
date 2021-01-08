@@ -37,6 +37,13 @@ export const SRoutes: Routes = [
       ),
   },
   {
+    path: 'order',
+    loadChildren: () =>
+      import('@s/flowers/pages/feature-order').then(
+        (m) => m.FlowersPagesFeatureOrderModule
+      ),
+  },
+  {
     path: 'payment-confirmed',
     loadChildren: () =>
       import('@s/flowers/pages/feature-payment-confirmed').then(

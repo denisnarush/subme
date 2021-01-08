@@ -32,10 +32,13 @@
       "@s/flowers/pages/feature-home": [
         "libs/flowers/pages/feature-home/src/index.ts"
       ],
-      "@s/shared/directives": ["libs/shared/directives/src/index.ts"],
+      "@s/flowers/pages/feature-order": [
+        "libs/flowers/pages/feature-order/src/index.ts"
+      ],
       "@s/flowers/pages/feature-payment-confirmed": [
         "libs/flowers/pages/feature-payment-confirmed/src/index.ts"
       ],
+      "@s/shared/directives": ["libs/shared/directives/src/index.ts"],
       "@s/shared/pages/feature-confirmed": [
         "libs/shared/pages/feature-confirmed/src/index.ts"
       ],
