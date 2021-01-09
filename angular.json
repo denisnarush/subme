@@ -118,10 +118,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/flowers-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/flowers-e2e/**/*"]
+            "lintFilePatterns": ["apps/flowers-e2e/**/*.{js,ts}"]
           }
         }
       }
