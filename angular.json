@@ -181,26 +181,7 @@
       "root": "libs/theme",
       "sourceRoot": "libs/theme/src",
       "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/theme/tsconfig.lib.json",
-              "libs/theme/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/theme/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/theme/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/theme"]
-        }
-      }
+      "architect": {}
     },
     "shared-directives": {
       "projectType": "library",
@@ -209,13 +190,9 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/shared/directives/tsconfig.lib.json",
-              "libs/shared/directives/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/directives/**/*"]
+            "lintFilePatterns": ["libs/shared/directives/src/**/*.ts"]
           }
         },
         "test": {
