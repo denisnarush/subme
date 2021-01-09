@@ -3,11 +3,6 @@
   "projects": {
     "flowers": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      },
       "root": "apps/flowers",
       "sourceRoot": "apps/flowers/src",
       "prefix": "s",
@@ -66,8 +61,7 @@
               "namedChunks": false,
               "vendorChunk": false
             }
-          },
-          "outputs": ["{options.outputPath}"]
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -87,14 +81,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/flowers/tsconfig.app.json",
-              "apps/flowers/tsconfig.spec.json",
-              "apps/flowers/tsconfig.editor.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/flowers/**/*"]
+            "lintFilePatterns": [
+              "apps/flowers/src/**/*.ts",
+              "apps/flowers/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -214,10 +206,31 @@
           },
           "outputs": ["coverage/libs/theme"]
         }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
+      }
+    },
+    "shared-directives": {
+      "projectType": "library",
+      "root": "libs/shared/directives",
+      "sourceRoot": "libs/shared/directives/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/directives/tsconfig.lib.json",
+              "libs/shared/directives/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/directives/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/directives/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/directives"]
         }
       }
     },
@@ -248,10 +261,34 @@
           },
           "outputs": ["coverage/libs/shared/pages/feature-not-found"]
         }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
+      }
+    },
+    "shared-pages-feature-confirmed": {
+      "projectType": "library",
+      "root": "libs/shared/pages/feature-confirmed",
+      "sourceRoot": "libs/shared/pages/feature-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/pages/feature-confirmed/tsconfig.lib.json",
+              "libs/shared/pages/feature-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/pages/feature-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/pages/feature-confirmed"]
         }
       }
     },
@@ -282,10 +319,180 @@
           },
           "outputs": ["coverage/libs/flowers/pages/feature-home"]
         }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
+      }
+    },
+    "flowers-pages-feature-about": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-about",
+      "sourceRoot": "libs/flowers/pages/feature-about/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-about/tsconfig.lib.json",
+              "libs/flowers/pages/feature-about/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-about/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-about/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-about"]
+        }
+      }
+    },
+    "flowers-pages-feature-payment-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-payment-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-payment-confirmed/tsconfig.lib.json",
+              "libs/flowers/pages/feature-payment-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-payment-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-payment-confirmed"]
+        }
+      }
+    },
+    "flowers-pages-feature-delivery-reschedule-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.lib.json",
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-delivery-reschedule-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/flowers/pages/feature-delivery-reschedule-confirmed"
+          ]
+        }
+      }
+    },
+    "flowers-pages-feature-delivery-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-delivery-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-delivery-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-delivery-confirmed/tsconfig.lib.json",
+              "libs/flowers/pages/feature-delivery-confirmed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-delivery-confirmed/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-delivery-confirmed"]
+        }
+      }
+    },
+    "flowers-pages-feature-dashboard": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-dashboard",
+      "sourceRoot": "libs/flowers/pages/feature-dashboard/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-dashboard/tsconfig.lib.json",
+              "libs/flowers/pages/feature-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-dashboard/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/flowers/pages/feature-dashboard"]
+        }
+      }
+    },
+    "flowers-pages-feature-order": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-order",
+      "sourceRoot": "libs/flowers/pages/feature-order/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flowers/pages/feature-order/tsconfig.lib.json",
+              "libs/flowers/pages/feature-order/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/flowers/pages/feature-order/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-order/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     },
@@ -337,11 +544,6 @@
           },
           "outputs": ["coverage/libs/ui/ui-header"]
         }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
       }
     },
     "ui-ui-footer": {
@@ -367,113 +569,6 @@
             "passWithNoTests": true
           },
           "outputs": ["coverage/libs/ui/ui-footer"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "shared-pages-feature-confirmed": {
-      "projectType": "library",
-      "root": "libs/shared/pages/feature-confirmed",
-      "sourceRoot": "libs/shared/pages/feature-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/pages/feature-confirmed/tsconfig.lib.json",
-              "libs/shared/pages/feature-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/pages/feature-confirmed/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/pages/feature-confirmed"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "flowers-pages-feature-about": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-about",
-      "sourceRoot": "libs/flowers/pages/feature-about/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-about/tsconfig.lib.json",
-              "libs/flowers/pages/feature-about/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-about/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-about/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-about"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "flowers-pages-feature-payment-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-payment-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-payment-confirmed/tsconfig.lib.json",
-              "libs/flowers/pages/feature-payment-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-payment-confirmed/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-payment-confirmed"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
         }
       }
     },
@@ -501,14 +596,8 @@
           },
           "outputs": ["coverage/libs/ui/ui-modal"]
         }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
       }
     },
-
     "ui-ui-slider": {
       "projectType": "library",
       "root": "libs/ui/ui-slider",
@@ -555,180 +644,23 @@
           }
         }
       }
-    },
-    "shared-directives": {
-      "projectType": "library",
-      "root": "libs/shared/directives",
-      "sourceRoot": "libs/shared/directives/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/directives/tsconfig.lib.json",
-              "libs/shared/directives/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/directives/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/directives/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/directives"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "flowers-pages-feature-delivery-reschedule-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.lib.json",
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-delivery-reschedule-confirmed/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/libs/flowers/pages/feature-delivery-reschedule-confirmed"
-          ]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "flowers-pages-feature-delivery-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-delivery-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-delivery-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-delivery-confirmed/tsconfig.lib.json",
-              "libs/flowers/pages/feature-delivery-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-delivery-confirmed/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-delivery-confirmed"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "flowers-pages-feature-dashboard": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-dashboard",
-      "sourceRoot": "libs/flowers/pages/feature-dashboard/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-dashboard/tsconfig.lib.json",
-              "libs/flowers/pages/feature-dashboard/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-dashboard/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-dashboard"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
-    },
-    "flowers-pages-feature-order": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-order",
-      "sourceRoot": "libs/flowers/pages/feature-order/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-order/tsconfig.lib.json",
-              "libs/flowers/pages/feature-order/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-order/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-order/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      }
     }
   },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
     "@nrwl/workspace": {
       "library": {
         "linter": "tslint"
