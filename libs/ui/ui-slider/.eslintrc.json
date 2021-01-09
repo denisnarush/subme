@@ -16,7 +16,7 @@
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "s", "style": "kebab-case" }
+          { "type": "attribute", "prefix": "s", "style": "kebab-case" }
         ]
       }
     },
