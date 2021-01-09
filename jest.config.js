@@ -18,5 +18,6 @@ module.exports = {
     '<rootDir>/libs/ui/ui-header',
     '<rootDir>/libs/ui/ui-footer',
     '<rootDir>/libs/ui/ui-modal',
+    '<rootDir>/libs/ui/ui-slider',
   ],
 };

@@ -90,6 +90,9 @@
     },
     "ui-ui-modal": {
       "tags": []
+    },
+    "ui-ui-slider": {
+      "tags": []
     }
   }
 }

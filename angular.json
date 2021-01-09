@@ -515,6 +515,32 @@
         }
       }
     },
+
+    "ui-ui-slider": {
+      "projectType": "library",
+      "root": "libs/ui/ui-slider",
+      "sourceRoot": "libs/ui/ui-slider/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/ui-slider/src/**/*.ts",
+              "libs/ui/ui-slider/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/ui-slider"],
+          "options": {
+            "jestConfig": "libs/ui/ui-slider/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ui": {
       "projectType": "library",
       "root": "libs/ui",
@@ -759,6 +785,9 @@
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "less"
     }
   }
 }
