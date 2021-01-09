@@ -130,10 +130,10 @@
       "sourceRoot": "apps/api/src",
       "projectType": "application",
       "prefix": "api",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
@@ -152,8 +152,7 @@
                 }
               ]
             }
-          },
-          "outputs": ["{options.outputPath}"]
+          }
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -162,22 +161,18 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/apps/api"]
+          }
         }
       }
     },
