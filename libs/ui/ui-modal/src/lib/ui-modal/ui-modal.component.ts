@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: '[s-ui-modal]',
@@ -6,8 +6,4 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./ui-modal.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UiModalComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class UiModalComponent {}

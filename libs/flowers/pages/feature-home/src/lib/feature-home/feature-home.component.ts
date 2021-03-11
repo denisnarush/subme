@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: '[s-feature-home].page',
@@ -6,8 +6,4 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./feature-home.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class FeatureHomeComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class FeatureHomeComponent {}

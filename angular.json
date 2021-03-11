@@ -212,15 +212,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/shared/pages/feature-not-found/tsconfig.lib.json",
-              "libs/shared/pages/feature-not-found/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/pages/feature-not-found/**/*"
+            "lintFilePatterns": [
+              "libs/shared/pages/feature-not-found/src/**/*.ts",
+              "libs/shared/pages/feature-not-found/src/**/*.html"
             ]
           }
         },
@@ -229,8 +225,7 @@
           "options": {
             "jestConfig": "libs/shared/pages/feature-not-found/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/pages/feature-not-found"]
+          }
         }
       }
     },
@@ -241,15 +236,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/shared/pages/feature-confirmed/tsconfig.lib.json",
-              "libs/shared/pages/feature-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/pages/feature-confirmed/**/*"
+            "lintFilePatterns": [
+              "libs/shared/pages/feature-confirmed/src/**/*.ts",
+              "libs/shared/pages/feature-confirmed/src/**/*.html"
             ]
           }
         },
@@ -258,8 +249,7 @@
           "options": {
             "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/pages/feature-confirmed"]
+          }
         }
       }
     },
@@ -270,15 +260,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-home/tsconfig.lib.json",
-              "libs/flowers/pages/feature-home/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-home/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-home/src/**/*.ts",
+              "libs/flowers/pages/feature-home/src/**/*.html"
             ]
           }
         },
@@ -287,8 +273,7 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-home/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-home"]
+          }
         }
       }
     },
@@ -299,15 +284,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-about/tsconfig.lib.json",
-              "libs/flowers/pages/feature-about/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-about/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-about/src/**/*.ts",
+              "libs/flowers/pages/feature-about/src/**/*.html"
             ]
           }
         },
@@ -316,8 +297,7 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-about/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-about"]
+          }
         }
       }
     },
@@ -328,15 +308,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-payment-confirmed/tsconfig.lib.json",
-              "libs/flowers/pages/feature-payment-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-payment-confirmed/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-payment-confirmed/src/**/*.ts",
+              "libs/flowers/pages/feature-payment-confirmed/src/**/*.html"
             ]
           }
         },
@@ -345,8 +321,7 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-payment-confirmed"]
+          }
         }
       }
     },
@@ -357,15 +332,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.lib.json",
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-delivery-reschedule-confirmed/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.ts",
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.html"
             ]
           }
         },
@@ -374,10 +345,7 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/libs/flowers/pages/feature-delivery-reschedule-confirmed"
-          ]
+          }
         }
       }
     },
@@ -388,15 +356,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-delivery-confirmed/tsconfig.lib.json",
-              "libs/flowers/pages/feature-delivery-confirmed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-delivery-confirmed/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.ts",
+              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.html"
             ]
           }
         },
@@ -405,8 +369,7 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-delivery-confirmed"]
+          }
         }
       }
     },
@@ -417,15 +380,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-dashboard/tsconfig.lib.json",
-              "libs/flowers/pages/feature-dashboard/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-dashboard/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-dashboard/src/**/*.ts",
+              "libs/flowers/pages/feature-dashboard/src/**/*.html"
             ]
           }
         },
@@ -434,8 +393,7 @@
           "options": {
             "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/flowers/pages/feature-dashboard"]
+          }
         }
       }
     },
@@ -446,15 +404,11 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/flowers/pages/feature-order/tsconfig.lib.json",
-              "libs/flowers/pages/feature-order/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/flowers/pages/feature-order/**/*"
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-order/src/**/*.ts",
+              "libs/flowers/pages/feature-order/src/**/*.html"
             ]
           }
         },
@@ -498,13 +452,12 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/ui/ui-header/tsconfig.lib.json",
-              "libs/ui/ui-header/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/ui-header/**/*"]
+            "lintFilePatterns": [
+              "libs/ui/ui-header/src/**/*.ts",
+              "libs/ui/ui-header/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -512,8 +465,7 @@
           "options": {
             "jestConfig": "libs/ui/ui-header/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/ui/ui-header"]
+          }
         }
       }
     },
@@ -524,13 +476,12 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/ui/ui-footer/tsconfig.lib.json",
-              "libs/ui/ui-footer/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/ui-footer/**/*"]
+            "lintFilePatterns": [
+              "libs/ui/ui-footer/src/**/*.ts",
+              "libs/ui/ui-footer/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -538,8 +489,7 @@
           "options": {
             "jestConfig": "libs/ui/ui-footer/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/ui/ui-footer"]
+          }
         }
       }
     },
@@ -550,13 +500,12 @@
       "prefix": "s",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/ui/ui-modal/tsconfig.lib.json",
-              "libs/ui/ui-modal/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/ui-modal/**/*"]
+            "lintFilePatterns": [
+              "libs/ui/ui-modal/src/**/*.ts",
+              "libs/ui/ui-modal/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -564,8 +513,7 @@
           "options": {
             "jestConfig": "libs/ui/ui-modal/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/ui/ui-modal"]
+          }
         }
       }
     },
@@ -599,22 +547,7 @@
       "root": "libs/ui",
       "sourceRoot": "libs/ui/src",
       "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
-          "options": {
-            "jestConfig": "libs/ui/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
+      "architect": {}
     }
   },
   "cli": {

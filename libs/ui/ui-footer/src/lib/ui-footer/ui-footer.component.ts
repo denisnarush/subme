@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: '[s-ui-footer]',
@@ -6,8 +6,4 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./ui-footer.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UiFooterComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class UiFooterComponent {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: '[s-feature-not-found].page',
@@ -6,8 +6,4 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./feature-not-found.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class FeatureNotFoundComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class FeatureNotFoundComponent {}
