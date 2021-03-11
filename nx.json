@@ -26,40 +26,34 @@
     }
   },
   "projects": {
-    "flowers": {
-      "tags": []
-    },
-    "flowers-pages-feature-about": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "flowers-pages-feature-dashboard": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "flowers-pages-feature-delivery-confirmed": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "flowers-pages-feature-delivery-reschedule-confirmed": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "flowers-pages-feature-home": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "flowers-pages-feature-order": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "flowers-pages-feature-payment-confirmed": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
     "flowers-e2e": {
       "tags": [],
       "implicitDependencies": ["flowers"]
+    },
+    "flowers": {
+      "tags": [],
+      "implicitDependencies": ["theme"]
+    },
+    "flowers-pages-feature-about": {
+      "tags": []
+    },
+    "flowers-pages-feature-dashboard": {
+      "tags": []
+    },
+    "flowers-pages-feature-delivery-confirmed": {
+      "tags": []
+    },
+    "flowers-pages-feature-delivery-reschedule-confirmed": {
+      "tags": []
+    },
+    "flowers-pages-feature-home": {
+      "tags": []
+    },
+    "flowers-pages-feature-order": {
+      "tags": []
+    },
+    "flowers-pages-feature-payment-confirmed": {
+      "tags": []
     },
     "api": {
       "tags": []

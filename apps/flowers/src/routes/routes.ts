@@ -56,13 +56,6 @@ export const SRoutes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'confirmed',
-    loadChildren: () =>
-      import('@s/shared/pages/feature-confirmed').then(
-        (m) => m.SharedPagesFeatureConfirmedModule
-      ),
-  },
-  {
     path: '**',
     loadChildren: () =>
       import('@s/shared/pages/feature-not-found').then(
