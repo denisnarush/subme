@@ -1,8 +1,9 @@
 const fs = require('fs');
-const p = require('prettier');
+const prettier = require('prettier');
 
 const ANGULAR_JSON = {
   version: 1,
+  // HERE COMES ALL PROJECTS, GROUPS, COMPONNETS and etc.
   projects: {},
   cli: {
     defaultCollection: '@nrwl/angular',
@@ -65,8 +66,7 @@ const ANGULAR_JSON = {
     },
   },
 };
-
-const PROJECT_PREFIX = 's';
+const PREFIX = 's';
 
 const PROJECT_BUILD = (project) => {
   if (project.build === null) {
@@ -276,6 +276,66 @@ const PROJECT_TEST = (project) => {
   };
 };
 
+const PROJECT_STRUCTURE = (project) => {
+  const { title: projectName, prefix = PREFIX } = project;
+
+  ANGULAR_JSON.projects[projectName] = {
+    projectType: 'application',
+    root: `apps/${projectName}`,
+    sourceRoot: `apps/${projectName}/src`,
+    prefix: prefix || undefined,
+    architect: {
+      build: PROJECT_BUILD(project),
+      serve: PROJECT_SERVE(project),
+      e2e: PROJECT_E2E(project),
+      'extract-i18n': PROJECT_I18N(project),
+      lint: PROJECT_LINT(project),
+      test: PROJECT_TEST(project),
+    },
+  };
+};
+
+const GROUP_STRUCTURE = (group) => {
+  const { title: projectName, prefix = PREFIX } = group;
+
+  ANGULAR_JSON.projects[projectName] = {
+    projectType: 'library',
+    root: `libs/${projectName}`,
+    sourceRoot: `libs/${projectName}/src`,
+    prefix: prefix || undefined,
+    architect: {},
+  };
+};
+
+const COMPONENT_STRUCTURE = (component) => {
+  const { title: projectName, folder: root, prefix = PREFIX } = component;
+
+  ANGULAR_JSON.projects[projectName] = {
+    projectType: 'library',
+    root: `libs/${root}`,
+    sourceRoot: `libs/${root}/src`,
+    prefix: prefix || undefined,
+    architect: {
+      lint: {
+        builder: '@nrwl/linter:eslint',
+        options: {
+          lintFilePatterns: [
+            `libs/${root}/src/**/*.ts`,
+            `libs/${root}/src/**/*.html`,
+          ],
+        },
+      },
+      test: {
+        builder: '@nrwl/jest:jest',
+        options: {
+          jestConfig: `libs/${root}/jest.config.js`,
+          passWithNoTests: true,
+        },
+      },
+    },
+  };
+};
+
 // PROJECTS
 [
   {
@@ -334,24 +394,7 @@ const PROJECT_TEST = (project) => {
     },
     i18n: null,
   },
-].forEach((project) => {
-  const { title: projectName, prefix = PROJECT_PREFIX } = project;
-
-  ANGULAR_JSON.projects[projectName] = {
-    projectType: 'application',
-    root: `apps/${projectName}`,
-    sourceRoot: `apps/${projectName}/src`,
-    prefix: prefix || undefined,
-    architect: {
-      build: PROJECT_BUILD(project),
-      serve: PROJECT_SERVE(project),
-      e2e: PROJECT_E2E(project),
-      'extract-i18n': PROJECT_I18N(project),
-      lint: PROJECT_LINT(project),
-      test: PROJECT_TEST(project),
-    },
-  };
-});
+].forEach(PROJECT_STRUCTURE);
 
 // GROUPS
 [
@@ -361,17 +404,7 @@ const PROJECT_TEST = (project) => {
   {
     title: 'ui',
   },
-].forEach((group) => {
-  const { title: projectName, prefix = PROJECT_PREFIX } = group;
-
-  ANGULAR_JSON.projects[projectName] = {
-    projectType: 'library',
-    root: `libs/${projectName}`,
-    sourceRoot: `libs/${projectName}/src`,
-    prefix: prefix || undefined,
-    architect: {},
-  };
-});
+].forEach(GROUP_STRUCTURE);
 
 // COMPONENTS
 [
@@ -435,43 +468,12 @@ const PROJECT_TEST = (project) => {
     title: 'ui-ui-slider',
     folder: 'ui/ui-slider',
   },
-].forEach((component) => {
-  const {
-    title: projectName,
-    folder: root,
-    prefix = PROJECT_PREFIX,
-  } = component;
-
-  ANGULAR_JSON.projects[projectName] = {
-    projectType: 'library',
-    root: `libs/${root}`,
-    sourceRoot: `libs/${root}/src`,
-    prefix: prefix || undefined,
-    architect: {
-      lint: {
-        builder: '@nrwl/linter:eslint',
-        options: {
-          lintFilePatterns: [
-            `libs/${root}/src/**/*.ts`,
-            `libs/${root}/src/**/*.html`,
-          ],
-        },
-      },
-      test: {
-        builder: '@nrwl/jest:jest',
-        options: {
-          jestConfig: `libs/${root}/jest.config.js`,
-          passWithNoTests: true,
-        },
-      },
-    },
-  };
-});
+].forEach(COMPONENT_STRUCTURE);
 
 // PRINT
 fs.writeFileSync(
   './angular.json',
-  p.format(JSON.stringify(ANGULAR_JSON), { parser: 'json-stringify' }),
+  prettier.format(JSON.stringify(ANGULAR_JSON), { parser: 'json-stringify' }),
   'utf-8'
 );
 
