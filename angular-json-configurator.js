@@ -69,7 +69,7 @@ const ANGULAR_JSON = {
 const PROJECT_PREFIX = 's';
 
 const PROJECT_BUILD = (project) => {
-  if (!project.build) {
+  if (project.build === null) {
     return undefined;
   }
 
@@ -170,23 +170,30 @@ const PROJECT_BUILD = (project) => {
 };
 
 const PROJECT_SERVE = (project) => {
-  if (!project.serve) {
+  if (project.serve === null) {
     return undefined;
   }
 
-  const { title: projectName } = project;
-
-  return {
-    builder: '@angular-devkit/build-angular:dev-server',
-    options: {
-      browserTarget: `${projectName}:build`,
-    },
-    // SERVE CONFIGURATIONS
-    configurations: {
+  const { title: projectName, serve = {} } = project;
+  const {
+    builder = '@angular-devkit/build-angular:dev-server',
+    options = {},
+    configurations = {
       production: {
         browserTarget: `${projectName}:build:production`,
       },
     },
+  } = serve;
+  const { buildTarget, browserTarget = `${projectName}:build` } = options;
+
+  return {
+    builder: builder,
+    options: {
+      buildTarget: buildTarget,
+      browserTarget: browserTarget || undefined,
+    },
+    // SERVE CONFIGURATIONS
+    configurations: configurations || undefined,
   };
 };
 
@@ -214,7 +221,7 @@ const PROJECT_E2E = (project) => {
 };
 
 const PROJECT_I18N = (project) => {
-  if (!project.i18n) {
+  if (project.i18n === null) {
     return undefined;
   }
 
@@ -229,11 +236,11 @@ const PROJECT_I18N = (project) => {
 };
 
 const PROJECT_LINT = (project) => {
-  if (!project.lint) {
+  if (project.lint === null) {
     return undefined;
   }
 
-  const { title: projectName, lint } = project;
+  const { title: projectName, lint = {} } = project;
 
   const { options = {} } = lint;
 
@@ -253,7 +260,7 @@ const PROJECT_LINT = (project) => {
 };
 
 const PROJECT_TEST = (project) => {
-  if (!project.test) {
+  if (project.test === null) {
     return undefined;
   }
 
@@ -273,16 +280,15 @@ const PROJECT_TEST = (project) => {
 [
   {
     title: 'flowers',
-    build: {},
-    serve: {},
-    i18n: {},
-    lint: {},
-    test: {},
   },
   {
     title: 'flowers-e2e',
     prefix: null,
     styles: null,
+    build: null,
+    serve: null,
+    i18n: null,
+    test: null,
     stylePreprocessorOptions: null,
     e2e: { target: 'flowers' },
     lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
@@ -313,7 +319,20 @@ const PROJECT_TEST = (project) => {
         },
       },
     },
-    serve: {},
+    serve: {
+      builder: '@nrwl/node:execute',
+      options: {
+        buildTarget: 'api:build',
+        browserTarget: null,
+      },
+      configurations: null,
+    },
+    lint: {
+      options: {
+        lintFilePatterns: ['apps/api/**/*.ts'],
+      },
+    },
+    i18n: null,
   },
 ].forEach((project) => {
   const { title: projectName, prefix = PROJECT_PREFIX } = project;
@@ -354,9 +373,106 @@ const PROJECT_TEST = (project) => {
   };
 });
 
+// COMPONENTS
+[
+  {
+    title: 'shared-directives',
+    folder: 'shared/directives',
+  },
+  {
+    title: 'shared-pages-feature-not-found',
+    folder: 'shared/pages/feature-not-found',
+  },
+  {
+    title: 'shared-pages-feature-confirmed',
+    folder: 'shared/pages/feature-confirmed',
+  },
+  {
+    title: 'flowers-pages-feature-home',
+    folder: 'flowers/pages/feature-home',
+  },
+  {
+    title: 'flowers-pages-feature-about',
+    folder: 'flowers/pages/feature-about',
+  },
+  {
+    title: 'flowers-pages-feature-payment-confirmed',
+    folder: 'flowers/pages/feature-payment-confirmed',
+  },
+  {
+    title: 'flowers-pages-feature-delivery-reschedule-confirmed',
+    folder: 'flowers/pages/feature-delivery-reschedule-confirmed',
+  },
+  {
+    title: 'flowers-pages-feature-delivery-confirmed',
+    folder: 'flowers/pages/feature-delivery-confirmed',
+  },
+  {
+    title: 'flowers-pages-feature-dashboard',
+    folder: 'flowers/pages/feature-dashboard',
+  },
+  {
+    title: 'flowers-pages-feature-order',
+    folder: 'flowers/pages/feature-order',
+  },
+  {
+    title: 'ui-ui-content',
+    folder: 'ui/ui-content',
+  },
+  {
+    title: 'ui-ui-header',
+    folder: 'ui/ui-header',
+  },
+  {
+    title: 'ui-ui-footer',
+    folder: 'ui/ui-footer',
+  },
+  {
+    title: 'ui-ui-modal',
+    folder: 'ui/ui-modal',
+  },
+  {
+    title: 'ui-ui-slider',
+    folder: 'ui/ui-slider',
+  },
+].forEach((component) => {
+  const {
+    title: projectName,
+    folder: root,
+    prefix = PROJECT_PREFIX,
+  } = component;
+
+  ANGULAR_JSON.projects[projectName] = {
+    projectType: 'library',
+    root: `libs/${root}`,
+    sourceRoot: `libs/${root}/src`,
+    prefix: prefix || undefined,
+    architect: {
+      lint: {
+        builder: '@nrwl/linter:eslint',
+        options: {
+          lintFilePatterns: [
+            `libs/${root}/src/**/*.ts`,
+            `libs/${root}/src/**/*.html`,
+          ],
+        },
+      },
+      test: {
+        builder: '@nrwl/jest:jest',
+        options: {
+          jestConfig: `libs/${root}/jest.config.js`,
+          passWithNoTests: true,
+        },
+      },
+    },
+  };
+});
+
 // PRINT
 fs.writeFileSync(
   './angular.json',
   p.format(JSON.stringify(ANGULAR_JSON), { parser: 'json-stringify' }),
   'utf-8'
 );
+
+console.log('\x1b[32m%s\x1b[0m', 'Angular.json generated successfully.');
