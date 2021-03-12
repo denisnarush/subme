@@ -4,22 +4,85 @@ const p = require('prettier');
 const ANGULAR_JSON = {
   version: 1,
   projects: {},
+  cli: {
+    defaultCollection: '@nrwl/angular',
+  },
+  schematics: {
+    '@nrwl/angular': {
+      application: {
+        linter: 'eslint',
+      },
+      library: {
+        linter: 'eslint',
+      },
+      'storybook-configuration': {
+        linter: 'eslint',
+      },
+    },
+    '@nrwl/workspace': {
+      library: {
+        linter: 'tslint',
+      },
+    },
+    '@nrwl/cypress': {
+      'cypress-project': {
+        linter: 'tslint',
+      },
+    },
+    '@nrwl/node': {
+      application: {
+        linter: 'tslint',
+      },
+      library: {
+        linter: 'tslint',
+      },
+    },
+    '@nrwl/nest': {
+      application: {
+        linter: 'tslint',
+      },
+      library: {
+        linter: 'tslint',
+      },
+    },
+    '@nrwl/express': {
+      application: {
+        linter: 'tslint',
+      },
+      library: {
+        linter: 'tslint',
+      },
+    },
+    '@nrwl/angular:application': {
+      unitTestRunner: 'jest',
+      e2eTestRunner: 'cypress',
+    },
+    '@nrwl/angular:library': {
+      unitTestRunner: 'jest',
+    },
+    '@nrwl/angular:component': {
+      style: 'less',
+    },
+  },
 };
 
 const PROJECT_PREFIX = 's';
-
-const PROJECT_STYLE_PREPROCESSOR_OPTIONS = {
-  includePaths: ['libs/theme/src/lib/-mixins', 'libs/theme/src/lib/default'],
-};
-
-const PROJECT_STYLES = ['libs/theme/src/lib/theme.styles.less'];
 
 const PROJECT_BUILD = (project) => {
   if (!project.build) {
     return undefined;
   }
 
-  const { title: projectName, stylePreprocessorOptions, styles } = project;
+  const {
+    title: projectName,
+    stylePreprocessorOptions = {
+      includePaths: [
+        'libs/theme/src/lib/-mixins',
+        'libs/theme/src/lib/default',
+      ],
+    },
+    styles = ['libs/theme/src/lib/theme.styles.less'],
+  } = project;
 
   const { build = {} } = project;
   const {
@@ -86,7 +149,7 @@ const PROJECT_BUILD = (project) => {
           output: 'assets',
         },
       ],
-      stylePreprocessorOptions: stylePreprocessorOptions,
+      stylePreprocessorOptions: stylePreprocessorOptions || undefined,
       styles: styles || undefined,
       scripts: scripts || undefined,
     },
@@ -206,12 +269,10 @@ const PROJECT_TEST = (project) => {
   };
 };
 
-const PROJECTS = [
+// PROJECTS
+[
   {
     title: 'flowers',
-    prefix: PROJECT_PREFIX,
-    stylePreprocessorOptions: PROJECT_STYLE_PREPROCESSOR_OPTIONS,
-    styles: PROJECT_STYLES,
     build: {},
     serve: {},
     i18n: {},
@@ -220,12 +281,17 @@ const PROJECTS = [
   },
   {
     title: 'flowers-e2e',
+    prefix: null,
+    styles: null,
+    stylePreprocessorOptions: null,
     e2e: { target: 'flowers' },
     lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
   },
   {
     title: 'api',
     prefix: 'api',
+    styles: null,
+    stylePreprocessorOptions: null,
     build: {
       builder: '@nrwl/node:build',
       outputs: ['{options.outputPath}'],
@@ -249,16 +315,14 @@ const PROJECTS = [
     },
     serve: {},
   },
-];
+].forEach((project) => {
+  const { title: projectName, prefix = PROJECT_PREFIX } = project;
 
-PROJECTS.forEach((project) => {
-  const { title: projectName, prefix } = project;
-
-  const PROJECT_CONFIG = {
+  ANGULAR_JSON.projects[projectName] = {
     projectType: 'application',
     root: `apps/${projectName}`,
     sourceRoot: `apps/${projectName}/src`,
-    prefix: prefix,
+    prefix: prefix || undefined,
     architect: {
       build: PROJECT_BUILD(project),
       serve: PROJECT_SERVE(project),
@@ -268,9 +332,29 @@ PROJECTS.forEach((project) => {
       test: PROJECT_TEST(project),
     },
   };
-  ANGULAR_JSON.projects[projectName] = PROJECT_CONFIG;
 });
 
+// GROUPS
+[
+  {
+    title: 'theme',
+  },
+  {
+    title: 'ui',
+  },
+].forEach((group) => {
+  const { title: projectName, prefix = PROJECT_PREFIX } = group;
+
+  ANGULAR_JSON.projects[projectName] = {
+    projectType: 'library',
+    root: `libs/${projectName}`,
+    sourceRoot: `libs/${projectName}/src`,
+    prefix: prefix || undefined,
+    architect: {},
+  };
+});
+
+// PRINT
 fs.writeFileSync(
   './angular.json',
   p.format(JSON.stringify(ANGULAR_JSON), { parser: 'json-stringify' }),
