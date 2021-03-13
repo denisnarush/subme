@@ -17,6 +17,7 @@
             "tsConfig": "apps/flowers/tsconfig.app.json",
             "aot": true,
             "buildOptimizer": true,
+            "optimization": true,
             "budgets": [
               {
                 "type": "initial",
@@ -47,12 +48,11 @@
           },
           "configurations": {
             "production": {
-              "optimization": true,
               "extractLicenses": true,
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "fileReplacements": [
                 {
                   "replace": "apps/flowers/src/environments/environment.ts",
@@ -137,6 +137,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
+            "optimization": true,
             "assets": [
               {
                 "glob": "**/*",
@@ -147,7 +148,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": true,
               "extractLicenses": true,
               "inspect": false,
               "fileReplacements": [

@@ -97,6 +97,7 @@ const PROJECT_BUILD = (project) => {
     polyfills = `apps/${projectName}/src/polyfills.ts`,
     aot = true,
     buildOptimizer = true,
+    optimization = true,
     budgets = [
       {
         type: 'initial',
@@ -115,12 +116,11 @@ const PROJECT_BUILD = (project) => {
   const { production = {} } = configurations;
 
   const {
-    optimization = true,
     extractLicenses = true,
     outputHashing = 'all',
     sourceMap = false,
     namedChunks = false,
-    vendorChunk = false,
+    vendorChunk = true,
     inspect,
     fileReplacements = [
       {
@@ -141,6 +141,7 @@ const PROJECT_BUILD = (project) => {
       tsConfig: `apps/${projectName}/tsconfig.app.json`,
       aot: aot || undefined,
       buildOptimizer: buildOptimizer || undefined,
+      optimization: optimization !== null ? optimization : undefined,
       budgets: budgets || undefined,
       assets: [
         {
@@ -156,7 +157,6 @@ const PROJECT_BUILD = (project) => {
     // BUILD CONFIGURATIONS
     configurations: {
       production: {
-        optimization: optimization,
         extractLicenses: extractLicenses,
         outputHashing: outputHashing !== null ? outputHashing : undefined,
         sourceMap: sourceMap !== null ? sourceMap : undefined,
