@@ -468,7 +468,9 @@ const COMPONENT_STRUCTURE = (component) => {
     title: 'ui-ui-slider',
     folder: 'ui/ui-slider',
   },
-].forEach(COMPONENT_STRUCTURE);
+]
+  .sort((a, b) => (a.title > b.title ? 1 : -1))
+  .forEach(COMPONENT_STRUCTURE);
 
 // PRINT
 fs.writeFileSync(

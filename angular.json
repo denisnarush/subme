@@ -30,7 +30,6 @@
               }
             ],
             "assets": [
-              "apps/flowers/src/favicon.ico",
               {
                 "glob": "**/*",
                 "input": "assets",
@@ -48,18 +47,18 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "vendorChunk": false,
               "fileReplacements": [
                 {
                   "replace": "apps/flowers/src/environments/environment.ts",
                   "with": "apps/flowers/src/environments/environment.prod.ts"
                 }
-              ],
-              "extractLicenses": true,
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "vendorChunk": false
+              ]
             }
           }
         },
@@ -100,9 +99,9 @@
       }
     },
     "flowers-e2e": {
+      "projectType": "application",
       "root": "apps/flowers-e2e",
       "sourceRoot": "apps/flowers-e2e/src",
-      "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
@@ -126,9 +125,9 @@
       }
     },
     "api": {
+      "projectType": "application",
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
-      "projectType": "application",
       "prefix": "api",
       "architect": {
         "build": {
@@ -138,7 +137,13 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "assets"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -168,11 +173,11 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/api"]
         }
       }
     },
@@ -183,99 +188,12 @@
       "prefix": "s",
       "architect": {}
     },
-    "shared-directives": {
+    "ui": {
       "projectType": "library",
-      "root": "libs/shared/directives",
-      "sourceRoot": "libs/shared/directives/src",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
       "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/directives/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/directives/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/directives"]
-        }
-      }
-    },
-    "shared-pages-feature-not-found": {
-      "projectType": "library",
-      "root": "libs/shared/pages/feature-not-found",
-      "sourceRoot": "libs/shared/pages/feature-not-found/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/pages/feature-not-found/src/**/*.ts",
-              "libs/shared/pages/feature-not-found/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/pages/feature-not-found/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-pages-feature-confirmed": {
-      "projectType": "library",
-      "root": "libs/shared/pages/feature-confirmed",
-      "sourceRoot": "libs/shared/pages/feature-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/pages/feature-confirmed/src/**/*.ts",
-              "libs/shared/pages/feature-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "flowers-pages-feature-home": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-home",
-      "sourceRoot": "libs/flowers/pages/feature-home/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-home/src/**/*.ts",
-              "libs/flowers/pages/feature-home/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-home/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
+      "architect": {}
     },
     "flowers-pages-feature-about": {
       "projectType": "library",
@@ -296,78 +214,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/flowers/pages/feature-about/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "flowers-pages-feature-payment-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-payment-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-payment-confirmed/src/**/*.ts",
-              "libs/flowers/pages/feature-payment-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "flowers-pages-feature-delivery-reschedule-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.ts",
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "flowers-pages-feature-delivery-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-delivery-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-delivery-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.ts",
-              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -397,6 +243,78 @@
         }
       }
     },
+    "flowers-pages-feature-delivery-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-delivery-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-delivery-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.ts",
+              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "flowers-pages-feature-delivery-reschedule-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.ts",
+              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "flowers-pages-feature-home": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-home",
+      "sourceRoot": "libs/flowers/pages/feature-home/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-home/src/**/*.ts",
+              "libs/flowers/pages/feature-home/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "flowers-pages-feature-order": {
       "projectType": "library",
       "root": "libs/flowers/pages/feature-order",
@@ -416,6 +334,102 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/flowers/pages/feature-order/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "flowers-pages-feature-payment-confirmed": {
+      "projectType": "library",
+      "root": "libs/flowers/pages/feature-payment-confirmed",
+      "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/flowers/pages/feature-payment-confirmed/src/**/*.ts",
+              "libs/flowers/pages/feature-payment-confirmed/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-directives": {
+      "projectType": "library",
+      "root": "libs/shared/directives",
+      "sourceRoot": "libs/shared/directives/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/directives/src/**/*.ts",
+              "libs/shared/directives/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/directives/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-pages-feature-confirmed": {
+      "projectType": "library",
+      "root": "libs/shared/pages/feature-confirmed",
+      "sourceRoot": "libs/shared/pages/feature-confirmed/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/pages/feature-confirmed/src/**/*.ts",
+              "libs/shared/pages/feature-confirmed/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-pages-feature-not-found": {
+      "projectType": "library",
+      "root": "libs/shared/pages/feature-not-found",
+      "sourceRoot": "libs/shared/pages/feature-not-found/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/pages/feature-not-found/src/**/*.ts",
+              "libs/shared/pages/feature-not-found/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/pages/feature-not-found/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -445,30 +459,6 @@
         }
       }
     },
-    "ui-ui-header": {
-      "projectType": "library",
-      "root": "libs/ui/ui-header",
-      "sourceRoot": "libs/ui/ui-header/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-header/src/**/*.ts",
-              "libs/ui/ui-header/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-header/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "ui-ui-footer": {
       "projectType": "library",
       "root": "libs/ui/ui-footer",
@@ -488,6 +478,30 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/ui-footer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-ui-header": {
+      "projectType": "library",
+      "root": "libs/ui/ui-header",
+      "sourceRoot": "libs/ui/ui-header/src",
+      "prefix": "s",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/ui-header/src/**/*.ts",
+              "libs/ui/ui-header/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/ui-header/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -534,20 +548,12 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/ui-slider"],
           "options": {
             "jestConfig": "libs/ui/ui-slider/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
-    },
-    "ui": {
-      "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
-      "prefix": "s",
-      "architect": {}
     }
   },
   "cli": {
