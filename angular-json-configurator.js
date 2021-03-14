@@ -84,7 +84,7 @@ const PROJECT_BUILD = (project) => {
     styles = ['libs/theme/src/lib/theme.styles.less'],
   } = project;
 
-  const { build = {} } = project;
+  const { build = {}, i18n = {} } = project;
   const {
     builder = '@angular-devkit/build-angular:browser',
     outputs,
@@ -139,6 +139,7 @@ const PROJECT_BUILD = (project) => {
       main: `apps/${projectName}/src/main.ts`,
       polyfills: polyfills || undefined,
       tsConfig: `apps/${projectName}/tsconfig.app.json`,
+      localize: i18n !== null ? ['en-US'] : undefined,
       aot: aot || undefined,
       buildOptimizer: buildOptimizer || undefined,
       optimization: optimization !== null ? optimization : undefined,
@@ -157,6 +158,7 @@ const PROJECT_BUILD = (project) => {
     // BUILD CONFIGURATIONS
     configurations: {
       production: {
+        localize: i18n !== null ? true : undefined,
         extractLicenses: extractLicenses,
         outputHashing: outputHashing !== null ? outputHashing : undefined,
         sourceMap: sourceMap !== null ? sourceMap : undefined,
@@ -225,12 +227,34 @@ const PROJECT_I18N = (project) => {
     return undefined;
   }
 
+  const { i18n = {} } = project;
+  const { locales: projectLocales = [] } = i18n;
+
+  const locales = {};
+
+  projectLocales.forEach(
+    (locale) => (locales[locale] = `i18n/locale/source.${locale}.xlf`)
+  );
+
+  return {
+    sourceLocale: 'en-US',
+    locales,
+  };
+};
+
+const PROJECT_EXTRACT_I18N = (project) => {
+  if (project.i18n === null) {
+    return undefined;
+  }
+
   const { title: projectName } = project;
 
   return {
     builder: '@angular-devkit/build-angular:extract-i18n',
     options: {
       browserTarget: `${projectName}:build`,
+      outputPath: `i18n`,
+      outFile: `source.xlf`,
     },
   };
 };
@@ -284,11 +308,12 @@ const PROJECT_STRUCTURE = (project) => {
     root: `apps/${projectName}`,
     sourceRoot: `apps/${projectName}/src`,
     prefix: prefix || undefined,
+    i18n: PROJECT_I18N(project),
     architect: {
       build: PROJECT_BUILD(project),
       serve: PROJECT_SERVE(project),
       e2e: PROJECT_E2E(project),
-      'extract-i18n': PROJECT_I18N(project),
+      'extract-i18n': PROJECT_EXTRACT_I18N(project),
       lint: PROJECT_LINT(project),
       test: PROJECT_TEST(project),
     },
@@ -340,6 +365,9 @@ const COMPONENT_STRUCTURE = (component) => {
 [
   {
     title: 'flowers',
+    i18n: {
+      locales: ['ru'],
+    },
   },
   {
     title: 'flowers-e2e',

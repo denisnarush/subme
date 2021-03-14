@@ -2,11 +2,25 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="buttonAbout" datatype="html">
+        <source>How it works?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mainTitle" datatype="html">
+        <source>Subscribe Me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="buttonGetIn" datatype="html">
         <source>Get In</source>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
     </body>
