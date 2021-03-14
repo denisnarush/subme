@@ -6,6 +6,12 @@
       "root": "apps/flowers",
       "sourceRoot": "apps/flowers/src",
       "prefix": "s",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": "i18n/locale/source.ru.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -15,6 +21,7 @@
             "main": "apps/flowers/src/main.ts",
             "polyfills": "apps/flowers/src/polyfills.ts",
             "tsConfig": "apps/flowers/tsconfig.app.json",
+            "localize": ["en-US"],
             "aot": true,
             "buildOptimizer": true,
             "optimization": true,
@@ -48,6 +55,7 @@
           },
           "configurations": {
             "production": {
+              "localize": true,
               "extractLicenses": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -76,7 +84,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "flowers:build"
+            "browserTarget": "flowers:build",
+            "outputPath": "i18n",
+            "outFile": "source.xlf"
           }
         },
         "lint": {
