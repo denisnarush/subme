@@ -9,6 +9,7 @@
 - \* [It will be nice to write some unit test]
 - \* [It will be awesome to have e2e test]
 - \* [It is better to run test before push changes to origin]
+- \* [Be sure to avoid committing unnecessary formatted lines of code.]
 
 - [Push *#N* branch changes to origin]
 - [Use GitHub and create PR for *#N* to *master*]

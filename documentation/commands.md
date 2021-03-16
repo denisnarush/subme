@@ -47,4 +47,4 @@
 
 ## Angular.json
 
-- `node angular-json-configurator.js` - generates **angular.json** file.
+- `node tools\generators\angular-json-configurator.js` - generates **angular.json** file.
