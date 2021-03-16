@@ -7,9 +7,12 @@
       "sourceRoot": "apps/flowers/src",
       "prefix": "s",
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en",
         "locales": {
-          "ru": "i18n/locale/source.ru.xlf"
+          "ru": {
+            "translation": "i18n/locale/source.ru.xlf",
+            "baseHref": "/ru/"
+          }
         }
       },
       "architect": {
@@ -17,11 +20,12 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/flowers",
+            "baseHref": "/",
             "index": "apps/flowers/src/index.html",
             "main": "apps/flowers/src/main.ts",
             "polyfills": "apps/flowers/src/polyfills.ts",
             "tsConfig": "apps/flowers/tsconfig.app.json",
-            "localize": ["en-US"],
+            "localize": ["en"],
             "aot": true,
             "buildOptimizer": true,
             "optimization": true,
@@ -145,6 +149,7 @@
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
+            "baseHref": "/",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
             "optimization": true,

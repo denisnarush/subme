@@ -135,11 +135,13 @@ const PROJECT_BUILD = (project) => {
     outputs: outputs,
     options: {
       outputPath: `dist/apps/${projectName}`,
+      // <base href="{project base href}/{lolace base href}"/>
+      baseHref: '/', // project base href
       index: index || undefined,
       main: `apps/${projectName}/src/main.ts`,
       polyfills: polyfills || undefined,
       tsConfig: `apps/${projectName}/tsconfig.app.json`,
-      localize: i18n !== null ? ['en-US'] : undefined,
+      localize: i18n !== null ? ['en'] : undefined,
       aot: aot || undefined,
       buildOptimizer: buildOptimizer || undefined,
       optimization: optimization !== null ? optimization : undefined,
@@ -233,11 +235,17 @@ const PROJECT_I18N = (project) => {
   const locales = {};
 
   projectLocales.forEach(
-    (locale) => (locales[locale] = `i18n/locale/source.${locale}.xlf`)
+    (locale) =>
+      (locales[locale] = {
+        translation: `i18n/locale/source.${locale}.xlf`,
+        // https://angular.io/guide/i18n#deploy-multiple-locales
+        // <base href="{project base href}/{lolace base href}"/>
+        baseHref: `/${locale}/`, // locale base href
+      })
   );
 
   return {
-    sourceLocale: 'en-US',
+    sourceLocale: 'en',
     locales,
   };
 };
