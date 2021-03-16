@@ -1,8 +1,9 @@
 <header s-ui-header class="header">
   <a
+    header--item-right
     class="link txt txt_f_main-regular txt_s_2 txt_c_gray-1 txt_is_right"
     routerLink="../about"
-    header--item-right
+    i18n="@@buttonAbout"
     >How it works?</a
   >
 </header>
@@ -11,22 +12,25 @@
   <div class="l l__image"></div>
   <div class="l l__title">
     <h1 class="title txt_f_header-regular txt_s_4 txt_c_gray-2 txt_is_center">
-      Subscribe Me
+      <ng-container i18n="@@mainTitle">Subscribe Me</ng-container>
     </h1>
   </div>
   <div class="l l__text">
-    <p class="txt txt_s_2 txt_f_main-regular txt_is_center">
-      to recive <span class="txt txt_f_main-thin">flowers</span> every
-      <span class="txt txt_f_main-thin">month</span> by subscribtion with
-      delivery.
+    <p class="txt txt_s_2 txt_f_main-regular txt_is_center" i18n="@@mainText">
+      to receive
+      <span class="txt txt_f_main-thin">{type, select, flowers {flowers}}</span>
+      every
+      <span class="txt txt_f_main-thin">{period, select, month {month}}</span>
+      by subscription with delivery.
     </p>
   </div>
 </main>
 
 <footer s-ui-footer class="footer">
   <a
-    class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
     footer--item-center
+    class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
+    i18n="@@buttonGetIn"
     >Get In</a
   >
 </footer>

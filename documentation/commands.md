@@ -29,7 +29,10 @@
 - `nx serve <project>` - serves \<project\>. Default url is **://localhost:4200**
 - `nx serve api` - serves API. Default url is **://localhost:3333/api**
 
-- `nx build <project>` - builds the \<project\> project
+- `nx build <project>` - builds the \<project\>
+
+- `nx add @angular/localize --name <project>` - adds i18n to \<project\>
+- `nx extract-i18n <project>` - extracts \<project\>'s locale source data.
 
 ## E2e Test
 
@@ -41,3 +44,7 @@
 - `nx test <project>` run test for \<project\> project.
 - `nx test <project> --with-deps` run test for \<project\> with deep dive to all dependencies.
 - `nx test <project> --watch` run test with **watch** mode.
+
+## Angular.json
+
+- `node tools\generators\angular-json-configurator.js` - generates **angular.json** file.

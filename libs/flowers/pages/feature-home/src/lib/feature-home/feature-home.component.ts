@@ -6,4 +6,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./feature-home.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class FeatureHomeComponent {}
+export class FeatureHomeComponent {
+  type = 'flowers';
+  period = 'month';
+}

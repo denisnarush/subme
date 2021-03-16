@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="buttonAbout" datatype="html">
+        <source>How it works?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mainTitle" datatype="html">
+        <source>Subscribe Me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mainText" datatype="html">
+        <source> to receive <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;txt txt_f_main-thin&quot;&gt;"/><x id="ICU" equiv-text="{type, select, flowers {flowers}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;
+      "/> every <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;txt txt_f_main-thin&quot;&gt;"/><x id="ICU_1" equiv-text="{period, select, month {month}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;
+      "/> by subscription with delivery. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">20,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a1ccec9c17e0ba8759eebcfbf1e11eb40c2ff780" datatype="html">
+        <source>{VAR_SELECT, select, flowers {flowers}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="917e3a3b95dd177702be7350ac7269009df21655" datatype="html">
+        <source>{VAR_SELECT, select, month {month}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="buttonGetIn" datatype="html">
+        <source>Get In</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
