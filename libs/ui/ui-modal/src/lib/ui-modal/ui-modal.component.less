@@ -15,6 +15,10 @@
     '. inner .'
     '. . .';
 
+  &:empty {
+    display: none;
+  }
+
   &__inner {
     grid-area: inner;
     background-color: #fff;
@@ -44,11 +48,13 @@
     }
   }
 
-  // .content {
-  // }
+  .content {
+    --root-gap: 30px;
+  }
 
-  // .footer {
-  // }
+  .footer {
+    --root-footer-height: 52px;
+  }
 
   &__item {
     &_side_center {
