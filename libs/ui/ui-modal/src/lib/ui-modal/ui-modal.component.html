@@ -1,18 +1,17 @@
-<div class="modal__inner">
-  <header class="header">
-    <ng-content select="[modal--title]"></ng-content>
+<div *ngIf="isActive()" class="modal__inner">
+  <header s-ui-header class="header">
+    <ng-content header--item-left select="[modal--header--left]"></ng-content>
+    <ng-content header--item-center select="[modal--header]"></ng-content>
+    <ng-content header--item-right select="[modal--header--right]"></ng-content>
   </header>
-  <div class="content">
-    <div class="modal__item modal__item_side_center modal__item_cc">
+  <div s-ui-content class="content">
+    <div class="modal__item modal__item_side_center">
       <ng-content></ng-content>
     </div>
   </div>
-  <footer class="footer">
-    <div class="footer__item footer__item_side_left footer__item_cc">
-      <ng-content select="[modal--cancel]"></ng-content>
-    </div>
-    <div class="footer__item footer__item_side_right footer__item_cc">
-      <ng-content select="[modal--submit]"></ng-content>
-    </div>
+  <footer s-ui-footer class="footer">
+    <ng-content footer--item-left select="[modal--footer--left]"></ng-content>
+    <ng-content footer--item-center select="[modal--footer]"></ng-content>
+    <ng-content footer--item-right select="[modal--footer--right]"></ng-content>
   </footer>
 </div>
