@@ -6,5 +6,6 @@
   "npm.runInTerminal": true,
   "prettier.endOfLine": "crlf",
   "todo-tree.filtering.excludeGlobs": ["node_modules"],
-  "typescript.updateImportsOnFileMove.enabled": "never"
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "terminal.integrated.rendererType": "dom"
 }
