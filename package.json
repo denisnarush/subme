@@ -9,7 +9,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "nx workspace-lint && ng lint",
+    "lint": "ng lint",
     "e2e": "ng e2e",
     "backstop:flowers:test": "backstop test --config=apps/flowers/backstop.json",
     "backstop:flowers:approve": "backstop approve --config=apps/flowers/backstop.json",
