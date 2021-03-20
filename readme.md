@@ -1,5 +1,8 @@
 # Subme
 
+[![Lint](https://github.com/denisnarush/subme/actions/workflows/lint.yaml/badge.svg)](https://github.com/denisnarush/subme/actions/workflows/lint.yaml)
+[![Test](https://github.com/denisnarush/subme/actions/workflows/test.yaml/badge.svg)](https://github.com/denisnarush/subme/actions/workflows/test.yaml)
+
 Very important description!
 
 - [Commands](commands.md)
