@@ -87,6 +87,9 @@
     },
     "ui-ui-slider": {
       "tags": []
+    },
+    "ui-ui-tabs": {
+      "tags": []
     }
   }
 }
