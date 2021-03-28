@@ -5,7 +5,7 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { IUiTab } from '../ui-tabs.interface';
+import { IUiTabs, TTab } from '../ui-tabs.interface';
 
 @Component({
   selector: '[s-ui-tabs]',
@@ -13,13 +13,13 @@ import { IUiTab } from '../ui-tabs.interface';
   styleUrls: ['./ui-tabs.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UiTabsComponent {
-  @Input() tabs: IUiTab[];
-  @Input() selected: string;
-  @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
+export class UiTabsComponent implements IUiTabs {
+  @Input() tabs: TTab[];
+  @Input() selected: TTab;
+  @Output() selectedChange: EventEmitter<TTab> = new EventEmitter<TTab>();
 
-  setTab(tabName: string) {
-    this.selected = tabName;
-    this.selectedChange.emit(tabName);
+  setTab(tab: TTab) {
+    this.selected = tab;
+    this.selectedChange.emit(tab);
   }
 }
