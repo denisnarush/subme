@@ -1,0 +1,8 @@
+<span
+  *ngFor="let tab of tabs"
+  class="link txt txt_f_main-regular txt_s_2"
+  [ngClass]="selected === tab ? 'txt_c_gray-1' : 'txt_c_gray-3'"
+  (click)="setTab(tab)"
+>
+  {{ tab.name }}
+</span>

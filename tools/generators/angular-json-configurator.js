@@ -504,6 +504,10 @@ const COMPONENT_STRUCTURE = (component) => {
     title: 'ui-ui-slider',
     folder: 'ui/ui-slider',
   },
+  {
+    title: 'ui-ui-tabs',
+    folder: 'ui/ui-tabs',
+  },
 ]
   .sort((a, b) => (a.title > b.title ? 1 : -1))
   .forEach(COMPONENT_STRUCTURE);
