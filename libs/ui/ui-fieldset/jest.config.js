@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'ui-ui-tabs',
+  displayName: 'ui-ui-fieldset',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/ui/ui-tabs',
+  coverageDirectory: '../../../coverage/libs/ui/ui-fieldset',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

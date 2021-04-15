@@ -50,7 +50,8 @@
       "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"],
       "@s/ui/ui-modal": ["libs/ui/ui-modal/src/index.ts"],
       "@s/ui/ui-slider": ["libs/ui/ui-slider/src/index.ts"],
-      "@s/ui/ui-tabs": ["libs/ui/ui-tabs/src/index.ts"]
+      "@s/ui/ui-tabs": ["libs/ui/ui-tabs/src/index.ts"],
+      "@s/ui/ui-fieldset": ["libs/ui/ui-fieldset/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

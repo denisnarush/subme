@@ -90,6 +90,9 @@
     },
     "ui-ui-tabs": {
       "tags": []
+    },
+    "ui-ui-fieldset": {
+      "tags": []
     }
   }
 }

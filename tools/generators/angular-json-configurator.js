@@ -55,10 +55,14 @@ const ANGULAR_JSON = {
       },
     },
     '@nrwl/angular:application': {
+      style: 'less',
+      linter: 'eslint',
       unitTestRunner: 'jest',
       e2eTestRunner: 'cypress',
     },
     '@nrwl/angular:library': {
+      style: 'less',
+      linter: 'eslint',
       unitTestRunner: 'jest',
     },
     '@nrwl/angular:component': {
@@ -507,6 +511,10 @@ const COMPONENT_STRUCTURE = (component) => {
   {
     title: 'ui-ui-tabs',
     folder: 'ui/ui-tabs',
+  },
+  {
+    title: 'ui-ui-fieldset',
+    folder: 'ui/ui-fieldset',
   },
 ]
   .sort((a, b) => (a.title > b.title ? 1 : -1))
