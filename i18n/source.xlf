@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="buttonAbout" datatype="html">
         <source>How it works?</source>
@@ -17,9 +17,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="mainText" datatype="html">
-        <source> to receive <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;txt txt_f_main-thin&quot;&gt;"/><x id="ICU" equiv-text="{type, select, flowers {flowers}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;
-      "/> every <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;txt txt_f_main-thin&quot;&gt;"/><x id="ICU_1" equiv-text="{period, select, month {month}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;
-      "/> by subscription with delivery. </source>
+        <source> to receive <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;txt txt_f_main-thin&quot;&gt;"/><x id="ICU" equiv-text="{type, select, flowers {flowers}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> every <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;txt txt_f_main-thin&quot;&gt;"/><x id="ICU_1" equiv-text="{period, select, month {month}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> by subscription with delivery. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
           <context context-type="linenumber">20,25</context>
@@ -43,7 +41,57 @@
         <source>Get In</source>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fieldEmailPlaceholder" datatype="html">
+        <source>johnny.silverhand@mail.com</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fieldEmailLabel" datatype="html">
+        <source>email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fieldOneTimePasswordPlaceholder" datatype="html">
+        <source>7 digets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fieldOneTimePasswordLabel" datatype="html">
+        <source>one time password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fieldUsernamePlaceholder" datatype="html">
+        <source>Johnny Silverhand</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fieldUsernameLabel" datatype="html">
+        <source>username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
     </body>
