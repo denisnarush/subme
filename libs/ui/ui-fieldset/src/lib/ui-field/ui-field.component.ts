@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Directive()
-export abstract class UiField implements AfterViewInit {
+export abstract class UiFieldDirective implements AfterViewInit {
   placeholder?: string;
   label?: string;
 
@@ -26,6 +26,4 @@ export abstract class UiField implements AfterViewInit {
 
     this.cdr.detectChanges();
   }
-
-  validate(): void {}
 }

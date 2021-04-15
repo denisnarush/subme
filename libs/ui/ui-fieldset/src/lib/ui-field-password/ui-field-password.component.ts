@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TFieldType, UiFieldPassword } from '../ui-ui-fieldset.interface';
-import { UiField } from '../ui-field/ui-field.component';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { TFieldType, UiField } from '../ui-ui-fieldset.interface';
+import { UiFieldDirective } from '../ui-field/ui-field.component';
 
 @Component({
   selector: '[s-ui-field-password]',
@@ -9,7 +9,7 @@ import { UiField } from '../ui-field/ui-field.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class UiFieldPasswordComponent
-  extends UiField
-  implements UiFieldPassword {
+  extends UiFieldDirective
+  implements UiField {
   type: TFieldType = 'password';
 }

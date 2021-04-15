@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { TFieldType, UiFieldEmail } from '../ui-ui-fieldset.interface';
-import { UiField } from '../ui-field/ui-field.component';
+import { TFieldType, UiField } from '../ui-ui-fieldset.interface';
+import { UiFieldDirective } from '../ui-field/ui-field.component';
 
 @Component({
   selector: '[s-ui-field-email]',
@@ -8,6 +8,6 @@ import { UiField } from '../ui-field/ui-field.component';
   styleUrls: ['../ui-field/ui-field.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UiFieldEmailComponent extends UiField implements UiFieldEmail {
+export class UiFieldEmailComponent extends UiFieldDirective implements UiField {
   type: TFieldType = 'email';
 }
