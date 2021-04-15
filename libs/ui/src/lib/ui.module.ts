@@ -6,6 +6,7 @@ import { UiFooterModule } from '@s/ui/ui-footer';
 import { UiModalModule } from '@s/ui/ui-modal';
 import { UiSliderModule } from '@s/ui/ui-slider';
 import { UiTabsModule } from '@s/ui/ui-tabs';
+import { UiFieldsetModule } from '@s/ui/ui-fieldset';
 
 @NgModule({
   imports: [CommonModule],
@@ -16,6 +17,7 @@ import { UiTabsModule } from '@s/ui/ui-tabs';
     UiModalModule,
     UiSliderModule,
     UiTabsModule,
+    UiFieldsetModule,
   ],
 })
 export class UiModule {}
