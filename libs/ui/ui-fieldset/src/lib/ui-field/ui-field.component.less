@@ -1,39 +1,47 @@
 .field {
-  background-color: #fff;
   display: inline-block;
   position: relative;
 
   &__label {
     padding: 0 0.5rem;
     position: absolute;
-    bottom: 50%;
-    transform: translateY(50%);
     z-index: 1;
-    font-size: 1.375rem;
     line-height: 1.4;
   }
 
   &__input {
     border: none;
-    border-bottom: 1px solid #f2f2f2;
     background-color: transparent;
     padding: 0 0.5rem;
     margin: 1rem 0;
     position: relative;
     z-index: 2;
 
+    &:not(:focus) {
+      border-bottom: 1px solid var(--gray-6);
+    }
+
     &:focus {
       outline: none;
+      border-bottom: 1px solid var(--gray-5);
     }
 
     &::placeholder {
       font-size: 0;
     }
 
+    &:not(:focus):placeholder-shown {
+      ~ .field__label {
+        bottom: 50%;
+        transform: translateY(50%);
+        font-size: var(--font-size-regular);
+      }
+    }
+
     &:focus,
     &:not(:placeholder-shown) {
       ~ .field__label {
-        font-size: 0.875em;
+        font-size: var(--font-size-small);
         bottom: calc(100% - 1rem);
       }
     }
@@ -51,7 +59,7 @@
         display: block;
         right: 0;
         top: calc(100% - 1rem);
-        font-size: 0.875em;
+        font-size: var(--font-size-small);
       }
     }
   }

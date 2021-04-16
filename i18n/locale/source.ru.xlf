@@ -2,6 +2,30 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="fieldUsernamePlaceholder" datatype="html">
+        <source>Johnny Silverhand</source>
+        <target>Джонни Силверхенд</target>
+      </trans-unit>
+      <trans-unit id="fieldUsernameLabel" datatype="html">
+        <source>username</source>
+        <target>имя пользователя</target>
+      </trans-unit>
+      <trans-unit id="fieldEmailPlaceholder" datatype="html">
+        <source>johnny.silverhand@mail.com</source>
+        <target>johnny.silverhand@mail.com</target>
+      </trans-unit>
+      <trans-unit id="fieldEmailLabel" datatype="html">
+        <source>email</source>
+        <target>email</target>
+      </trans-unit>
+      <trans-unit id="fieldOneTimePasswordPlaceholder" datatype="html">
+        <source>7 digets</source>
+        <target>7 цифр</target>
+      </trans-unit>
+      <trans-unit id="fieldOneTimePasswordLabel" datatype="html">
+        <source>one time password</source>
+        <target>одноразовый пароль</target>
+      </trans-unit>
       <trans-unit id="buttonAbout" datatype="html">
         <source>How it works?</source>
         <target>Как это работает?</target>

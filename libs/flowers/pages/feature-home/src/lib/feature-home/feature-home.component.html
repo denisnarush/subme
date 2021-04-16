@@ -31,6 +31,64 @@
     footer--item-center
     class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
     i18n="@@buttonGetIn"
+    (click)="authmodal.toggle()"
     >Get In</span
   >
 </footer>
+
+<div s-ui-modal #authmodal class="modal">
+  <ng-container *ngIf="authmodal.isActive()">
+    <div
+      s-ui-tabs
+      #authtabs
+      class="tabs"
+      [tabs]="[{ name: 'Log In' }, { name: 'Sign In' }]"
+      [selected]="authtabs.tabs[0]"
+    ></div>
+
+    <ng-container *ngIf="authtabs.selected === authtabs.tabs[0]">
+      <div
+        s-ui-field-email
+        i18n-data-placeholder="@@fieldEmailPlaceholder"
+        i18n-data-label="@@fieldEmailLabel"
+        data-placeholder="johnny.silverhand@mail.com"
+        data-label="email"
+        [name]="'email'"
+      ></div>
+      <div
+        s-ui-field-password
+        i18n-data-placeholder="@@fieldOneTimePasswordPlaceholder"
+        i18n-data-label="@@fieldOneTimePasswordLabel"
+        data-placeholder="7 digets"
+        data-label="one time password"
+      ></div>
+    </ng-container>
+
+    <ng-container *ngIf="authtabs.selected === authtabs.tabs[1]">
+      <div
+        s-ui-field-email
+        i18n-data-placeholder="@@fieldEmailPlaceholder"
+        i18n-data-label="@@fieldEmailLabel"
+        data-placeholder="johnny.silverhand@mail.com"
+        data-label="email"
+        [name]="'email'"
+      ></div>
+      <div
+        s-ui-field-text
+        i18n-data-placeholder="@@fieldUsernamePlaceholder"
+        i18n-data-label="@@fieldUsernameLabel"
+        data-placeholder="Johnny Silverhand"
+        data-label="username"
+        [name]="'username'"
+      ></div
+    ></ng-container>
+  </ng-container>
+  <ng-container modal--footer>
+    <p
+      class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
+      (click)="authmodal.toggle()"
+    >
+      ok
+    </p>
+  </ng-container>
+</div>
