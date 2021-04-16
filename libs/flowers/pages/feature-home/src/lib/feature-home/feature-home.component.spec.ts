@@ -1,5 +1,6 @@
 import '@angular/localize/init';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UiModule } from '@s/ui';
 
 import { FeatureHomeComponent } from './feature-home.component';
 
@@ -9,9 +10,9 @@ describe('FeatureHomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeatureHomeComponent ]
-    })
-    .compileComponents();
+      imports: [UiModule],
+      declarations: [FeatureHomeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
