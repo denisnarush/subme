@@ -38,15 +38,24 @@
 
 <div s-ui-modal #authmodal class="modal">
   <ng-container *ngIf="authmodal.isActive()">
-    <div
-      s-ui-tabs
-      #authtabs
-      class="tabs"
-      [tabs]="[{ name: 'Log In' }, { name: 'Sign In' }]"
-      [selected]="authtabs.tabs[0]"
-    ></div>
+    <div s-ui-tabs #authtabs class="tabs" [selected]="0">
+      <span
+        class="link txt txt_f_main-regular txt_s_2"
+        [ngClass]="authtabs.selected === 0 ? 'txt_c_gray-1' : 'txt_c_gray-3'"
+        i18n="@@buttonLogIn"
+        (click)="authtabs.setTab(0)"
+        >Log In</span
+      >
+      <span
+        class="link txt txt_f_main-regular txt_s_2"
+        [ngClass]="authtabs.selected === 1 ? 'txt_c_gray-1' : 'txt_c_gray-3'"
+        (click)="authtabs.setTab(1)"
+        i18n="@@buttonSignIn"
+        >Sign In</span
+      >
+    </div>
 
-    <ng-container *ngIf="authtabs.selected === authtabs.tabs[0]">
+    <ng-container *ngIf="authtabs.selected === 0">
       <div
         s-ui-field-email
         i18n-data-placeholder="@@fieldEmailPlaceholder"
@@ -64,7 +73,7 @@
       ></div>
     </ng-container>
 
-    <ng-container *ngIf="authtabs.selected === authtabs.tabs[1]">
+    <ng-container *ngIf="authtabs.selected === 1">
       <div
         s-ui-field-email
         i18n-data-placeholder="@@fieldEmailPlaceholder"

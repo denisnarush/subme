@@ -1,13 +1,8 @@
 import { EventEmitter } from '@angular/core';
 
 export interface IUiTabs {
-  tabs: TTab[];
-  selected: TTab;
-  selectedChange: EventEmitter<TTab>;
+  selected: number;
+  selectedChange: EventEmitter<number>;
 
-  setTab(tab: TTab): void;
+  setTab(tab: number): void;
 }
-
-export type TTab = {
-  name: string;
-};
