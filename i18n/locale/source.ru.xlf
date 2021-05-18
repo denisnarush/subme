@@ -34,6 +34,14 @@
         <source>Get In</source>
         <target>Войти</target>
       </trans-unit>
+      <trans-unit id="buttonLogIn" datatype="html">
+        <source>Log In</source>
+        <target>Войти</target>
+      </trans-unit>
+      <trans-unit id="buttonSignIn" datatype="html">
+        <source>Sign In</source>
+        <target>Зарегистрироваться</target>
+      </trans-unit>
       <trans-unit id="mainTitle" datatype="html">
         <source>Subscribe Me</source>
         <target>Подписать меня</target>
