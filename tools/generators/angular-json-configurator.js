@@ -513,6 +513,10 @@ const COMPONENT_STRUCTURE = (component) => {
     folder: 'ui/ui-tabs',
   },
   {
+    title: 'ui-ui-tab',
+    folder: 'ui/ui-tab',
+  },
+  {
     title: 'ui-ui-fieldset',
     folder: 'ui/ui-fieldset',
   },

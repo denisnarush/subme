@@ -7,5 +7,6 @@
   "prettier.endOfLine": "crlf",
   "todo-tree.filtering.excludeGlobs": ["node_modules"],
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "terminal.integrated.rendererType": "dom"
+  "terminal.integrated.rendererType": "dom",
+  "workbench.editor.showTabs": false
 }

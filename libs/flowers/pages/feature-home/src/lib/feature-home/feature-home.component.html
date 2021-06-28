@@ -27,35 +27,40 @@
 </main>
 
 <footer s-ui-footer class="footer">
-  <span
+  <button
     footer--item-center
-    class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
+    type="button"
+    class="button"
     i18n="@@buttonGetIn"
-    (click)="authmodal.toggle()"
-    >Get In</span
+    (click)="auth__modal.toggle()"
   >
+    Get In
+  </button>
 </footer>
 
-<div s-ui-modal #authmodal class="modal">
-  <ng-container *ngIf="authmodal.isActive()">
-    <div s-ui-tabs #authtabs class="tabs" [selected]="0">
+<div s-ui-modal #auth__modal class="modal">
+  <ng-container *ngIf="auth__modal.isActive()">
+    <div s-ui-tabs #auth__tabs class="tabs" [selected]="0">
       <span
-        class="link txt txt_f_main-regular txt_s_2"
-        [ngClass]="authtabs.selected === 0 ? 'txt_c_gray-1' : 'txt_c_gray-3'"
+        s-ui-tab
+        class="tabs__item"
+        (onSelected)="auth__tabs.setTab($event)"
+        [isSelected]="auth__tabs.selected === 0"
         i18n="@@buttonLogIn"
-        (click)="authtabs.setTab(0)"
         >Log In</span
       >
-      <span
-        class="link txt txt_f_main-regular txt_s_2"
-        [ngClass]="authtabs.selected === 1 ? 'txt_c_gray-1' : 'txt_c_gray-3'"
-        (click)="authtabs.setTab(1)"
+      <div
+        s-ui-tab
+        class="tabs__item"
+        (onSelected)="auth__tabs.setTab($event)"
+        [isSelected]="auth__tabs.selected === 1"
         i18n="@@buttonSignIn"
-        >Sign In</span
       >
+        Sign In
+      </div>
     </div>
 
-    <ng-container *ngIf="authtabs.selected === 0">
+    <ng-container *ngIf="auth__tabs.selected === 0">
       <div
         s-ui-field-email
         i18n-data-placeholder="@@fieldEmailPlaceholder"
@@ -73,7 +78,7 @@
       ></div>
     </ng-container>
 
-    <ng-container *ngIf="authtabs.selected === 1">
+    <ng-container *ngIf="auth__tabs.selected === 1">
       <div
         s-ui-field-email
         i18n-data-placeholder="@@fieldEmailPlaceholder"
@@ -93,11 +98,13 @@
     ></ng-container>
   </ng-container>
   <ng-container modal--footer>
-    <p
-      class="link txt txt_f_main-regular txt_s_3 txt_c_gray-1"
-      (click)="authmodal.toggle()"
+    <button
+      type="button"
+      class="button"
+      (click)="auth__modal.toggle()"
+      i18n="@@buttonOK"
     >
       ok
-    </p>
+    </button>
   </ng-container>
 </div>
