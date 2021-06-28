@@ -1,4 +1,4 @@
-<div *ngIf="isActive()" class="modal__inner">
+<div *ngIf="isActive()" class="modal__inner" role="dialog" aria-modal="true">
   <header s-ui-header class="header">
     <ng-content header--item-left select="[modal--header--left]"></ng-content>
     <ng-content header--item-center select="[modal--header]"></ng-content>

@@ -20,6 +20,7 @@ module.exports = {
     '<rootDir>/libs/ui/ui-modal',
     '<rootDir>/libs/ui/ui-slider',
     '<rootDir>/libs/ui/ui-tabs',
+    '<rootDir>/libs/ui/ui-tab',
     '<rootDir>/libs/ui/ui-fieldset',
   ],
 };
