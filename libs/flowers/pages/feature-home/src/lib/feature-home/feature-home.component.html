@@ -44,7 +44,7 @@
       <span
         s-ui-tab
         class="tabs__item"
-        (onSelected)="auth__tabs.setTab($event)"
+        (activate)="auth__tabs.setTab($event)"
         [isSelected]="auth__tabs.selected === 0"
         i18n="@@buttonLogIn"
         >Log In</span
@@ -52,7 +52,7 @@
       <div
         s-ui-tab
         class="tabs__item"
-        (onSelected)="auth__tabs.setTab($event)"
+        (activate)="auth__tabs.setTab($event)"
         [isSelected]="auth__tabs.selected === 1"
         i18n="@@buttonSignIn"
       >
