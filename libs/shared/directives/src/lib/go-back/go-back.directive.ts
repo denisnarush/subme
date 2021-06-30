@@ -2,9 +2,9 @@ import { Directive, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Directive({
-  selector: '[sUtilGoBack]',
+  selector: '[d-go-back]',
 })
-export class UtilGoBackDirective {
+export class GoBackDirective {
   @HostListener('click') onMouseEnter() {
     this.location.back();
   }

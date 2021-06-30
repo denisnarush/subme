@@ -16,15 +16,15 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "s",
-            "style": "camelCase"
+            "prefix": "d",
+            "style": "kebab-case"
           }
         ],
         "@angular-eslint/component-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "s",
+            "prefix": "d",
             "style": "kebab-case"
           }
         ]

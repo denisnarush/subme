@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UtilGoBackDirective } from './util-go-back/util-go-back.directive';
+import { GoBackDirective } from './go-back/go-back.directive';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [UtilGoBackDirective],
-  exports: [UtilGoBackDirective],
+  declarations: [GoBackDirective],
+  exports: [GoBackDirective],
 })
 export class DirectivesModule {}
