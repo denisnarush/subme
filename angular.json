@@ -74,18 +74,19 @@
                   "with": "apps/flowers/src/environments/environment.prod.ts"
                 }
               ]
-            }
+            },
+            "development": {}
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "flowers:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "flowers:build:production"
+            },
+            "development": {
+              "browserTarget": "flowers:build:development"
             }
           },
           "defaultConfiguration": "development"
