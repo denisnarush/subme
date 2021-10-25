@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@s/theme": ["libs/theme/src/index.ts"],
       "@s/flowers/pages/feature-about": [
         "libs/flowers/pages/feature-about/src/index.ts"
       ],
@@ -44,15 +43,16 @@
       "@s/shared/pages/feature-not-found": [
         "libs/shared/pages/feature-not-found/src/index.ts"
       ],
+      "@s/theme": ["libs/theme/src/index.ts"],
       "@s/ui": ["libs/ui/src/index.ts"],
-      "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
       "@s/ui/ui-content": ["libs/ui/ui-content/src/index.ts"],
+      "@s/ui/ui-fieldset": ["libs/ui/ui-fieldset/src/index.ts"],
       "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"],
+      "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
       "@s/ui/ui-modal": ["libs/ui/ui-modal/src/index.ts"],
       "@s/ui/ui-slider": ["libs/ui/ui-slider/src/index.ts"],
-      "@s/ui/ui-tabs": ["libs/ui/ui-tabs/src/index.ts"],
       "@s/ui/ui-tab": ["libs/ui/ui-tab/src/index.ts"],
-      "@s/ui/ui-fieldset": ["libs/ui/ui-fieldset/src/index.ts"]
+      "@s/ui/ui-tabs": ["libs/ui/ui-tabs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
