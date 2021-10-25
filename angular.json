@@ -180,7 +180,8 @@
                   "with": "apps/api/src/environments/environment.prod.ts"
                 }
               ]
-            }
+            },
+            "development": {}
           }
         },
         "serve": {

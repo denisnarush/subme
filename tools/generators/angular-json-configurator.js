@@ -29,7 +29,7 @@ const PROJECT_BUILD = (project) => {
     builder = '@angular-devkit/build-angular:browser',
     outputs,
     configurations = {},
-    defaultConfiguration = 'production',
+    defaultConfiguration = 'development',
   } = build;
 
   let { options = {} } = build;
@@ -131,6 +131,7 @@ const PROJECT_BUILD = (project) => {
         inspect: inspect,
         fileReplacements: fileReplacements,
       },
+      development: {},
     },
     defaultConfiguration:
       defaultConfiguration !== null ? defaultConfiguration : undefined,
@@ -145,22 +146,21 @@ const PROJECT_SERVE = (project) => {
   const { title: projectName, serve = {} } = project;
   const {
     builder = '@angular-devkit/build-angular:dev-server',
-    options = {},
+    options,
     configurations = {
       production: {
         browserTarget: `${projectName}:build:production`,
       },
+      development: {
+        browserTarget: `${projectName}:build:development`,
+      },
     },
     defaultConfiguration = 'development',
   } = serve;
-  const { buildTarget, browserTarget = `${projectName}:build` } = options;
 
   return {
     builder: builder,
-    options: {
-      buildTarget: buildTarget,
-      browserTarget: browserTarget || undefined,
-    },
+    options: options || undefined,
     // SERVE CONFIGURATIONS
     configurations: configurations || undefined,
     defaultConfiguration:
@@ -396,7 +396,6 @@ const COMPONENT_STRUCTURE = (component) => {
       builder: '@nrwl/node:execute',
       options: {
         buildTarget: 'api:build',
-        browserTarget: null,
       },
       configurations: null,
       defaultConfiguration: null,
