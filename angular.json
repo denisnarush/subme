@@ -205,7 +205,6 @@
       },
       "tags": []
     },
-
     "theme": {
       "projectType": "library",
       "root": "libs/theme",
