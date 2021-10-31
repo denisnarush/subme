@@ -63,7 +63,7 @@
           },
           "configurations": {
             "production": {
-              "localize": true,
+              "localize": ["en"],
               "extractLicenses": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -75,7 +75,9 @@
                 }
               ]
             },
-            "development": {}
+            "development": {
+              "localize": ["en"]
+            }
           },
           "defaultConfiguration": "development"
         },

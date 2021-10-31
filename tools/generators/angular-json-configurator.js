@@ -64,10 +64,20 @@ const PROJECT_BUILD = (project) => {
     scripts = [],
   } = options;
 
-  let { production = {} } = configurations;
+  let { production = {}, development = {} } = configurations;
   production = {
-    ...{ extractLicenses: true, sourceMap: false, namedChunks: false },
+    ...{
+      localize: ['en'],
+      extractLicenses: true,
+      sourceMap: false,
+      namedChunks: false,
+    },
     ...production,
+  };
+
+  development = {
+    ...{ localize: ['en'] },
+    ...development,
   };
 
   const {
@@ -118,7 +128,8 @@ const PROJECT_BUILD = (project) => {
     // BUILD CONFIGURATIONS
     configurations: {
       production: {
-        localize: i18n !== null ? true : undefined,
+        localize:
+          development.localize !== null ? development.localize : undefined,
         extractLicenses:
           production.extractLicenses !== null
             ? production.extractLicenses
@@ -131,7 +142,10 @@ const PROJECT_BUILD = (project) => {
         inspect: inspect,
         fileReplacements: fileReplacements,
       },
-      development: {},
+      development: {
+        localize:
+          development.localize !== null ? development.localize : undefined,
+      },
     },
     defaultConfiguration:
       defaultConfiguration !== null ? defaultConfiguration : undefined,
@@ -388,6 +402,9 @@ const COMPONENT_STRUCTURE = (component) => {
           namedChunks: null,
           vendorChunk: null,
           inspect: false,
+        },
+        development: {
+          localize: null,
         },
       },
       defaultConfiguration: null,
