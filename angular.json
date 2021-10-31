@@ -25,7 +25,7 @@
             "main": "apps/flowers/src/main.ts",
             "polyfills": "apps/flowers/src/polyfills.ts",
             "tsConfig": "apps/flowers/tsconfig.app.json",
-            "localize": ["en"],
+            "localize": ["en", "ru"],
             "aot": true,
             "buildOptimizer": true,
             "optimization": true,

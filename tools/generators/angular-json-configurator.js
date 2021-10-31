@@ -92,7 +92,7 @@ const PROJECT_BUILD = (project) => {
       main: `apps/${projectName}/src/main.ts`,
       polyfills: polyfills || undefined,
       tsConfig: `apps/${projectName}/tsconfig.app.json`,
-      localize: i18n !== null ? ['en'] : undefined,
+      localize: i18n !== null ? ['en', ...i18n.locales] : undefined,
       aot: aot || undefined,
       buildOptimizer: buildOptimizer || undefined,
       optimization: optimization !== null ? optimization : undefined,
