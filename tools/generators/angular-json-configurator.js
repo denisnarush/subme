@@ -5,70 +5,6 @@ const ANGULAR_JSON = {
   version: 1,
   // HERE COMES ALL PROJECTS, GROUPS, COMPONNETS and etc.
   projects: {},
-  cli: {
-    defaultCollection: '@nrwl/angular',
-  },
-  schematics: {
-    '@nrwl/angular': {
-      application: {
-        linter: 'eslint',
-      },
-      library: {
-        linter: 'eslint',
-      },
-      'storybook-configuration': {
-        linter: 'eslint',
-      },
-    },
-    '@nrwl/workspace': {
-      library: {
-        linter: 'tslint',
-      },
-    },
-    '@nrwl/cypress': {
-      'cypress-project': {
-        linter: 'tslint',
-      },
-    },
-    '@nrwl/node': {
-      application: {
-        linter: 'tslint',
-      },
-      library: {
-        linter: 'tslint',
-      },
-    },
-    '@nrwl/nest': {
-      application: {
-        linter: 'tslint',
-      },
-      library: {
-        linter: 'tslint',
-      },
-    },
-    '@nrwl/express': {
-      application: {
-        linter: 'tslint',
-      },
-      library: {
-        linter: 'tslint',
-      },
-    },
-    '@nrwl/angular:application': {
-      style: 'less',
-      linter: 'eslint',
-      unitTestRunner: 'jest',
-      e2eTestRunner: 'cypress',
-    },
-    '@nrwl/angular:library': {
-      style: 'less',
-      linter: 'eslint',
-      unitTestRunner: 'jest',
-    },
-    '@nrwl/angular:component': {
-      style: 'less',
-    },
-  },
 };
 const PREFIX = 's';
 
@@ -92,9 +28,20 @@ const PROJECT_BUILD = (project) => {
   const {
     builder = '@angular-devkit/build-angular:browser',
     outputs,
-    options = {},
     configurations = {},
+    defaultConfiguration = 'development',
   } = build;
+
+  let { options = {} } = build;
+  options = {
+    ...{
+      vendorChunk: true,
+      extractLicenses: false,
+      sourceMap: true,
+      namedChunks: true,
+    },
+    ...options,
+  };
 
   const {
     index = `apps/${projectName}/src/index.html`,
@@ -117,14 +64,14 @@ const PROJECT_BUILD = (project) => {
     scripts = [],
   } = options;
 
-  const { production = {} } = configurations;
+  let { production = {} } = configurations;
+  production = {
+    ...{ extractLicenses: true, sourceMap: false, namedChunks: false },
+    ...production,
+  };
 
   const {
-    extractLicenses = true,
     outputHashing = 'all',
-    sourceMap = false,
-    namedChunks = false,
-    vendorChunk = true,
     inspect,
     fileReplacements = [
       {
@@ -145,7 +92,7 @@ const PROJECT_BUILD = (project) => {
       main: `apps/${projectName}/src/main.ts`,
       polyfills: polyfills || undefined,
       tsConfig: `apps/${projectName}/tsconfig.app.json`,
-      localize: i18n !== null ? ['en'] : undefined,
+      localize: i18n !== null ? ['en', ...i18n.locales] : undefined,
       aot: aot || undefined,
       buildOptimizer: buildOptimizer || undefined,
       optimization: optimization !== null ? optimization : undefined,
@@ -160,20 +107,34 @@ const PROJECT_BUILD = (project) => {
       stylePreprocessorOptions: stylePreprocessorOptions || undefined,
       styles: styles || undefined,
       scripts: scripts || undefined,
+      vendorChunk:
+        options.vendorChunk !== null ? options.vendorChunk : undefined,
+      extractLicenses:
+        options.extractLicenses !== null ? options.extractLicenses : undefined,
+      sourceMap: options.sourceMap !== null ? options.sourceMap : undefined,
+      namedChunks:
+        options.namedChunks !== null ? options.namedChunks : undefined,
     },
     // BUILD CONFIGURATIONS
     configurations: {
       production: {
         localize: i18n !== null ? true : undefined,
-        extractLicenses: extractLicenses,
+        extractLicenses:
+          production.extractLicenses !== null
+            ? production.extractLicenses
+            : undefined,
         outputHashing: outputHashing !== null ? outputHashing : undefined,
-        sourceMap: sourceMap !== null ? sourceMap : undefined,
-        namedChunks: namedChunks !== null ? namedChunks : undefined,
-        vendorChunk: vendorChunk !== null ? vendorChunk : undefined,
+        sourceMap:
+          production.sourceMap !== null ? production.sourceMap : undefined,
+        namedChunks:
+          production.namedChunks !== null ? production.namedChunks : undefined,
         inspect: inspect,
         fileReplacements: fileReplacements,
       },
+      development: {},
     },
+    defaultConfiguration:
+      defaultConfiguration !== null ? defaultConfiguration : undefined,
   };
 };
 
@@ -185,23 +146,25 @@ const PROJECT_SERVE = (project) => {
   const { title: projectName, serve = {} } = project;
   const {
     builder = '@angular-devkit/build-angular:dev-server',
-    options = {},
+    options,
     configurations = {
       production: {
         browserTarget: `${projectName}:build:production`,
       },
+      development: {
+        browserTarget: `${projectName}:build:development`,
+      },
     },
+    defaultConfiguration = 'development',
   } = serve;
-  const { buildTarget, browserTarget = `${projectName}:build` } = options;
 
   return {
     builder: builder,
-    options: {
-      buildTarget: buildTarget,
-      browserTarget: browserTarget || undefined,
-    },
+    options: options || undefined,
     // SERVE CONFIGURATIONS
     configurations: configurations || undefined,
+    defaultConfiguration:
+      defaultConfiguration !== null ? defaultConfiguration : undefined,
   };
 };
 
@@ -313,7 +276,7 @@ const PROJECT_TEST = (project) => {
 };
 
 const PROJECT_STRUCTURE = (project) => {
-  const { title: projectName, prefix = PREFIX } = project;
+  const { title: projectName, prefix = PREFIX, implicitDependencies } = project;
 
   ANGULAR_JSON.projects[projectName] = {
     projectType: 'application',
@@ -329,6 +292,8 @@ const PROJECT_STRUCTURE = (project) => {
       lint: PROJECT_LINT(project),
       test: PROJECT_TEST(project),
     },
+    tags: [],
+    implicitDependencies: implicitDependencies || undefined,
   };
 };
 
@@ -341,6 +306,7 @@ const GROUP_STRUCTURE = (group) => {
     sourceRoot: `libs/${projectName}/src`,
     prefix: prefix || undefined,
     architect: {},
+    tags: [],
   };
 };
 
@@ -370,6 +336,7 @@ const COMPONENT_STRUCTURE = (component) => {
         },
       },
     },
+    tags: [],
   };
 };
 
@@ -392,6 +359,7 @@ const COMPONENT_STRUCTURE = (component) => {
     stylePreprocessorOptions: null,
     e2e: { target: 'flowers' },
     lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
+    implicitDependencies: ['flowers'],
   },
   {
     title: 'api',
@@ -408,6 +376,10 @@ const COMPONENT_STRUCTURE = (component) => {
         buildOptimizer: null,
         budgets: null,
         scripts: null,
+        vendorChunk: null,
+        extractLicenses: null,
+        sourceMap: null,
+        namedChunks: null,
       },
       configurations: {
         production: {
@@ -418,14 +390,15 @@ const COMPONENT_STRUCTURE = (component) => {
           inspect: false,
         },
       },
+      defaultConfiguration: null,
     },
     serve: {
       builder: '@nrwl/node:execute',
       options: {
         buildTarget: 'api:build',
-        browserTarget: null,
       },
       configurations: null,
+      defaultConfiguration: null,
     },
     lint: {
       options: {

@@ -19,83 +19,87 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "NDBhZTZkYmEtM2QxYi00NzliLTk3NTUtNjJhNjQxNTg1MzlhfHJlYWQtd3JpdGU=",
-        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
     }
   },
-  "projects": {
-    "flowers-e2e": {
-      "tags": [],
-      "implicitDependencies": ["flowers"]
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "flowers": {
-      "tags": [],
-      "implicitDependencies": ["theme"]
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
     },
-    "flowers-pages-feature-about": {
-      "tags": []
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
     },
-    "flowers-pages-feature-dashboard": {
-      "tags": []
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
     },
-    "flowers-pages-feature-delivery-confirmed": {
-      "tags": []
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
     },
-    "flowers-pages-feature-delivery-reschedule-confirmed": {
-      "tags": []
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
     },
-    "flowers-pages-feature-home": {
-      "tags": []
+    "@nrwl/angular:application": {
+      "style": "less",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "flowers-pages-feature-order": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "style": "less",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "flowers-pages-feature-payment-confirmed": {
-      "tags": []
-    },
-    "api": {
-      "tags": []
-    },
-    "theme": {
-      "tags": []
-    },
-    "shared-directives": {
-      "tags": []
-    },
-    "shared-pages-feature-confirmed": {
-      "tags": []
-    },
-    "shared-pages-feature-not-found": {
-      "tags": []
-    },
-    "ui": {
-      "tags": []
-    },
-    "ui-ui-header": {
-      "tags": []
-    },
-    "ui-ui-content": {
-      "tags": []
-    },
-    "ui-ui-footer": {
-      "tags": []
-    },
-    "ui-ui-modal": {
-      "tags": []
-    },
-    "ui-ui-slider": {
-      "tags": []
-    },
-    "ui-ui-tabs": {
-      "tags": []
-    },
-    "ui-ui-tab": {
-      "tags": []
-    },
-    "ui-ui-fieldset": {
-      "tags": []
+    "@nrwl/angular:component": {
+      "style": "less"
     }
   }
 }
