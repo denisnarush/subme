@@ -289,6 +289,48 @@ const PROJECT_TEST = (project) => {
   };
 };
 
+const PROJECT_STORYBOOK = (project) => {
+  if (!project.storybook) {
+    return undefined;
+  }
+
+  const { title: projectName, storybook } = project;
+
+  return {
+    storybook: {
+      builder: '@nrwl/storybook:storybook',
+      options: {
+        uiFramework: '@storybook/angular',
+        port: 4400,
+        config: {
+          configFolder: `${storybook.folder}/${projectName}/.storybook`,
+        },
+      },
+      configurations: {
+        ci: {
+          quiet: true,
+        },
+      },
+    },
+    'build-storybook': {
+      builder: '@nrwl/storybook:build',
+      outputs: ['{options.outputPath}'],
+      options: {
+        uiFramework: '@storybook/angular',
+        outputPath: `dist/storybook/${projectName}`,
+        config: {
+          configFolder: `${storybook.folder}/${projectName}/.storybook`,
+        },
+      },
+      configurations: {
+        ci: {
+          quiet: true,
+        },
+      },
+    },
+  };
+};
+
 const PROJECT_STRUCTURE = (project) => {
   const { title: projectName, prefix = PREFIX, implicitDependencies } = project;
 
@@ -296,7 +338,7 @@ const PROJECT_STRUCTURE = (project) => {
     projectType: 'application',
     root: `apps/${projectName}`,
     sourceRoot: `apps/${projectName}/src`,
-    prefix: prefix || undefined,
+    prefix: prefix !== null ? prefix : undefined,
     i18n: PROJECT_I18N(project),
     architect: {
       build: PROJECT_BUILD(project),
@@ -318,8 +360,15 @@ const GROUP_STRUCTURE = (group) => {
     projectType: 'library',
     root: `libs/${projectName}`,
     sourceRoot: `libs/${projectName}/src`,
-    prefix: prefix || undefined,
-    architect: {},
+    prefix: prefix,
+    architect: {
+      storybook: PROJECT_STORYBOOK(group)
+        ? PROJECT_STORYBOOK(group).storybook
+        : undefined,
+      'build-storybook': PROJECT_STORYBOOK(group)
+        ? PROJECT_STORYBOOK(group)['build-storybook']
+        : undefined,
+    },
     tags: [],
   };
 };
@@ -331,7 +380,7 @@ const COMPONENT_STRUCTURE = (component) => {
     projectType: 'library',
     root: `libs/${root}`,
     sourceRoot: `libs/${root}/src`,
-    prefix: prefix || undefined,
+    prefix: prefix,
     architect: {
       lint: {
         builder: '@nrwl/linter:eslint',
@@ -433,6 +482,9 @@ const COMPONENT_STRUCTURE = (component) => {
   },
   {
     title: 'ui',
+    storybook: {
+      folder: 'libs',
+    },
   },
 ].forEach(GROUP_STRUCTURE);
 

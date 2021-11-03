@@ -40,24 +40,9 @@
 
 <div s-ui-modal #auth__modal class="modal">
   <ng-container *ngIf="auth__modal.isActive()">
-    <div s-ui-tabs #auth__tabs class="tabs" [selected]="0">
-      <span
-        s-ui-tab
-        class="tabs__item"
-        (activate)="auth__tabs.setTab($event)"
-        [isSelected]="auth__tabs.selected === 0"
-        i18n="@@buttonLogIn"
-        >Log In</span
-      >
-      <div
-        s-ui-tab
-        class="tabs__item"
-        (activate)="auth__tabs.setTab($event)"
-        [isSelected]="auth__tabs.selected === 1"
-        i18n="@@buttonSignIn"
-      >
-        Sign In
-      </div>
+    <div s-ui-tabs #auth__tabs>
+      <span s-ui-tab [ref]="auth__tabs" i18n="@@buttonLogIn">Log In</span>
+      <span s-ui-tab [ref]="auth__tabs" i18n="@@buttonSignIn">Sign In</span>
     </div>
 
     <ng-container *ngIf="auth__tabs.selected === 0">
@@ -75,6 +60,7 @@
         i18n-data-label="@@fieldOneTimePasswordLabel"
         data-placeholder="7 digits"
         data-label="one time password"
+        [name]="'password'"
       ></div>
     </ng-container>
 

@@ -12,9 +12,10 @@ import { IUiTabs } from '../ui-tabs.interface';
   templateUrl: './ui-tabs.component.html',
   styleUrls: ['./ui-tabs.component.less'],
   encapsulation: ViewEncapsulation.None,
+  host: { class: 'tabs' },
 })
 export class UiTabsComponent implements IUiTabs {
-  @Input() selected: number;
+  @Input() selected: number = 0;
   @Output() selectedChange: EventEmitter<number> = new EventEmitter<number>();
 
   setTab(tab: number) {

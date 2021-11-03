@@ -51,15 +51,15 @@
         <target>Войти</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buttonSignIn" datatype="html">
-        <source> Sign In </source>
+        <source>Sign In</source>
         <target> Зарегистрироваться </target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">59,60</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fieldEmailPlaceholder" datatype="html">
@@ -67,11 +67,11 @@
         <target>johnny.silverhand@mail.com</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">53</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">86</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fieldEmailLabel" datatype="html">
@@ -79,11 +79,11 @@
         <target>email</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">54</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fieldOneTimePasswordPlaceholder" datatype="html">
@@ -91,7 +91,7 @@
         <target>7 цифр</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fieldOneTimePasswordLabel" datatype="html">
@@ -99,7 +99,7 @@
         <target>одноразовый пароль</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fieldUsernamePlaceholder" datatype="html">
@@ -107,7 +107,7 @@
         <target>Джонни Силверхенд</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">94</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fieldUsernameLabel" datatype="html">
@@ -115,7 +115,7 @@
         <target>имя пользователя</target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="buttonOK" datatype="html">
@@ -123,7 +123,7 @@
         <target> ок </target>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/flowers/pages/feature-home/src/lib/feature-home/feature-home.component.html</context>
-          <context context-type="linenumber">107,108</context>
+          <context context-type="linenumber">92,93</context>
         </context-group>
       </trans-unit>
     </body>
