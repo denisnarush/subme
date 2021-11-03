@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npm run test
+      - run: npx nx test flowers
