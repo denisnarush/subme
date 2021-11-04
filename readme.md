@@ -10,10 +10,10 @@ Very important description!
 
 ## Technologies & Tools/Libs/Frameworks
 
-- PostgreSQL 13.1
 - Typescript
 - Angular, NestJS
-- Prisma, Akita
+- Prisma
+- Storybook
 - Less
 - Jest
 - Nx
