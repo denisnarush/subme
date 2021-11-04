@@ -21,5 +21,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      # Heap of memory by runingn `npx nx lint` #65
-      - run: npx nx lint flowers
+      - run: npx nx affected:lint
