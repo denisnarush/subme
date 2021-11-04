@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npx nx affected:lint
+      - run: npx nx lint flowers
