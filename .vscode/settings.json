@@ -2,11 +2,15 @@
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "prettier.printWidth": 140,
+  "prettier.printWidth": 90,
+  "prettier.bracketSpacing": true,
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
   "npm.runInTerminal": true,
   "prettier.endOfLine": "crlf",
   "todo-tree.filtering.excludeGlobs": ["node_modules"],
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "terminal.integrated.rendererType": "dom",
   "workbench.editor.showTabs": false
 }

@@ -20,9 +20,9 @@ export default {
 } as Meta<UiTabsComponent>;
 
 const code = `
-<div s-ui-tabs #auth__tabs>
-  <span s-ui-tab [ref]="auth__tabs">Log In</span>
-  <span s-ui-tab [ref]="auth__tabs">Sign In</span>
+<div class="s-ui-tabs" #auth__tabs>
+  <span class="s-ui-tab" [ref]="auth__tabs">Log In</span>
+  <span class="s-ui-tab" [ref]="auth__tabs">Sign In</span>
 </div>
 
 <ng-container *ngIf="auth__tabs.selected === 0">
@@ -68,8 +68,7 @@ Default.args = {};
 Default.parameters = {
   docs: {
     description: {
-      component:
-        'Tabs make it easy to explore and switch between different views.',
+      component: 'Tabs make it easy to explore and switch between different views.',
     },
     source: {
       code: code,

@@ -1,16 +1,21 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
-
-import { IUiTabs } from '@s/ui/ui-tabs';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
-  selector: '[s-ui-tab]',
+  selector: '.s-ui-tab',
   templateUrl: './ui-tab.component.html',
-  styleUrls: ['./ui-tab.component.less'],
   encapsulation: ViewEncapsulation.None,
-  host: { class: 'tabs__item' },
 })
 export class UiTabComponent {
-  @Input() ref: IUiTabs;
+  @HostBinding() class = 'tabs__item';
+
+  /* TODO: Find a way how to avoid using `ref` as @Input */
+  @Input() ref;
   @Input() isSelected = false;
 
   constructor(private elRef: ElementRef) {}

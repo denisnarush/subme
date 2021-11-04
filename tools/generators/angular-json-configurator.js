@@ -16,10 +16,7 @@ const PROJECT_BUILD = (project) => {
   const {
     title: projectName,
     stylePreprocessorOptions = {
-      includePaths: [
-        'libs/theme/src/lib/-mixins',
-        'libs/theme/src/lib/default',
-      ],
+      includePaths: ['libs/theme/src/lib/-mixins', 'libs/theme/src/lib/default'],
     },
     styles = ['libs/theme/src/lib/theme.styles.less'],
   } = project;
@@ -117,34 +114,26 @@ const PROJECT_BUILD = (project) => {
       stylePreprocessorOptions: stylePreprocessorOptions || undefined,
       styles: styles || undefined,
       scripts: scripts || undefined,
-      vendorChunk:
-        options.vendorChunk !== null ? options.vendorChunk : undefined,
+      vendorChunk: options.vendorChunk !== null ? options.vendorChunk : undefined,
       extractLicenses:
         options.extractLicenses !== null ? options.extractLicenses : undefined,
       sourceMap: options.sourceMap !== null ? options.sourceMap : undefined,
-      namedChunks:
-        options.namedChunks !== null ? options.namedChunks : undefined,
+      namedChunks: options.namedChunks !== null ? options.namedChunks : undefined,
     },
     // BUILD CONFIGURATIONS
     configurations: {
       production: {
-        localize:
-          development.localize !== null ? development.localize : undefined,
+        localize: development.localize !== null ? development.localize : undefined,
         extractLicenses:
-          production.extractLicenses !== null
-            ? production.extractLicenses
-            : undefined,
+          production.extractLicenses !== null ? production.extractLicenses : undefined,
         outputHashing: outputHashing !== null ? outputHashing : undefined,
-        sourceMap:
-          production.sourceMap !== null ? production.sourceMap : undefined,
-        namedChunks:
-          production.namedChunks !== null ? production.namedChunks : undefined,
+        sourceMap: production.sourceMap !== null ? production.sourceMap : undefined,
+        namedChunks: production.namedChunks !== null ? production.namedChunks : undefined,
         inspect: inspect,
         fileReplacements: fileReplacements,
       },
       development: {
-        localize:
-          development.localize !== null ? development.localize : undefined,
+        localize: development.localize !== null ? development.localize : undefined,
       },
     },
     defaultConfiguration:
@@ -385,10 +374,7 @@ const COMPONENT_STRUCTURE = (component) => {
       lint: {
         builder: '@nrwl/linter:eslint',
         options: {
-          lintFilePatterns: [
-            `libs/${root}/src/**/*.ts`,
-            `libs/${root}/src/**/*.html`,
-          ],
+          lintFilePatterns: [`libs/${root}/src/**/*.ts`, `libs/${root}/src/**/*.html`],
         },
       },
       test: {
@@ -405,25 +391,6 @@ const COMPONENT_STRUCTURE = (component) => {
 
 // PROJECTS
 [
-  {
-    title: 'flowers',
-    i18n: {
-      locales: ['ru'],
-    },
-  },
-  {
-    title: 'flowers-e2e',
-    prefix: null,
-    styles: null,
-    build: null,
-    serve: null,
-    i18n: null,
-    test: null,
-    stylePreprocessorOptions: null,
-    e2e: { target: 'flowers' },
-    lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
-    implicitDependencies: ['flowers'],
-  },
   {
     title: 'api',
     prefix: 'api',
@@ -472,6 +439,25 @@ const COMPONENT_STRUCTURE = (component) => {
       },
     },
     i18n: null,
+  },
+  {
+    title: 'flowers',
+    i18n: {
+      locales: ['ru'],
+    },
+  },
+  {
+    title: 'flowers-e2e',
+    prefix: null,
+    styles: null,
+    build: null,
+    serve: null,
+    i18n: null,
+    test: null,
+    stylePreprocessorOptions: null,
+    e2e: { target: 'flowers' },
+    lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
+    implicitDependencies: ['flowers'],
   },
 ].forEach(PROJECT_STRUCTURE);
 

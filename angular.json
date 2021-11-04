@@ -1,154 +1,6 @@
 {
   "version": 1,
   "projects": {
-    "flowers": {
-      "projectType": "application",
-      "root": "apps/flowers",
-      "sourceRoot": "apps/flowers/src",
-      "prefix": "s",
-      "i18n": {
-        "sourceLocale": "en",
-        "locales": {
-          "ru": {
-            "translation": "i18n/locale/source.ru.xlf",
-            "baseHref": "/ru/"
-          }
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/flowers",
-            "baseHref": "/",
-            "index": "apps/flowers/src/index.html",
-            "main": "apps/flowers/src/main.ts",
-            "polyfills": "apps/flowers/src/polyfills.ts",
-            "tsConfig": "apps/flowers/tsconfig.app.json",
-            "localize": ["en", "ru"],
-            "aot": true,
-            "buildOptimizer": true,
-            "optimization": true,
-            "budgets": [
-              {
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              },
-              {
-                "type": "anyComponentStyle",
-                "maximumWarning": "6kb",
-                "maximumError": "10kb"
-              }
-            ],
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "assets",
-                "output": "assets"
-              }
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "libs/theme/src/lib/-mixins",
-                "libs/theme/src/lib/default"
-              ]
-            },
-            "styles": ["libs/theme/src/lib/theme.styles.less"],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "sourceMap": true,
-            "namedChunks": true
-          },
-          "configurations": {
-            "production": {
-              "localize": ["en"],
-              "extractLicenses": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/flowers/src/environments/environment.ts",
-                  "with": "apps/flowers/src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "localize": ["en"]
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "flowers:build:production"
-            },
-            "development": {
-              "browserTarget": "flowers:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "flowers:build",
-            "outputPath": "i18n",
-            "outFile": "source.xlf"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/flowers/src/**/*.ts",
-              "apps/flowers/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/flowers/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/apps/flowers"]
-        }
-      },
-      "tags": []
-    },
-    "flowers-e2e": {
-      "projectType": "application",
-      "root": "apps/flowers-e2e",
-      "sourceRoot": "apps/flowers-e2e/src",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/flowers-e2e/cypress.json",
-            "tsConfig": "apps/flowers-e2e/tsconfig.e2e.json",
-            "devServerTarget": "flowers:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "flowers:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/flowers-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
     "api": {
       "projectType": "application",
       "root": "apps/api",
@@ -209,53 +61,147 @@
       },
       "tags": []
     },
-    "theme": {
-      "projectType": "library",
-      "root": "libs/theme",
-      "sourceRoot": "libs/theme/src",
+    "flowers": {
+      "projectType": "application",
+      "root": "apps/flowers",
+      "sourceRoot": "apps/flowers/src",
       "prefix": "s",
-      "architect": {},
-      "tags": []
-    },
-    "ui": {
-      "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
-      "prefix": "s",
-      "architect": {
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "libs/ui/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui",
-            "config": {
-              "configFolder": "libs/ui/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "ru": {
+            "translation": "i18n/locale/source.ru.xlf",
+            "baseHref": "/ru/"
           }
         }
       },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/flowers",
+            "baseHref": "/",
+            "index": "apps/flowers/src/index.html",
+            "main": "apps/flowers/src/main.ts",
+            "polyfills": "apps/flowers/src/polyfills.ts",
+            "tsConfig": "apps/flowers/tsconfig.app.json",
+            "localize": ["en", "ru"],
+            "aot": true,
+            "buildOptimizer": true,
+            "optimization": true,
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb",
+                "maximumError": "10kb"
+              }
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "assets"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/theme/src/lib/-mixins", "libs/theme/src/lib/default"]
+            },
+            "styles": ["libs/theme/src/lib/theme.styles.less"],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "sourceMap": true,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "localize": ["en"],
+              "extractLicenses": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flowers/src/environments/environment.ts",
+                  "with": "apps/flowers/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "localize": ["en"]
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "flowers:build:production"
+            },
+            "development": {
+              "browserTarget": "flowers:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "flowers:build",
+            "outputPath": "i18n",
+            "outFile": "source.xlf"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/flowers/src/**/*.ts", "apps/flowers/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/flowers/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/flowers"]
+        }
+      },
       "tags": []
+    },
+    "flowers-e2e": {
+      "projectType": "application",
+      "root": "apps/flowers-e2e",
+      "sourceRoot": "apps/flowers-e2e/src",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/flowers-e2e/cypress.json",
+            "tsConfig": "apps/flowers-e2e/tsconfig.e2e.json",
+            "devServerTarget": "flowers:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "flowers:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/flowers-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["flowers"]
     },
     "flowers-pages-feature-about": {
       "projectType": "library",
@@ -502,6 +448,54 @@
           "options": {
             "jestConfig": "libs/shared/pages/feature-not-found/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "theme": {
+      "projectType": "library",
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
+      "prefix": "s",
+      "architect": {},
+      "tags": []
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "s",
+      "architect": {
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui",
+            "config": {
+              "configFolder": "libs/ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       },
