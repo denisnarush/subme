@@ -392,6 +392,25 @@ const COMPONENT_STRUCTURE = (component) => {
 // PROJECTS
 [
   {
+    title: 'flowers',
+    i18n: {
+      locales: ['ru'],
+    },
+  },
+  {
+    title: 'flowers-e2e',
+    prefix: null,
+    styles: null,
+    build: null,
+    serve: null,
+    i18n: null,
+    test: null,
+    stylePreprocessorOptions: null,
+    e2e: { target: 'flowers' },
+    lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
+    implicitDependencies: ['flowers'],
+  },
+  {
     title: 'api',
     prefix: 'api',
     styles: null,
@@ -439,25 +458,6 @@ const COMPONENT_STRUCTURE = (component) => {
       },
     },
     i18n: null,
-  },
-  {
-    title: 'flowers',
-    i18n: {
-      locales: ['ru'],
-    },
-  },
-  {
-    title: 'flowers-e2e',
-    prefix: null,
-    styles: null,
-    build: null,
-    serve: null,
-    i18n: null,
-    test: null,
-    stylePreprocessorOptions: null,
-    e2e: { target: 'flowers' },
-    lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
-    implicitDependencies: ['flowers'],
   },
 ].forEach(PROJECT_STRUCTURE);
 
