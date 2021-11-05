@@ -40,7 +40,7 @@
       </trans-unit>
       <trans-unit id="fieldEmailLabel" datatype="html">
         <source>email</source>
-        <target>email2</target>
+        <target>email</target>
       </trans-unit>
       <trans-unit id="fieldOneTimePasswordPlaceholder" datatype="html">
         <source>7 digits</source>
