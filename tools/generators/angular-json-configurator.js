@@ -1,8 +1,8 @@
 const fs = require('fs');
-const prettier = require('prettier');
 
 const ANGULAR_JSON = {
   version: 1,
+  defaultProject: 'flowers',
   // HERE COMES ALL PROJECTS, GROUPS, COMPONNETS and etc.
   projects: {},
 };
@@ -553,10 +553,6 @@ const COMPONENT_STRUCTURE = (component) => {
   .forEach(COMPONENT_STRUCTURE);
 
 // PRINT
-fs.writeFileSync(
-  './angular.json',
-  prettier.format(JSON.stringify(ANGULAR_JSON), { parser: 'json-stringify' }),
-  'utf-8'
-);
+fs.writeFileSync('./angular.json', JSON.stringify(ANGULAR_JSON), 'utf-8');
 
 console.log('\x1b[32m%s\x1b[0m', 'Angular.json generated successfully.');

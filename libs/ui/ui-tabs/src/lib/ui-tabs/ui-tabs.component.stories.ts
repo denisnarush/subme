@@ -67,6 +67,7 @@ export const Default = Template.bind({});
 Default.args = {};
 Default.parameters = {
   docs: {
+    iframeHeight: '200px',
     description: {
       component: 'Tabs make it easy to explore and switch between different views.',
     },
