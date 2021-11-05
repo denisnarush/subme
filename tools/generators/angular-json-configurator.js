@@ -1,8 +1,8 @@
 const fs = require('fs');
-const prettier = require('prettier');
 
 const ANGULAR_JSON = {
   version: 1,
+  defaultProject: 'flowers',
   // HERE COMES ALL PROJECTS, GROUPS, COMPONNETS and etc.
   projects: {},
 };
@@ -16,10 +16,7 @@ const PROJECT_BUILD = (project) => {
   const {
     title: projectName,
     stylePreprocessorOptions = {
-      includePaths: [
-        'libs/theme/src/lib/-mixins',
-        'libs/theme/src/lib/default',
-      ],
+      includePaths: ['libs/theme/src/lib/-mixins', 'libs/theme/src/lib/default'],
     },
     styles = ['libs/theme/src/lib/theme.styles.less'],
   } = project;
@@ -117,34 +114,26 @@ const PROJECT_BUILD = (project) => {
       stylePreprocessorOptions: stylePreprocessorOptions || undefined,
       styles: styles || undefined,
       scripts: scripts || undefined,
-      vendorChunk:
-        options.vendorChunk !== null ? options.vendorChunk : undefined,
+      vendorChunk: options.vendorChunk !== null ? options.vendorChunk : undefined,
       extractLicenses:
         options.extractLicenses !== null ? options.extractLicenses : undefined,
       sourceMap: options.sourceMap !== null ? options.sourceMap : undefined,
-      namedChunks:
-        options.namedChunks !== null ? options.namedChunks : undefined,
+      namedChunks: options.namedChunks !== null ? options.namedChunks : undefined,
     },
     // BUILD CONFIGURATIONS
     configurations: {
       production: {
-        localize:
-          development.localize !== null ? development.localize : undefined,
+        localize: development.localize !== null ? development.localize : undefined,
         extractLicenses:
-          production.extractLicenses !== null
-            ? production.extractLicenses
-            : undefined,
+          production.extractLicenses !== null ? production.extractLicenses : undefined,
         outputHashing: outputHashing !== null ? outputHashing : undefined,
-        sourceMap:
-          production.sourceMap !== null ? production.sourceMap : undefined,
-        namedChunks:
-          production.namedChunks !== null ? production.namedChunks : undefined,
+        sourceMap: production.sourceMap !== null ? production.sourceMap : undefined,
+        namedChunks: production.namedChunks !== null ? production.namedChunks : undefined,
         inspect: inspect,
         fileReplacements: fileReplacements,
       },
       development: {
-        localize:
-          development.localize !== null ? development.localize : undefined,
+        localize: development.localize !== null ? development.localize : undefined,
       },
     },
     defaultConfiguration:
@@ -289,6 +278,48 @@ const PROJECT_TEST = (project) => {
   };
 };
 
+const PROJECT_STORYBOOK = (project) => {
+  if (!project.storybook) {
+    return undefined;
+  }
+
+  const { title: projectName, storybook } = project;
+
+  return {
+    storybook: {
+      builder: '@nrwl/storybook:storybook',
+      options: {
+        uiFramework: '@storybook/angular',
+        port: 4400,
+        config: {
+          configFolder: `${storybook.folder}/${projectName}/.storybook`,
+        },
+      },
+      configurations: {
+        ci: {
+          quiet: true,
+        },
+      },
+    },
+    'build-storybook': {
+      builder: '@nrwl/storybook:build',
+      outputs: ['{options.outputPath}'],
+      options: {
+        uiFramework: '@storybook/angular',
+        outputPath: `dist/storybook/${projectName}`,
+        config: {
+          configFolder: `${storybook.folder}/${projectName}/.storybook`,
+        },
+      },
+      configurations: {
+        ci: {
+          quiet: true,
+        },
+      },
+    },
+  };
+};
+
 const PROJECT_STRUCTURE = (project) => {
   const { title: projectName, prefix = PREFIX, implicitDependencies } = project;
 
@@ -296,7 +327,7 @@ const PROJECT_STRUCTURE = (project) => {
     projectType: 'application',
     root: `apps/${projectName}`,
     sourceRoot: `apps/${projectName}/src`,
-    prefix: prefix || undefined,
+    prefix: prefix !== null ? prefix : undefined,
     i18n: PROJECT_I18N(project),
     architect: {
       build: PROJECT_BUILD(project),
@@ -318,8 +349,15 @@ const GROUP_STRUCTURE = (group) => {
     projectType: 'library',
     root: `libs/${projectName}`,
     sourceRoot: `libs/${projectName}/src`,
-    prefix: prefix || undefined,
-    architect: {},
+    prefix: prefix,
+    architect: {
+      storybook: PROJECT_STORYBOOK(group)
+        ? PROJECT_STORYBOOK(group).storybook
+        : undefined,
+      'build-storybook': PROJECT_STORYBOOK(group)
+        ? PROJECT_STORYBOOK(group)['build-storybook']
+        : undefined,
+    },
     tags: [],
   };
 };
@@ -331,15 +369,12 @@ const COMPONENT_STRUCTURE = (component) => {
     projectType: 'library',
     root: `libs/${root}`,
     sourceRoot: `libs/${root}/src`,
-    prefix: prefix || undefined,
+    prefix: prefix,
     architect: {
       lint: {
         builder: '@nrwl/linter:eslint',
         options: {
-          lintFilePatterns: [
-            `libs/${root}/src/**/*.ts`,
-            `libs/${root}/src/**/*.html`,
-          ],
+          lintFilePatterns: [`libs/${root}/src/**/*.ts`, `libs/${root}/src/**/*.html`],
         },
       },
       test: {
@@ -433,6 +468,9 @@ const COMPONENT_STRUCTURE = (component) => {
   },
   {
     title: 'ui',
+    storybook: {
+      folder: 'libs',
+    },
   },
 ].forEach(GROUP_STRUCTURE);
 
@@ -515,10 +553,6 @@ const COMPONENT_STRUCTURE = (component) => {
   .forEach(COMPONENT_STRUCTURE);
 
 // PRINT
-fs.writeFileSync(
-  './angular.json',
-  prettier.format(JSON.stringify(ANGULAR_JSON), { parser: 'json-stringify' }),
-  'utf-8'
-);
+fs.writeFileSync('./angular.json', JSON.stringify(ANGULAR_JSON), 'utf-8');
 
 console.log('\x1b[32m%s\x1b[0m', 'Angular.json generated successfully.');

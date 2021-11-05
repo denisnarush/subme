@@ -32,32 +32,16 @@
     type="button"
     class="button"
     i18n="@@buttonGetIn"
-    (click)="auth__modal.toggle()"
-  >
+    (click)="auth__modal.toggle()">
     Get In
   </button>
 </footer>
 
 <div s-ui-modal #auth__modal class="modal">
   <ng-container *ngIf="auth__modal.isActive()">
-    <div s-ui-tabs #auth__tabs class="tabs" [selected]="0">
-      <span
-        s-ui-tab
-        class="tabs__item"
-        (activate)="auth__tabs.setTab($event)"
-        [isSelected]="auth__tabs.selected === 0"
-        i18n="@@buttonLogIn"
-        >Log In</span
-      >
-      <div
-        s-ui-tab
-        class="tabs__item"
-        (activate)="auth__tabs.setTab($event)"
-        [isSelected]="auth__tabs.selected === 1"
-        i18n="@@buttonSignIn"
-      >
-        Sign In
-      </div>
+    <div #auth__tabs class="s-ui-tabs">
+      <span class="s-ui-tab" [ref]="auth__tabs" i18n="@@buttonLogIn">Log In</span>
+      <span class="s-ui-tab" [ref]="auth__tabs" i18n="@@buttonSignIn">Sign In</span>
     </div>
 
     <ng-container *ngIf="auth__tabs.selected === 0">
@@ -67,15 +51,14 @@
         i18n-data-label="@@fieldEmailLabel"
         data-placeholder="johnny.silverhand@mail.com"
         data-label="email"
-        [name]="'email'"
-      ></div>
+        [name]="'email'"></div>
       <div
         s-ui-field-password
         i18n-data-placeholder="@@fieldOneTimePasswordPlaceholder"
         i18n-data-label="@@fieldOneTimePasswordLabel"
         data-placeholder="7 digits"
         data-label="one time password"
-      ></div>
+        [name]="'password'"></div>
     </ng-container>
 
     <ng-container *ngIf="auth__tabs.selected === 1">
@@ -85,25 +68,18 @@
         i18n-data-label="@@fieldEmailLabel"
         data-placeholder="johnny.silverhand@mail.com"
         data-label="email"
-        [name]="'email'"
-      ></div>
+        [name]="'email'"></div>
       <div
         s-ui-field-text
         i18n-data-placeholder="@@fieldUsernamePlaceholder"
         i18n-data-label="@@fieldUsernameLabel"
         data-placeholder="Johnny Silverhand"
         data-label="username"
-        [name]="'username'"
-      ></div
-    ></ng-container>
+        [name]="'username'"></div>
+    </ng-container>
   </ng-container>
   <ng-container modal__footer>
-    <button
-      type="button"
-      class="button"
-      (click)="auth__modal.toggle()"
-      i18n="@@buttonOK"
-    >
+    <button class="button" type="button" (click)="auth__modal.toggle()" i18n="@@buttonOK">
       ok
     </button>
   </ng-container>

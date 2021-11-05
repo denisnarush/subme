@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostBinding,
   Input,
   Output,
   ViewEncapsulation,
@@ -8,13 +9,13 @@ import {
 import { IUiTabs } from '../ui-tabs.interface';
 
 @Component({
-  selector: '[s-ui-tabs]',
+  selector: '.s-ui-tabs',
   templateUrl: './ui-tabs.component.html',
-  styleUrls: ['./ui-tabs.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
 export class UiTabsComponent implements IUiTabs {
-  @Input() selected: number;
+  @HostBinding() class = 'tabs';
+  @Input() selected = 0;
   @Output() selectedChange: EventEmitter<number> = new EventEmitter<number>();
 
   setTab(tab: number) {

@@ -1,29 +1,38 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
+  HostBinding,
   Input,
-  Output,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
-  selector: '[s-ui-tab]',
+  selector: '.s-ui-tab',
   templateUrl: './ui-tab.component.html',
-  styleUrls: ['./ui-tab.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UiTabComponent {
-  @Input() isSelected = false;
-  @Output() activate = new EventEmitter<number>();
+export class UiTabComponent implements OnInit {
+  @HostBinding() class = 'tabs__item';
+
+  /* TODO: Find a way how to avoid using `ref` as @Input */
+  @Input() ref;
+
+  private id: number;
+
+  get isSelected(): boolean {
+    return this.ref.selected === this.id;
+  }
 
   constructor(private elRef: ElementRef) {}
 
+  ngOnInit(): void {
+    this.id = [].slice
+      .call(this.elRef.nativeElement.parentElement.children)
+      .indexOf(this.elRef.nativeElement);
+  }
+
   onClick(): void {
-    this.activate.emit(
-      [].slice
-        .call(this.elRef.nativeElement.parentElement.children)
-        .indexOf(this.elRef.nativeElement)
-    );
+    this.ref.setTab(this.id);
   }
 }
