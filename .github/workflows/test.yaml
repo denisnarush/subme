@@ -2,8 +2,9 @@ name: Test
 # Controls when the action will run.
 on:
   # Triggers
-  push:
-    branches: [master]
+  pull_request:
+    branches:
+      - master
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -16,9 +17,12 @@ jobs:
     name: Node ${{matrix.node}}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - run: git fetch origin master
       - run: npm ci
-      - run: npx nx test flowers
+      - run: npm run ng affected:test -- --base=origin/master
