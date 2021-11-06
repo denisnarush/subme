@@ -25,4 +25,4 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: git fetch origin master
       - run: npm ci
-      - run: npm run ng affected:lint -- --base=origin/master
+      - run: npm run ng affected:lint
