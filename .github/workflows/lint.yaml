@@ -22,4 +22,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npm run ng affected:lint
+      - run: npm run ng affected:lint -- --base=remotes/origin/master
