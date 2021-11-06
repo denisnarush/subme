@@ -2,8 +2,9 @@ name: Test
 # Controls when the action will run.
 on:
   # Triggers
-  push:
-    branches: [master]
+  pull_request:
+    branches:
+      - master
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -21,4 +22,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npx nx test flowers
+      - run: npx nx affected:test --base=master
