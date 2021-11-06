@@ -15,7 +15,7 @@ import { IUiTabs } from '../ui-tabs.interface';
 })
 export class UiTabsComponent implements IUiTabs {
   @HostBinding() class = 'tabs';
-  @Input() selected: number = 0;
+  @Input() selected = 0;
   @Output() selectedChange: EventEmitter<number> = new EventEmitter<number>();
 
   setTab(tab: number) {
