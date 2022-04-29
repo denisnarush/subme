@@ -23,8 +23,8 @@
         <target>{VAR_SELECT, select, month {месяц}}</target>
       </trans-unit>
       <trans-unit id="buttonGetIn" datatype="html">
-        <source> Get In </source>
-        <target> Войти </target>
+        <source>Get In</source>
+        <target>Войти</target>
       </trans-unit>
       <trans-unit id="buttonLogIn" datatype="html">
         <source>Log In</source>
@@ -32,7 +32,7 @@
       </trans-unit>
       <trans-unit id="buttonSignIn" datatype="html">
         <source>Sign In</source>
-        <target> Зарегистрироваться </target>
+        <target>Зарегистрироваться</target>
       </trans-unit>
       <trans-unit id="fieldEmailPlaceholder" datatype="html">
         <source>johnny.silverhand@mail.com</source>
@@ -59,8 +59,8 @@
         <target>имя пользователя</target>
       </trans-unit>
       <trans-unit id="buttonOK" datatype="html">
-        <source> ok </source>
-        <target> ок </target>
+        <source>ok</source>
+        <target>ок</target>
       </trans-unit>
     </body>
   </file>

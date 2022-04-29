@@ -1,17 +1,16 @@
-<header s-ui-header class="header">
-  <a
-    header__item_right
-    class="link txt txt_f_main-regular txt_s_2 txt_c_gray-1 txt_is_right"
-    routerLink="../about"
+<header class="s-ui-header">
+  <a class="button"
+    href="/about"
     i18n="@@buttonAbout"
-    >How it works?</a
-  >
+    [routerLink]="['../about']"
+    header__item_right
+    >How it works?</a>
 </header>
 
-<main s-ui-content class="content">
+<main class="s-ui-content">
   <div class="l l__image"></div>
   <div class="l l__title">
-    <h1 class="title txt_f_header-regular txt_s_4 txt_c_gray-2 txt_is_center">
+    <h1 class="title title_centered">
       <ng-container i18n="@@mainTitle">Subscribe Me</ng-container>
     </h1>
   </div>
@@ -26,61 +25,58 @@
   </div>
 </main>
 
-<footer s-ui-footer class="footer">
+<footer class="s-ui-footer">
   <button
     footer__item_center
     type="button"
-    class="button"
+    class="button button_size_medium"
     i18n="@@buttonGetIn"
-    (click)="auth__modal.toggle()">
-    Get In
-  </button>
+    (click)="auth__modal.toggle()">Get In</button
+  >
 </footer>
 
-<div s-ui-modal #auth__modal class="modal">
+<div #auth__modal class="s-ui-modal">
   <ng-container *ngIf="auth__modal.isActive()">
     <div #auth__tabs class="s-ui-tabs">
-      <span class="s-ui-tab" [ref]="auth__tabs" i18n="@@buttonLogIn">Log In</span>
-      <span class="s-ui-tab" [ref]="auth__tabs" i18n="@@buttonSignIn">Sign In</span>
+      <span class="s-ui-tab" [isSelected]="auth__tabs.selected === 0" i18n="@@buttonLogIn">Log In</span>
+      <span class="s-ui-tab" [isSelected]="auth__tabs.selected === 1" i18n="@@buttonSignIn">Sign In</span>
     </div>
 
     <ng-container *ngIf="auth__tabs.selected === 0">
-      <div
-        s-ui-field-email
+      <label
         i18n-data-placeholder="@@fieldEmailPlaceholder"
         i18n-data-label="@@fieldEmailLabel"
         data-placeholder="johnny.silverhand@mail.com"
         data-label="email"
-        [name]="'email'"></div>
-      <div
-        s-ui-field-password
+        class="s-ui-field-email"
+        [name]="'email'"></label>
+      <label
         i18n-data-placeholder="@@fieldOneTimePasswordPlaceholder"
         i18n-data-label="@@fieldOneTimePasswordLabel"
         data-placeholder="7 digits"
         data-label="one time password"
-        [name]="'password'"></div>
+        class="s-ui-field-password"
+        [name]="'password'"></label>
     </ng-container>
 
     <ng-container *ngIf="auth__tabs.selected === 1">
-      <div
-        s-ui-field-email
+      <label
         i18n-data-placeholder="@@fieldEmailPlaceholder"
         i18n-data-label="@@fieldEmailLabel"
         data-placeholder="johnny.silverhand@mail.com"
         data-label="email"
-        [name]="'email'"></div>
-      <div
-        s-ui-field-text
+        class="s-ui-field-email"
+        [name]="'email'"></label>
+      <label
         i18n-data-placeholder="@@fieldUsernamePlaceholder"
         i18n-data-label="@@fieldUsernameLabel"
         data-placeholder="Johnny Silverhand"
         data-label="username"
-        [name]="'username'"></div>
+        class="s-ui-field-text"
+        [name]="'username'"></label>
     </ng-container>
   </ng-container>
   <ng-container modal__footer>
-    <button class="button" type="button" (click)="auth__modal.toggle()" i18n="@@buttonOK">
-      ok
-    </button>
+    <button class="button button_size_medium" type="button" (click)="auth__modal.toggle()" i18n="@@buttonOK">ok</button>
   </ng-container>
 </div>

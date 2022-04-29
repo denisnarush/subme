@@ -1,5 +1,6 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   HostBinding,
   Input,
@@ -18,7 +19,13 @@ export class UiTabsComponent implements IUiTabs {
   @Input() selected = 0;
   @Output() selectedChange: EventEmitter<number> = new EventEmitter<number>();
 
-  setTab(tab: number) {
+  constructor(private elRef: ElementRef) {
+    elRef.nativeElement.addEventListener('change', (event: Event) => {
+      this.setTab(+(event.target as HTMLInputElement).value);
+    });
+  }
+
+  private setTab(tab: number) {
     this.selected = tab;
     this.selectedChange.emit(tab);
   }

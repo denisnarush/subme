@@ -3,19 +3,23 @@
   position: relative;
 
   &__label {
+    font: var(--font-main-thin);
     padding: 0 0.5rem;
     position: absolute;
-    z-index: 1;
     line-height: 1.4;
+    z-index: 1;
   }
 
   &__input {
     border: none;
     background-color: transparent;
+    font: var(--font-main-regular);
+    font-size: var(--font-size-medium);
     padding: 0 0.5rem;
     margin: 1rem 0;
     position: relative;
     z-index: 2;
+    width: 100%;
 
     &:not(:focus) {
       border-bottom: 1px solid var(--gray-6);
@@ -65,7 +69,10 @@
   }
 
   &__placeholder {
+    color: var(--gray-2);
     display: none;
+    font: var(--font-main-thin);
+    font-size: var(--font-size-regular);
     line-height: 1.4;
     padding: 0 0.5rem;
     position: absolute;

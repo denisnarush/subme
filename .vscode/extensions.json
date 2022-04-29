@@ -4,7 +4,6 @@
     "angular.ng-template",
     "ms-vscode.vscode-typescript-tslint-plugin",
     "esbenp.prettier-vscode",
-    "coenraads.bracket-pair-colorizer",
     "dt.ghlink",
     "prisma.prisma",
     "gruntfuggly.todo-tree",

@@ -1,17 +1,10 @@
-<label class="field">
-  <input
-    #field
-    [attr.type]="type"
-    [attr.class]="
-      'field__input field__input_' + type + ' txt txt_f_main-regular txt_s_3'
-    "
-    [attr.placeholder]="placeholder || type"
-    [attr.name]="name"
-  />
-  <div *ngIf="label" class="field__label txt txt_f_main-thin">
-    {{ label }}
-  </div>
-  <div class="field__placeholder txt txt_f_main-thin txt_s_2 txt_c_gray-2">
-    {{ placeholder || type }}
-  </div>
-</label>
+<input
+  #field
+  [attr.type]="type"
+  [attr.class]="
+    'field__input field__input_' + type
+  "
+  [attr.name]="name"
+/>
+<div *ngIf="label" class="field__label">{{ label }}</div>
+<div *ngIf="placeholder" class="field__placeholder">{{ placeholder }}</div>

@@ -1,8 +1,8 @@
-<button
+<label
   type="button"
-  class="button button_light"
-  (click)="onClick()"
+  class="button"
   [ngClass]="{ button_not_active: !isSelected }"
 >
+  <input class="hidden" type="radio" name="tab" [checked]="isSelected" [value]="id">
   <ng-content></ng-content>
-</button>
+</label>

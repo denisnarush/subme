@@ -1,13 +1,14 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { IUiModal } from '../ui-modal.interface';
 
 @Component({
-  selector: '[s-ui-modal]',
+  selector: '.s-ui-modal',
   templateUrl: './ui-modal.component.html',
   styleUrls: ['./ui-modal.component.less'],
   encapsulation: ViewEncapsulation.None,
 })
 export class UiModalComponent implements IUiModal {
+  @HostBinding() class = 'modal';
   private active = false;
 
   toggle(): void {
