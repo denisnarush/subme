@@ -9,17 +9,23 @@
 - \* It will be nice to write some unit test
 - \* It will be awesome to have e2e test
 - Run test before push changes to origin
-```
+
+```sh
 nx affected:test -- --base=origin/master
 ```
+
 - Run lint before push changes to origin
-```
+
+```sh
 nx affected:lint -- --base=origin/master
 ```
+
 - Run/Update i18n before push changes to origin
-```
+
+```sh
 nx extract-i18n flowers
 ```
+
 - \* Be sure to avoid committing unnecessary formatted lines of code. It's affect i-18n
 
 - Push *#N* branch changes to origin
