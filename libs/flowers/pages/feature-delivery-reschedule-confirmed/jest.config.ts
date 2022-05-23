@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'flowers-pages-feature-dashboard',
+/* eslint-disable */
+export default {
+  displayName: 'flowers-pages-feature-delivery-reschedule-confirmed',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,9 +10,12 @@ module.exports = {
     },
   },
   coverageDirectory:
-    '../../../../coverage/libs/flowers/pages/feature-dashboard',
+    '../../../../coverage/libs/flowers/pages/feature-delivery-reschedule-confirmed',
 
-  transform: { '^.+\\.(ts|js|html)$': 'jest-preset-angular' },
+  transform: {
+    '^.+.(ts|mjs|js|html)$': 'jest-preset-angular',
+  },
+  transformIgnorePatterns: ['node_modules/(?!.*.mjs$)'],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

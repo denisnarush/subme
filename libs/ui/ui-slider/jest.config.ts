@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'ui-ui-header',
+/* eslint-disable */
+export default {
+  displayName: 'ui-ui-slider',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,9 +9,12 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/ui/ui-header',
+  coverageDirectory: '../../../coverage/libs/ui/ui-slider',
 
-  transform: { '^.+\\.(ts|js|html)$': 'jest-preset-angular' },
+  transform: {
+    '^.+.(ts|mjs|js|html)$': 'jest-preset-angular',
+  },
+  transformIgnorePatterns: ['node_modules/(?!.*.mjs$)'],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

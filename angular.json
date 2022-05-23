@@ -1,6 +1,5 @@
 {
   "version": 1,
-  "defaultProject": "flowers",
   "projects": {
     "api": {
       "projectType": "application",
@@ -9,7 +8,7 @@
       "prefix": "api",
       "architect": {
         "build": {
-          "builder": "@nrwl/node:build",
+          "builder": "@nrwl/node:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
@@ -40,7 +39,7 @@
           }
         },
         "serve": {
-          "builder": "@nrwl/node:execute",
+          "builder": "@nrwl/node:node",
           "options": {
             "buildTarget": "api:build"
           }
@@ -54,7 +53,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
+            "jestConfig": "apps/api/jest.config.ts",
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/api"]
@@ -168,7 +167,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/flowers/jest.config.js",
+            "jestConfig": "apps/flowers/jest.config.ts",
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/flowers"]
@@ -222,7 +221,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-about/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-about/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -247,7 +246,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -272,7 +271,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -297,7 +296,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -322,7 +321,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-home/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-home/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -347,7 +346,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-order/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-order/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -372,7 +371,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.js",
+            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -397,7 +396,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/shared/directives/jest.config.js",
+            "jestConfig": "libs/shared/directives/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -422,7 +421,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.js",
+            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -447,7 +446,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/shared/pages/feature-not-found/jest.config.js",
+            "jestConfig": "libs/shared/pages/feature-not-found/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -475,7 +474,8 @@
             "port": 4400,
             "config": {
               "configFolder": "libs/ui/.storybook"
-            }
+            },
+            "projectBuildConfig": "ui:build-storybook"
           },
           "configurations": {
             "ci": {
@@ -491,7 +491,8 @@
             "outputPath": "dist/storybook/ui",
             "config": {
               "configFolder": "libs/ui/.storybook"
-            }
+            },
+            "projectBuildConfig": "ui:build-storybook"
           },
           "configurations": {
             "ci": {
@@ -520,7 +521,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-content/jest.config.js",
+            "jestConfig": "libs/ui/ui-content/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -545,7 +546,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-fieldset/jest.config.js",
+            "jestConfig": "libs/ui/ui-fieldset/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -570,7 +571,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-footer/jest.config.js",
+            "jestConfig": "libs/ui/ui-footer/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -595,7 +596,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-header/jest.config.js",
+            "jestConfig": "libs/ui/ui-header/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -620,7 +621,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-modal/jest.config.js",
+            "jestConfig": "libs/ui/ui-modal/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -645,7 +646,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-slider/jest.config.js",
+            "jestConfig": "libs/ui/ui-slider/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -670,7 +671,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-tab/jest.config.js",
+            "jestConfig": "libs/ui/ui-tab/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -695,7 +696,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/ui-tabs/jest.config.js",
+            "jestConfig": "libs/ui/ui-tabs/jest.config.ts",
             "passWithNoTests": true
           }
         }
