@@ -21,7 +21,8 @@
         "accessToken": "NDBhZTZkYmEtM2QxYi00NzliLTk3NTUtNjJhNjQxNTg1MzlhfHJlYWQtd3JpdGU=",
         "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
-        "showUsageWarnings": true
+        "showUsageWarnings": true,
+        "parallel": 3
       }
     }
   },
@@ -89,12 +90,12 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "style": "less",
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
       "style": "less"
     }
-  }
+  },
+  "defaultProject": "flowers"
 }
