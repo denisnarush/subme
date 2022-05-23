@@ -2,7 +2,6 @@ const fs = require('fs');
 
 const ANGULAR_JSON = {
   version: 1,
-  defaultProject: 'flowers',
   // HERE COMES ALL PROJECTS, GROUPS, COMPONNETS and etc.
   projects: {},
 };
@@ -271,7 +270,7 @@ const PROJECT_TEST = (project) => {
   return {
     builder: '@nrwl/jest:jest',
     options: {
-      jestConfig: `apps/${projectName}/jest.config.js`,
+      jestConfig: `apps/${projectName}/jest.config.ts`,
       passWithNoTests: true,
     },
     outputs: [`coverage/apps/${projectName}`],
@@ -380,7 +379,7 @@ const COMPONENT_STRUCTURE = (component) => {
       test: {
         builder: '@nrwl/jest:jest',
         options: {
-          jestConfig: `libs/${root}/jest.config.js`,
+          jestConfig: `libs/${root}/jest.config.ts`,
           passWithNoTests: true,
         },
       },
@@ -416,7 +415,7 @@ const COMPONENT_STRUCTURE = (component) => {
     styles: null,
     stylePreprocessorOptions: null,
     build: {
-      builder: '@nrwl/node:build',
+      builder: '@nrwl/node:webpack',
       outputs: ['{options.outputPath}'],
       options: {
         index: null,
@@ -445,7 +444,7 @@ const COMPONENT_STRUCTURE = (component) => {
       defaultConfiguration: null,
     },
     serve: {
-      builder: '@nrwl/node:execute',
+      builder: '@nrwl/node:node',
       options: {
         buildTarget: 'api:build',
       },

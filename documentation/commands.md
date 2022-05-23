@@ -1,5 +1,11 @@
 # Commands
 
+## isntall packages
+
+- `npm ci` - if you just need to have clean install
+- `npm i` - for the most common use.
+- `npm i --legacy-peer-deps` - comes with npm v7, for situation when we should ignore all peerDependencies when installing, in the style of npm version 4 through version 6.
+
 ## start local `flowers` project
 
 - `nx serve flowers` - serves flowers project
@@ -7,6 +13,14 @@
 ## start local `api` project
 
 - `nx serve api` - serves flowers project
+
+## Migrating to the latest Nx version
+
+- `npx nx migrate latest`
+- `npx nx migrate --run-migrations`
+- `nx affected:test`
+- `nx affected:lint`
+- run [Angular.json](#angularjson) and make sure it has no difference, otherwise - update.
 
 ## Backstop
 
@@ -34,16 +48,23 @@
 - `nx add @angular/localize --name <project>` - adds i18n to \<project\>
 - `nx extract-i18n <project>` - extracts \<project\>'s locale source data.
 
-## E2e Test
+## E2E Test
 
 - `nx e2e <project>-e2e --watch` run e2e test for \<project\>
 
-## Unit Test
+## Test
 
-- `nx test` run test for all projects (flowers, api, ui & etc.)
+- `nx test` run test for default project
 - `nx test <project>` run test for \<project\> project.
+- `nx affected:test` - will run test only touched files
 - `nx test <project> --with-deps` run test for \<project\> with deep dive to all dependencies.
 - `nx test <project> --watch` run test with **watch** mode.
+
+## Lint
+
+- `nx lint` run lint for default project
+- `nx lint <project>` run lint for \<project\> project.
+- `nx affected:lint` - will run lint only touched files
 
 ## Angular.json
 
