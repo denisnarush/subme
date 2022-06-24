@@ -27,4 +27,3 @@ Very important description!
 - Denis Narush <child.denis@gmail.com>
 - Dev > Alexand Bazukevich <alex.baz88@gmail.com>
 - QA > Viacheslav Dontsov <v.dontsov1990@gmail.com>
-- UX > Anna Narush <anna.narush@mail.com>
