@@ -1,9 +1,14 @@
 [s-feature-order] {
   > .content {
-    grid-template-rows: 50px auto;
+    grid-template-rows:
+      ~'min(440px, calc(100vw - var(--root-gap) * 2), calc(100vh - 220px))' var(
+        --root-gap
+      )
+      1fr;
     grid-template-areas:
-      '. text .'
-      '. slider .';
+      '. slider .'
+      '. . .'
+      '. text .';
   }
 
   .l {
@@ -11,10 +16,6 @@
       grid-area: text;
       // vertical
       align-self: start;
-    }
-
-    &__slider {
-      grid-area: slider;
     }
   }
 
@@ -25,23 +26,27 @@
   }
 
   .slider {
-    display: grid;
-    grid: 1fr / auto-flow 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior: contain;
-    touch-action: pan-x;
     border-radius: 16px;
+
+    display: grid;
+    grid-area: slider;
+    grid: 1fr / auto-flow 100%;
+    justify-self: center;
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    scroll-snap-type: x mandatory;
+    touch-action: pan-x;
+
+    width: ~'min(420px, calc(80vh - var(--root-footer-height) - var(--root-header-height)), calc(100vw - var(--root-gap) * 2))';
   }
 
   .slider__item {
-    padding-bottom: 100%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     background-image: var(--bg);
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
 }
