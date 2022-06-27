@@ -6,6 +6,10 @@
 - `npm i` - for the most common use.
 - `npm i --legacy-peer-deps` - comes with npm v7, for situation when we should ignore all peerDependencies when installing, in the style of npm version 4 through version 6.
 
+## node version management (windows)
+
+- [nvm-windows](https://github.com/coreybutler/nvm-windows) tool
+
 ## start local `flowers` project
 
 - `nx serve flowers` - serves flowers project

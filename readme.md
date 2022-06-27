@@ -21,9 +21,3 @@ Very important description!
 ## Wireframes
 
 - ://www.figma.com/file/2Hu3IfAPQgwUV2zDMsQ0fl/subme.by
-
-## Contributers
-
-- Denis Narush <child.denis@gmail.com>
-- Dev > Alexand Bazukevich <alex.baz88@gmail.com>
-- QA > Viacheslav Dontsov <v.dontsov1990@gmail.com>
