@@ -11,11 +11,12 @@ import {
 @Directive()
 export abstract class UiFieldDirective implements AfterViewInit {
   @HostBinding() class = 'field';
-  placeholder?: string;
-  label?: string;
-
   @ViewChild('field') field: ElementRef<HTMLInputElement>;
   @Input() name: string;
+  @Input() autocomplete = 'off';
+
+  placeholder?: string;
+  label?: string;
 
   constructor(private cdr: ChangeDetectorRef) {}
 

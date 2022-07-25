@@ -1,6 +1,5 @@
-import { EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface IUiTabs {
-  selected: number;
-  selectedChange: EventEmitter<number>;
+  selected$: BehaviorSubject<number>;
 }

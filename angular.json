@@ -28,7 +28,7 @@
             "localize": ["en", "ru"],
             "aot": true,
             "buildOptimizer": true,
-            "optimization": true,
+            "optimization": false,
             "budgets": [
               {
                 "type": "initial",
@@ -61,6 +61,7 @@
           "configurations": {
             "production": {
               "localize": ["en"],
+              "optimization": true,
               "extractLicenses": true,
               "outputHashing": "all",
               "sourceMap": false,

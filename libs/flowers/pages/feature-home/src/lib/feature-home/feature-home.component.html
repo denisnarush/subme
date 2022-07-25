@@ -31,52 +31,57 @@
     type="button"
     class="button button_size_medium"
     i18n="@@buttonGetIn"
-    (click)="auth__modal.toggle()">Get In</button
-  >
+    (click)="auth__modal.toggle()">Get In</button>
 </footer>
 
 <div #auth__modal class="s-ui-modal">
   <ng-container *ngIf="auth__modal.isActive()">
+    <form #auth__form id="auth__form" (submit)="auth__modal.toggle()">
     <div #auth__tabs class="s-ui-tabs">
-      <span class="s-ui-tab" [isSelected]="auth__tabs.selected === 0" i18n="@@buttonLogIn">Log In</span>
-      <span class="s-ui-tab" [isSelected]="auth__tabs.selected === 1" i18n="@@buttonSignIn">Sign In</span>
+      <span class="s-ui-tab" [isSelected]="(auth__tabs.selected$ | async) === 0" i18n="@@buttonLogIn">Log In</span>
+      <span class="s-ui-tab" [isSelected]="(auth__tabs.selected$ | async) === 1" i18n="@@buttonSignIn">Sign In</span>
     </div>
 
-    <ng-container *ngIf="auth__tabs.selected === 0">
+    <ng-container *ngIf="(auth__tabs.selected$ | async) === 0">
       <label
         i18n-data-placeholder="@@fieldEmailPlaceholder"
         i18n-data-label="@@fieldEmailLabel"
         data-placeholder="johnny.silverhand@mail.com"
         data-label="email"
-        class="s-ui-field-email"
+        class="s-ui-field-email field_full_width"
         [name]="'email'"></label>
       <label
         i18n-data-placeholder="@@fieldOneTimePasswordPlaceholder"
         i18n-data-label="@@fieldOneTimePasswordLabel"
         data-placeholder="7 digits"
         data-label="one time password"
-        class="s-ui-field-password"
+        class="s-ui-field-password field_full_width"
         [name]="'password'"></label>
     </ng-container>
 
-    <ng-container *ngIf="auth__tabs.selected === 1">
+    <ng-container *ngIf="(auth__tabs.selected$ | async) === 1">
       <label
         i18n-data-placeholder="@@fieldEmailPlaceholder"
         i18n-data-label="@@fieldEmailLabel"
         data-placeholder="johnny.silverhand@mail.com"
         data-label="email"
-        class="s-ui-field-email"
+        class="s-ui-field-email field_full_width"
         [name]="'email'"></label>
       <label
         i18n-data-placeholder="@@fieldUsernamePlaceholder"
         i18n-data-label="@@fieldUsernameLabel"
         data-placeholder="Johnny Silverhand"
         data-label="username"
-        class="s-ui-field-text"
+        class="s-ui-field-text field_full_width"
         [name]="'username'"></label>
     </ng-container>
+  </form>
   </ng-container>
   <ng-container modal__footer>
-    <button class="button button_size_medium" type="button" (click)="auth__modal.toggle()" i18n="@@buttonOK">ok</button>
+    <button
+      class="button button_size_medium"
+      type="submit"
+      form="auth__form"
+      i18n="@@buttonOK">ok</button>
   </ng-container>
 </div>

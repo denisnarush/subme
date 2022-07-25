@@ -1,12 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostBinding,
-  Input,
-  Output,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, ElementRef, HostBinding, ViewEncapsulation } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { IUiTabs } from '../ui-tabs.interface';
 
 @Component({
@@ -16,8 +9,7 @@ import { IUiTabs } from '../ui-tabs.interface';
 })
 export class UiTabsComponent implements IUiTabs {
   @HostBinding() class = 'tabs';
-  @Input() selected = 0;
-  @Output() selectedChange: EventEmitter<number> = new EventEmitter<number>();
+  selected$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor(private elRef: ElementRef) {
     elRef.nativeElement.addEventListener('change', (event: Event) => {
@@ -25,8 +17,7 @@ export class UiTabsComponent implements IUiTabs {
     });
   }
 
-  private setTab(tab: number) {
-    this.selected = tab;
-    this.selectedChange.emit(tab);
+  private setTab(tab: number): void {
+    this.selected$.next(tab);
   }
 }

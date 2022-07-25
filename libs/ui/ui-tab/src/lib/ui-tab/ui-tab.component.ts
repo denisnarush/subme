@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostBinding,
@@ -11,6 +12,7 @@ import {
   selector: '.s-ui-tab',
   templateUrl: './ui-tab.component.html',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiTabComponent implements OnInit {
   @HostBinding() class = 'tabs__item';

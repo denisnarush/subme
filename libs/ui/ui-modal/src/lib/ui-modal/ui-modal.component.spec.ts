@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import exp = require('constants');
 
 import { UiModalComponent } from './ui-modal.component';
 

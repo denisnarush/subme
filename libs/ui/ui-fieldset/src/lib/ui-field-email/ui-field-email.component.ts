@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { TFieldType, UiField } from '../ui-ui-fieldset.interface';
 import { UiFieldDirective } from '../ui-field/ui-field.component';
 
@@ -7,6 +7,7 @@ import { UiFieldDirective } from '../ui-field/ui-field.component';
   templateUrl: '../ui-field/ui-field.component.html',
   styleUrls: ['../ui-field/ui-field.component.less'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiFieldEmailComponent extends UiFieldDirective implements UiField {
   type: TFieldType = 'email';

@@ -2,6 +2,10 @@
   display: inline-block;
   position: relative;
 
+  &_full_width {
+    width: 100%;
+  }
+
   &__label {
     font: var(--font-main-thin);
     padding: 0 0.5rem;
@@ -12,6 +16,7 @@
 
   &__input {
     border: none;
+    box-sizing: border-box;
     background-color: transparent;
     font: var(--font-main-regular);
     font-size: var(--font-size-medium);
