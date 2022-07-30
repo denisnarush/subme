@@ -8,15 +8,19 @@
   height: var(--root-header-height);
 
   &__item {
+    display: flex;
     align-self: center;
     &_side_left {
       grid-area: left;
+      justify-content: flex-start;
     }
     &_side_center {
       grid-area: center;
+      justify-content: center;
     }
     &_side_right {
       grid-area: right;
+      justify-content: flex-end;
     }
   }
 }

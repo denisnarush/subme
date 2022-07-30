@@ -8,13 +8,13 @@ import { UiFieldPasswordComponent } from './ui-field-password/ui-field-password.
   imports: [CommonModule],
   declarations: [
     UiFieldEmailComponent,
-    UiFieldTextComponent,
     UiFieldPasswordComponent,
+    UiFieldTextComponent,
   ],
   exports: [
     UiFieldEmailComponent,
-    UiFieldTextComponent,
     UiFieldPasswordComponent,
+    UiFieldTextComponent,
   ],
 })
 export class UiFieldsetModule {}

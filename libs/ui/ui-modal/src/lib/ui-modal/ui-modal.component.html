@@ -1,8 +1,6 @@
 <div *ngIf="isActive()" class="modal__inner" role="dialog" aria-modal="true">
   <header class="s-ui-header">
-    <ng-content header__item_left select="[modal__header_-left]"></ng-content>
     <ng-content header__item_center select="[modal__header]"></ng-content>
-    <ng-content header__item_right select="[modal__header_-right]"></ng-content>
   </header>
   <div class="s-ui-content">
     <div class="modal__item modal__item_side_center">
@@ -10,8 +8,6 @@
     </div>
   </div>
   <footer class="s-ui-footer">
-    <ng-content footer__item_left select="[modal__footer_-left]"></ng-content>
     <ng-content footer__item_center select="[modal__footer]"></ng-content>
-    <ng-content footer__item_right select="[modal__footer_-right]"></ng-content>
   </footer>
 </div>

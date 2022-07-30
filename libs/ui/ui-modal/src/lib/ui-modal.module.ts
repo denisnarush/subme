@@ -6,7 +6,7 @@ import { UiFooterModule } from '@s/ui/ui-footer';
 import { UiModalComponent } from './ui-modal/ui-modal.component';
 
 @NgModule({
-  imports: [CommonModule, UiHeaderModule, UiContentModule, UiFooterModule],
+  imports: [CommonModule, UiContentModule, UiFooterModule, UiHeaderModule],
   declarations: [UiModalComponent],
   exports: [UiModalComponent],
 })

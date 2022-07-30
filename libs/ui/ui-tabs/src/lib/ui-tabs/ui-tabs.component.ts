@@ -1,4 +1,10 @@
-import { Component, ElementRef, HostBinding, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostBinding,
+  ViewEncapsulation,
+} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IUiTabs } from '../ui-tabs.interface';
 
@@ -6,6 +12,7 @@ import { IUiTabs } from '../ui-tabs.interface';
   selector: '.s-ui-tabs',
   templateUrl: './ui-tabs.component.html',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiTabsComponent implements IUiTabs {
   @HostBinding() class = 'tabs';

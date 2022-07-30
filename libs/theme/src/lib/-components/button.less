@@ -1,12 +1,24 @@
 .button {
+  display: inline-block;
   background-color: transparent;
   border: none;
   color: var(--gray-1);
   cursor: pointer;
-  padding: 0;
-  margin: 0;
   font: var(--font-main-regular);
+  padding: 0;
+  margin: 1px;
   text-decoration: none;
+  text-align: center;
+  min-width: 128px;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: dashed;
+  }
 
   &_size {
     &_medium {

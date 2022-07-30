@@ -4,15 +4,19 @@ import { RouterModule } from '@angular/router';
 
 import { DirectivesModule } from '@s/shared/directives';
 
-import { UiModule } from '@s/ui';
+import { UiContentModule } from '@s/ui/ui-content';
+import { UiFooterModule } from '@s/ui/ui-footer';
+import { UiHeaderModule } from '@s/ui/ui-header';
 
 import { FeatureAboutComponent } from './feature-about/feature-about.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    UiModule,
     DirectivesModule,
+    UiContentModule,
+    UiFooterModule,
+    UiHeaderModule,
     RouterModule.forChild([{ path: '', component: FeatureAboutComponent }]),
   ],
   declarations: [FeatureAboutComponent],

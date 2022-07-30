@@ -1,0 +1,16 @@
+.link {
+  color: var(--gray-1);
+  font: var(--font-main-regular);
+  font-size: var(--font-size-medium);
+  text-decoration: none;
+  // pseudo links
+  &:not(a) {
+    cursor: pointer;
+  }
+
+  &_is {
+    &_block {
+      display: block;
+    }
+  }
+}

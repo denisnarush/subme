@@ -1,5 +1,5 @@
 <header class="s-ui-header">
-  <a class="button"
+  <a class="link"
     href="/about"
     i18n="@@buttonAbout"
     [routerLink]="['../about']"
@@ -31,12 +31,12 @@
     type="button"
     class="button button_size_medium"
     i18n="@@buttonGetIn"
-    (click)="auth__modal.toggle()">Get In</button>
+    (click)="auth__modal.activate()">Get In</button>
 </footer>
 
 <div #auth__modal class="s-ui-modal">
   <ng-container *ngIf="auth__modal.isActive()">
-    <form #auth__form id="auth__form" (submit)="auth__modal.toggle()">
+    <form id="auth__form" (submit)="auth__modal.toggle()" method="get">
     <div #auth__tabs class="s-ui-tabs">
       <span class="s-ui-tab" [isSelected]="(auth__tabs.selected$ | async) === 0" i18n="@@buttonLogIn">Log In</span>
       <span class="s-ui-tab" [isSelected]="(auth__tabs.selected$ | async) === 1" i18n="@@buttonSignIn">Sign In</span>
@@ -75,13 +75,18 @@
         class="s-ui-field-text field_full_width"
         [name]="'username'"></label>
     </ng-container>
-  </form>
-  </ng-container>
-  <ng-container modal__footer>
-    <button
-      class="button button_size_medium"
-      type="submit"
-      form="auth__form"
-      i18n="@@buttonOK">ok</button>
+    <div class="button-group button-group_jc_center">
+      <button
+        class="button button_size_medium"
+        type="button"
+        i18n="@@buttonLATER">later</button>
+
+      <button
+        class="button button_size_medium"
+        type="submit"
+        form="auth__form"
+        i18n="@@buttonOK">ok</button>
+    </div>
+    </form>
   </ng-container>
 </div>

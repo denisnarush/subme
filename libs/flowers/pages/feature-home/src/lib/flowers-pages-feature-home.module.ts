@@ -15,13 +15,13 @@ import { FeatureHomeComponent } from './feature-home/feature-home.component';
 @NgModule({
   imports: [
     CommonModule,
-    UiHeaderModule,
     UiContentModule,
-    UiFooterModule,
-    UiModalModule,
-    UiTabsModule,
-    UiTabModule,
     UiFieldsetModule,
+    UiFooterModule,
+    UiHeaderModule,
+    UiModalModule,
+    UiTabModule,
+    UiTabsModule,
     RouterModule.forChild([{ path: '', component: FeatureHomeComponent }]),
   ],
   declarations: [FeatureHomeComponent],
