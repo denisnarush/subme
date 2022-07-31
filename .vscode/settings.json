@@ -1,16 +1,25 @@
 {
-  "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "prettier.printWidth": 90,
-  "prettier.bracketSpacing": true,
-  "[html]": {
+    "editor.tabSize": 4,
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": null
-  },
-  "npm.runInTerminal": true,
-  "prettier.endOfLine": "crlf",
-  "todo-tree.filtering.excludeGlobs": ["node_modules"],
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "workbench.editor.showTabs": false
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.printWidth": 90,
+    "prettier.bracketSpacing": true,
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "[html]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null
+    },
+    "[json]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null
+    },
+    "prettier.endOfLine": "crlf",
+    "todo-tree.filtering.excludeGlobs": ["node_modules"],
+    "typescript.updateImportsOnFileMove.enabled": "never",
+    "workbench.editor.showTabs": false
 }

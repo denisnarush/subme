@@ -34,6 +34,11 @@
       "files": ["*.html"],
       "extends": ["plugin:@nrwl/nx/angular-template"],
       "rules": {}
+    },
+    {
+      "files": ["*module.ts", "*component.ts", "*spec.ts"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {}
     }
   ]
 }
