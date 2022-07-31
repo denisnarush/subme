@@ -1,5 +1,9 @@
 const fs = require('fs');
 
+const { PROJECTS } = require('./angular-json-configurator/projects');
+const { GROUPS } = require('./angular-json-configurator/groups');
+const { COMPONENTS } = require('./angular-json-configurator/components');
+
 const ANGULAR_JSON = {
   version: 1,
   // HERE COMES ALL PROJECTS, GROUPS, COMPONNETS and etc.
@@ -44,7 +48,7 @@ const PROJECT_BUILD = (project) => {
     polyfills = `apps/${projectName}/src/polyfills.ts`,
     aot = true,
     buildOptimizer = true,
-    optimization = true,
+    optimization = false,
     budgets = [
       {
         type: 'initial',
@@ -64,6 +68,7 @@ const PROJECT_BUILD = (project) => {
   production = {
     ...{
       localize: ['en'],
+      optimization: true,
       extractLicenses: true,
       sourceMap: false,
       namedChunks: false,
@@ -123,6 +128,8 @@ const PROJECT_BUILD = (project) => {
     configurations: {
       production: {
         localize: development.localize !== null ? development.localize : undefined,
+        optimization:
+          production.optimization !== null ? production.optimization : undefined,
         extractLicenses:
           production.extractLicenses !== null ? production.extractLicenses : undefined,
         outputHashing: outputHashing !== null ? outputHashing : undefined,
@@ -389,167 +396,13 @@ const COMPONENT_STRUCTURE = (component) => {
 };
 
 // PROJECTS
-[
-  {
-    title: 'flowers',
-    i18n: {
-      locales: ['ru'],
-    },
-  },
-  {
-    title: 'flowers-e2e',
-    prefix: null,
-    styles: null,
-    build: null,
-    serve: null,
-    i18n: null,
-    test: null,
-    stylePreprocessorOptions: null,
-    e2e: { target: 'flowers' },
-    lint: { options: { lintFilePatterns: ['apps/flowers-e2e/**/*.{js,ts}'] } },
-    implicitDependencies: ['flowers'],
-  },
-  {
-    title: 'api',
-    prefix: 'api',
-    styles: null,
-    stylePreprocessorOptions: null,
-    build: {
-      builder: '@nrwl/node:webpack',
-      outputs: ['{options.outputPath}'],
-      options: {
-        index: null,
-        polyfills: null,
-        aot: null,
-        buildOptimizer: null,
-        budgets: null,
-        scripts: null,
-        vendorChunk: null,
-        extractLicenses: null,
-        sourceMap: null,
-        namedChunks: null,
-      },
-      configurations: {
-        production: {
-          outputHashing: null,
-          sourceMap: null,
-          namedChunks: null,
-          vendorChunk: null,
-          inspect: false,
-        },
-        development: {
-          localize: null,
-        },
-      },
-      defaultConfiguration: null,
-    },
-    serve: {
-      builder: '@nrwl/node:node',
-      options: {
-        buildTarget: 'api:build',
-      },
-      configurations: null,
-      defaultConfiguration: null,
-    },
-    lint: {
-      options: {
-        lintFilePatterns: ['apps/api/**/*.ts'],
-      },
-    },
-    i18n: null,
-  },
-].forEach(PROJECT_STRUCTURE);
+PROJECTS.forEach(PROJECT_STRUCTURE);
 
 // GROUPS
-[
-  {
-    title: 'theme',
-  },
-  {
-    title: 'ui',
-    storybook: {
-      folder: 'libs',
-    },
-  },
-].forEach(GROUP_STRUCTURE);
+GROUPS.forEach(GROUP_STRUCTURE);
 
 // COMPONENTS
-[
-  {
-    title: 'shared-directives',
-    folder: 'shared/directives',
-  },
-  {
-    title: 'shared-pages-feature-not-found',
-    folder: 'shared/pages/feature-not-found',
-  },
-  {
-    title: 'shared-pages-feature-confirmed',
-    folder: 'shared/pages/feature-confirmed',
-  },
-  {
-    title: 'flowers-pages-feature-home',
-    folder: 'flowers/pages/feature-home',
-  },
-  {
-    title: 'flowers-pages-feature-about',
-    folder: 'flowers/pages/feature-about',
-  },
-  {
-    title: 'flowers-pages-feature-payment-confirmed',
-    folder: 'flowers/pages/feature-payment-confirmed',
-  },
-  {
-    title: 'flowers-pages-feature-delivery-reschedule-confirmed',
-    folder: 'flowers/pages/feature-delivery-reschedule-confirmed',
-  },
-  {
-    title: 'flowers-pages-feature-delivery-confirmed',
-    folder: 'flowers/pages/feature-delivery-confirmed',
-  },
-  {
-    title: 'flowers-pages-feature-dashboard',
-    folder: 'flowers/pages/feature-dashboard',
-  },
-  {
-    title: 'flowers-pages-feature-order',
-    folder: 'flowers/pages/feature-order',
-  },
-  {
-    title: 'ui-ui-content',
-    folder: 'ui/ui-content',
-  },
-  {
-    title: 'ui-ui-header',
-    folder: 'ui/ui-header',
-  },
-  {
-    title: 'ui-ui-footer',
-    folder: 'ui/ui-footer',
-  },
-  {
-    title: 'ui-ui-modal',
-    folder: 'ui/ui-modal',
-  },
-  {
-    title: 'ui-ui-slider',
-    folder: 'ui/ui-slider',
-  },
-  {
-    title: 'ui-ui-tabs',
-    folder: 'ui/ui-tabs',
-  },
-  {
-    title: 'ui-ui-tab',
-    folder: 'ui/ui-tab',
-  },
-  {
-    title: 'ui-ui-fieldset',
-    folder: 'ui/ui-fieldset',
-  },
-]
-  .sort((a, b) => (a.title > b.title ? 1 : -1))
-  .forEach(COMPONENT_STRUCTURE);
+COMPONENTS.sort((a, b) => (a.title > b.title ? 1 : -1)).forEach(COMPONENT_STRUCTURE);
 
 // PRINT
 fs.writeFileSync('./angular.json', JSON.stringify(ANGULAR_JSON), 'utf-8');

@@ -158,7 +158,7 @@
             "baseHref": "/",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "optimization": true,
+            "optimization": false,
             "assets": [
               {
                 "glob": "**/*",
@@ -169,6 +169,7 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
               "extractLicenses": true,
               "inspect": false,
               "fileReplacements": [
