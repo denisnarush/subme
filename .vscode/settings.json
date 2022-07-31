@@ -12,7 +12,8 @@
     },
     "[html]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": null
+        "editor.defaultFormatter": null,
+        "editor.tabSize": 2
     },
     "[json]": {
         "editor.formatOnSave": false,
