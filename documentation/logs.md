@@ -32,3 +32,5 @@ ng.profiler.timeChangeDetection();
     "rules": {}
   }
 ```
+
+- [ ] `foo$ | async as foo`
