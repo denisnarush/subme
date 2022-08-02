@@ -42,3 +42,6 @@ nx extract-i18n flowers
 - Make sure that *#N* moved to the *DONE*
 
 \* - optional
+
+![GitFlow](https://wac-cdn.atlassian.com/dam/jcr:cc0b526e-adb7-4d45-874e-9bcea9898b4a/04%20Hotfix%20branches.svg?cdnVersion=461)
+https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
