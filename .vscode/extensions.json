@@ -1,12 +1,12 @@
 {
-  "recommendations": [
-    "nrwl.angular-console",
-    "angular.ng-template",
-    "esbenp.prettier-vscode",
-    "dt.ghlink",
-    "prisma.prisma",
-    "gruntfuggly.todo-tree",
-    "humao.rest-client",
-    "firsttris.vscode-jest-runner"
-  ]
+    "recommendations": [
+        "nrwl.angular-console",
+        "angular.ng-template",
+        "esbenp.prettier-vscode",
+        "dt.ghlink",
+        "prisma.prisma",
+        "gruntfuggly.todo-tree",
+        "humao.rest-client",
+        "firsttris.vscode-jest-runner"
+    ]
 }
