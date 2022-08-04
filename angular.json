@@ -20,6 +20,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/flowers",
+            "resourcesOutputPath": "resources",
             "baseHref": "/",
             "index": "apps/flowers/src/index.html",
             "main": "apps/flowers/src/main.ts",
@@ -44,7 +45,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "assets",
+                "input": "assets/default",
                 "output": "assets"
               }
             ],
@@ -162,7 +163,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "assets",
+                "input": "assets/default",
                 "output": "assets"
               }
             ]
