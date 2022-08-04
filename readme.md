@@ -16,6 +16,7 @@ Very important description!
 - Storybook
 - Less
 - Jest
+- SonarQube
 - Nx
 
 ## Wireframes
