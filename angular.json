@@ -1,708 +1,740 @@
 {
-  "version": 1,
-  "projects": {
-    "flowers": {
-      "projectType": "application",
-      "root": "apps/flowers",
-      "sourceRoot": "apps/flowers/src",
-      "prefix": "s",
-      "i18n": {
-        "sourceLocale": "en",
-        "locales": {
-          "ru": {
-            "translation": "i18n/locale/source.ru.xlf",
-            "baseHref": "/ru/"
-          }
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/flowers",
-            "resourcesOutputPath": "resources",
-            "baseHref": "/",
-            "index": "apps/flowers/src/index.html",
-            "main": "apps/flowers/src/main.ts",
-            "polyfills": "apps/flowers/src/polyfills.ts",
-            "tsConfig": "apps/flowers/tsconfig.app.json",
-            "localize": ["en", "ru"],
-            "aot": true,
-            "buildOptimizer": true,
-            "optimization": false,
-            "budgets": [
-              {
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              },
-              {
-                "type": "anyComponentStyle",
-                "maximumWarning": "6kb",
-                "maximumError": "10kb"
-              }
-            ],
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "assets/default",
-                "output": "assets"
-              }
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["libs/theme/src/lib/-mixins", "libs/theme/src/lib/default"]
-            },
-            "styles": ["libs/theme/src/lib/theme.styles.less"],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "sourceMap": true,
-            "namedChunks": true
-          },
-          "configurations": {
-            "production": {
-              "localize": ["en"],
-              "optimization": true,
-              "extractLicenses": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/flowers/src/environments/environment.ts",
-                  "with": "apps/flowers/src/environments/environment.prod.ts"
+    "version": 1,
+    "projects": {
+        "flowers": {
+            "projectType": "application",
+            "root": "apps/flowers",
+            "sourceRoot": "apps/flowers/src",
+            "prefix": "s",
+            "i18n": {
+                "sourceLocale": "en",
+                "locales": {
+                    "ru": {
+                        "translation": "i18n/locale/source.ru.xlf",
+                        "baseHref": "/ru/"
+                    }
                 }
-              ]
             },
-            "development": {
-              "localize": ["en"]
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "flowers:build:production"
-            },
-            "development": {
-              "browserTarget": "flowers:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "flowers:build",
-            "outputPath": "i18n",
-            "outFile": "source.xlf"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/flowers/src/**/*.ts", "apps/flowers/src/**/*.html"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/flowers/jest.config.ts",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/apps/flowers"]
-        }
-      },
-      "tags": []
-    },
-    "flowers-e2e": {
-      "projectType": "application",
-      "root": "apps/flowers-e2e",
-      "sourceRoot": "apps/flowers-e2e/src",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/flowers-e2e/cypress.json",
-            "tsConfig": "apps/flowers-e2e/tsconfig.e2e.json",
-            "devServerTarget": "flowers:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "flowers:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/flowers-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["flowers"]
-    },
-    "api": {
-      "projectType": "application",
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
-      "prefix": "api",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:webpack",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/api",
-            "baseHref": "/",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "optimization": false,
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "assets/default",
-                "output": "assets"
-              }
-            ]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/apps/flowers",
+                        "resourcesOutputPath": "resources",
+                        "baseHref": "/",
+                        "index": "apps/flowers/src/index.html",
+                        "main": "apps/flowers/src/main.ts",
+                        "polyfills": "apps/flowers/src/polyfills.ts",
+                        "tsConfig": "apps/flowers/tsconfig.app.json",
+                        "localize": ["en", "ru"],
+                        "aot": true,
+                        "buildOptimizer": true,
+                        "optimization": false,
+                        "budgets": [
+                            {
+                                "type": "initial",
+                                "maximumWarning": "2mb",
+                                "maximumError": "5mb"
+                            },
+                            {
+                                "type": "anyComponentStyle",
+                                "maximumWarning": "6kb",
+                                "maximumError": "10kb"
+                            }
+                        ],
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "assets/default",
+                                "output": "assets"
+                            }
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "libs/theme/src/lib/-mixins",
+                                "libs/theme/src/lib/default"
+                            ]
+                        },
+                        "styles": ["libs/theme/src/lib/theme.styles.less"],
+                        "scripts": [],
+                        "vendorChunk": true,
+                        "extractLicenses": false,
+                        "sourceMap": true,
+                        "namedChunks": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "localize": ["en"],
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/flowers/src/environments/environment.ts",
+                                    "with": "apps/flowers/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        },
+                        "development": {
+                            "localize": ["en"]
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "flowers:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "flowers:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "flowers:build",
+                        "outputPath": "i18n",
+                        "outFile": "source.xlf"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/flowers/src/**/*.ts",
+                            "apps/flowers/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/flowers/jest.config.ts",
+                        "passWithNoTests": true
+                    },
+                    "outputs": ["coverage/apps/flowers"]
                 }
-              ]
             },
-            "development": {}
-          }
+            "tags": []
         },
-        "serve": {
-          "builder": "@nrwl/node:node",
-          "options": {
-            "buildTarget": "api:build"
-          }
+        "flowers-e2e": {
+            "projectType": "application",
+            "root": "apps/flowers-e2e",
+            "sourceRoot": "apps/flowers-e2e/src",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/flowers-e2e/cypress.json",
+                        "tsConfig": "apps/flowers-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "flowers:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "flowers:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["apps/flowers-e2e/**/*.{js,ts}"]
+                    }
+                }
+            },
+            "tags": [],
+            "implicitDependencies": ["flowers"]
         },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
+        "api": {
+            "projectType": "application",
+            "root": "apps/api",
+            "sourceRoot": "apps/api/src",
+            "prefix": "api",
+            "architect": {
+                "build": {
+                    "builder": "@nrwl/node:webpack",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/api",
+                        "resourcesOutputPath": "resources",
+                        "baseHref": "/",
+                        "main": "apps/api/src/main.ts",
+                        "tsConfig": "apps/api/tsconfig.app.json",
+                        "optimization": false,
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "assets/default",
+                                "output": "assets"
+                            }
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "inspect": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/api/src/environments/environment.ts",
+                                    "with": "apps/api/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        },
+                        "development": {}
+                    }
+                },
+                "serve": {
+                    "builder": "@nrwl/node:node",
+                    "options": {
+                        "buildTarget": "api:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": ["apps/api/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/api/jest.config.ts",
+                        "passWithNoTests": true
+                    },
+                    "outputs": ["coverage/apps/api"]
+                }
+            },
+            "tags": []
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/api/jest.config.ts",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/apps/api"]
+        "theme": {
+            "projectType": "library",
+            "root": "libs/theme",
+            "sourceRoot": "libs/theme/src",
+            "prefix": "s",
+            "architect": {},
+            "tags": []
+        },
+        "ui": {
+            "projectType": "library",
+            "root": "libs/ui",
+            "sourceRoot": "libs/ui/src",
+            "prefix": "s",
+            "architect": {
+                "storybook": {
+                    "builder": "@nrwl/storybook:storybook",
+                    "options": {
+                        "uiFramework": "@storybook/angular",
+                        "port": 4400,
+                        "config": {
+                            "configFolder": "libs/ui/.storybook"
+                        }
+                    },
+                    "configurations": {
+                        "ci": {
+                            "quiet": true
+                        }
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@nrwl/storybook:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "uiFramework": "@storybook/angular",
+                        "outputPath": "dist/storybook/ui",
+                        "config": {
+                            "configFolder": "libs/ui/.storybook"
+                        }
+                    },
+                    "configurations": {
+                        "ci": {
+                            "quiet": true
+                        }
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-about": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-about",
+            "sourceRoot": "libs/flowers/pages/feature-about/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-about/src/**/*.ts",
+                            "libs/flowers/pages/feature-about/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-about/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-dashboard": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-dashboard",
+            "sourceRoot": "libs/flowers/pages/feature-dashboard/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-dashboard/src/**/*.ts",
+                            "libs/flowers/pages/feature-dashboard/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-delivery-confirmed": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-delivery-confirmed",
+            "sourceRoot": "libs/flowers/pages/feature-delivery-confirmed/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-delivery-confirmed/src/**/*.ts",
+                            "libs/flowers/pages/feature-delivery-confirmed/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-delivery-reschedule-confirmed": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
+            "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.ts",
+                            "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-home": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-home",
+            "sourceRoot": "libs/flowers/pages/feature-home/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-home/src/**/*.ts",
+                            "libs/flowers/pages/feature-home/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-home/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-order": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-order",
+            "sourceRoot": "libs/flowers/pages/feature-order/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-order/src/**/*.ts",
+                            "libs/flowers/pages/feature-order/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-order/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "flowers-pages-feature-payment-confirmed": {
+            "projectType": "library",
+            "root": "libs/flowers/pages/feature-payment-confirmed",
+            "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/flowers/pages/feature-payment-confirmed/src/**/*.ts",
+                            "libs/flowers/pages/feature-payment-confirmed/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "shared-directives": {
+            "projectType": "library",
+            "root": "libs/shared/directives",
+            "sourceRoot": "libs/shared/directives/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/shared/directives/src/**/*.ts",
+                            "libs/shared/directives/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/shared/directives/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "shared-pages-feature-confirmed": {
+            "projectType": "library",
+            "root": "libs/shared/pages/feature-confirmed",
+            "sourceRoot": "libs/shared/pages/feature-confirmed/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/shared/pages/feature-confirmed/src/**/*.ts",
+                            "libs/shared/pages/feature-confirmed/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "shared-pages-feature-not-found": {
+            "projectType": "library",
+            "root": "libs/shared/pages/feature-not-found",
+            "sourceRoot": "libs/shared/pages/feature-not-found/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/shared/pages/feature-not-found/src/**/*.ts",
+                            "libs/shared/pages/feature-not-found/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/shared/pages/feature-not-found/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-content": {
+            "projectType": "library",
+            "root": "libs/ui/ui-content",
+            "sourceRoot": "libs/ui/ui-content/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-content/src/**/*.ts",
+                            "libs/ui/ui-content/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-content/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-fieldset": {
+            "projectType": "library",
+            "root": "libs/ui/ui-fieldset",
+            "sourceRoot": "libs/ui/ui-fieldset/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-fieldset/src/**/*.ts",
+                            "libs/ui/ui-fieldset/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-fieldset/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-footer": {
+            "projectType": "library",
+            "root": "libs/ui/ui-footer",
+            "sourceRoot": "libs/ui/ui-footer/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-footer/src/**/*.ts",
+                            "libs/ui/ui-footer/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-footer/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-header": {
+            "projectType": "library",
+            "root": "libs/ui/ui-header",
+            "sourceRoot": "libs/ui/ui-header/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-header/src/**/*.ts",
+                            "libs/ui/ui-header/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-header/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-modal": {
+            "projectType": "library",
+            "root": "libs/ui/ui-modal",
+            "sourceRoot": "libs/ui/ui-modal/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-modal/src/**/*.ts",
+                            "libs/ui/ui-modal/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-modal/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-slider": {
+            "projectType": "library",
+            "root": "libs/ui/ui-slider",
+            "sourceRoot": "libs/ui/ui-slider/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-slider/src/**/*.ts",
+                            "libs/ui/ui-slider/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-slider/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-submit-modal": {
+            "projectType": "library",
+            "root": "libs/ui/ui-submit-modal",
+            "sourceRoot": "libs/ui/ui-submit-modal/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-submit-modal/src/**/*.ts",
+                            "libs/ui/ui-submit-modal/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-submit-modal/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-tab": {
+            "projectType": "library",
+            "root": "libs/ui/ui-tab",
+            "sourceRoot": "libs/ui/ui-tab/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-tab/src/**/*.ts",
+                            "libs/ui/ui-tab/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-tab/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
+        },
+        "ui-ui-tabs": {
+            "projectType": "library",
+            "root": "libs/ui/ui-tabs",
+            "sourceRoot": "libs/ui/ui-tabs/src",
+            "prefix": "s",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/ui-tabs/src/**/*.ts",
+                            "libs/ui/ui-tabs/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ui/ui-tabs/jest.config.ts",
+                        "passWithNoTests": true
+                    }
+                }
+            },
+            "tags": []
         }
-      },
-      "tags": []
-    },
-    "theme": {
-      "projectType": "library",
-      "root": "libs/theme",
-      "sourceRoot": "libs/theme/src",
-      "prefix": "s",
-      "architect": {},
-      "tags": []
-    },
-    "ui": {
-      "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
-      "prefix": "s",
-      "architect": {
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "libs/ui/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui",
-            "config": {
-              "configFolder": "libs/ui/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-about": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-about",
-      "sourceRoot": "libs/flowers/pages/feature-about/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-about/src/**/*.ts",
-              "libs/flowers/pages/feature-about/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-about/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-dashboard": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-dashboard",
-      "sourceRoot": "libs/flowers/pages/feature-dashboard/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-dashboard/src/**/*.ts",
-              "libs/flowers/pages/feature-dashboard/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-dashboard/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-delivery-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-delivery-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-delivery-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.ts",
-              "libs/flowers/pages/feature-delivery-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-confirmed/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-delivery-reschedule-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-delivery-reschedule-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-delivery-reschedule-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.ts",
-              "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-delivery-reschedule-confirmed/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-home": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-home",
-      "sourceRoot": "libs/flowers/pages/feature-home/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-home/src/**/*.ts",
-              "libs/flowers/pages/feature-home/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-home/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-order": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-order",
-      "sourceRoot": "libs/flowers/pages/feature-order/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-order/src/**/*.ts",
-              "libs/flowers/pages/feature-order/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-order/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "flowers-pages-feature-payment-confirmed": {
-      "projectType": "library",
-      "root": "libs/flowers/pages/feature-payment-confirmed",
-      "sourceRoot": "libs/flowers/pages/feature-payment-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/flowers/pages/feature-payment-confirmed/src/**/*.ts",
-              "libs/flowers/pages/feature-payment-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/flowers/pages/feature-payment-confirmed/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "shared-directives": {
-      "projectType": "library",
-      "root": "libs/shared/directives",
-      "sourceRoot": "libs/shared/directives/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/directives/src/**/*.ts",
-              "libs/shared/directives/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/directives/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "shared-pages-feature-confirmed": {
-      "projectType": "library",
-      "root": "libs/shared/pages/feature-confirmed",
-      "sourceRoot": "libs/shared/pages/feature-confirmed/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/pages/feature-confirmed/src/**/*.ts",
-              "libs/shared/pages/feature-confirmed/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/pages/feature-confirmed/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "shared-pages-feature-not-found": {
-      "projectType": "library",
-      "root": "libs/shared/pages/feature-not-found",
-      "sourceRoot": "libs/shared/pages/feature-not-found/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/pages/feature-not-found/src/**/*.ts",
-              "libs/shared/pages/feature-not-found/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/pages/feature-not-found/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-content": {
-      "projectType": "library",
-      "root": "libs/ui/ui-content",
-      "sourceRoot": "libs/ui/ui-content/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-content/src/**/*.ts",
-              "libs/ui/ui-content/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-content/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-fieldset": {
-      "projectType": "library",
-      "root": "libs/ui/ui-fieldset",
-      "sourceRoot": "libs/ui/ui-fieldset/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-fieldset/src/**/*.ts",
-              "libs/ui/ui-fieldset/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-fieldset/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-footer": {
-      "projectType": "library",
-      "root": "libs/ui/ui-footer",
-      "sourceRoot": "libs/ui/ui-footer/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-footer/src/**/*.ts",
-              "libs/ui/ui-footer/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-footer/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-header": {
-      "projectType": "library",
-      "root": "libs/ui/ui-header",
-      "sourceRoot": "libs/ui/ui-header/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-header/src/**/*.ts",
-              "libs/ui/ui-header/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-header/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-modal": {
-      "projectType": "library",
-      "root": "libs/ui/ui-modal",
-      "sourceRoot": "libs/ui/ui-modal/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-modal/src/**/*.ts",
-              "libs/ui/ui-modal/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-modal/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-slider": {
-      "projectType": "library",
-      "root": "libs/ui/ui-slider",
-      "sourceRoot": "libs/ui/ui-slider/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-slider/src/**/*.ts",
-              "libs/ui/ui-slider/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-slider/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-tab": {
-      "projectType": "library",
-      "root": "libs/ui/ui-tab",
-      "sourceRoot": "libs/ui/ui-tab/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-tab/src/**/*.ts",
-              "libs/ui/ui-tab/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-tab/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "ui-ui-tabs": {
-      "projectType": "library",
-      "root": "libs/ui/ui-tabs",
-      "sourceRoot": "libs/ui/ui-tabs/src",
-      "prefix": "s",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/ui-tabs/src/**/*.ts",
-              "libs/ui/ui-tabs/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/ui-tabs/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
     }
-  }
 }

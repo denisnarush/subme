@@ -56,6 +56,10 @@ const COMPONENTS = [
         folder: "ui/ui-modal"
     },
     {
+        title: "ui-ui-submit-modal",
+        folder: "ui/ui-submit-modal"
+    },
+    {
         title: "ui-ui-slider",
         folder: "ui/ui-slider"
     },

@@ -1,53 +1,60 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@s/flowers/pages/feature-about": ["libs/flowers/pages/feature-about/src/index.ts"],
-      "@s/flowers/pages/feature-dashboard": [
-        "libs/flowers/pages/feature-dashboard/src/index.ts"
-      ],
-      "@s/flowers/pages/feature-delivery-confirmed": [
-        "libs/flowers/pages/feature-delivery-confirmed/src/index.ts"
-      ],
-      "@s/flowers/pages/feature-delivery-reschedule-confirmed": [
-        "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/index.ts"
-      ],
-      "@s/flowers/pages/feature-home": ["libs/flowers/pages/feature-home/src/index.ts"],
-      "@s/flowers/pages/feature-order": ["libs/flowers/pages/feature-order/src/index.ts"],
-      "@s/flowers/pages/feature-payment-confirmed": [
-        "libs/flowers/pages/feature-payment-confirmed/src/index.ts"
-      ],
-      "@s/shared/directives": ["libs/shared/directives/src/index.ts"],
-      "@s/shared/pages/feature-confirmed": [
-        "libs/shared/pages/feature-confirmed/src/index.ts"
-      ],
-      "@s/shared/pages/feature-not-found": [
-        "libs/shared/pages/feature-not-found/src/index.ts"
-      ],
-      "@s/theme": ["libs/theme/src/index.ts"],
-      "@s/ui": ["libs/ui/src/index.ts"],
-      "@s/ui/ui-content": ["libs/ui/ui-content/src/index.ts"],
-      "@s/ui/ui-fieldset": ["libs/ui/ui-fieldset/src/index.ts"],
-      "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"],
-      "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
-      "@s/ui/ui-modal": ["libs/ui/ui-modal/src/index.ts"],
-      "@s/ui/ui-slider": ["libs/ui/ui-slider/src/index.ts"],
-      "@s/ui/ui-tab": ["libs/ui/ui-tab/src/index.ts"],
-      "@s/ui/ui-tabs": ["libs/ui/ui-tabs/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@s/flowers/pages/feature-about": [
+                "libs/flowers/pages/feature-about/src/index.ts"
+            ],
+            "@s/flowers/pages/feature-dashboard": [
+                "libs/flowers/pages/feature-dashboard/src/index.ts"
+            ],
+            "@s/flowers/pages/feature-delivery-confirmed": [
+                "libs/flowers/pages/feature-delivery-confirmed/src/index.ts"
+            ],
+            "@s/flowers/pages/feature-delivery-reschedule-confirmed": [
+                "libs/flowers/pages/feature-delivery-reschedule-confirmed/src/index.ts"
+            ],
+            "@s/flowers/pages/feature-home": [
+                "libs/flowers/pages/feature-home/src/index.ts"
+            ],
+            "@s/flowers/pages/feature-order": [
+                "libs/flowers/pages/feature-order/src/index.ts"
+            ],
+            "@s/flowers/pages/feature-payment-confirmed": [
+                "libs/flowers/pages/feature-payment-confirmed/src/index.ts"
+            ],
+            "@s/shared/directives": ["libs/shared/directives/src/index.ts"],
+            "@s/shared/pages/feature-confirmed": [
+                "libs/shared/pages/feature-confirmed/src/index.ts"
+            ],
+            "@s/shared/pages/feature-not-found": [
+                "libs/shared/pages/feature-not-found/src/index.ts"
+            ],
+            "@s/theme": ["libs/theme/src/index.ts"],
+            "@s/ui": ["libs/ui/src/index.ts"],
+            "@s/ui/ui-content": ["libs/ui/ui-content/src/index.ts"],
+            "@s/ui/ui-fieldset": ["libs/ui/ui-fieldset/src/index.ts"],
+            "@s/ui/ui-footer": ["libs/ui/ui-footer/src/index.ts"],
+            "@s/ui/ui-header": ["libs/ui/ui-header/src/index.ts"],
+            "@s/ui/ui-modal": ["libs/ui/ui-modal/src/index.ts"],
+            "@s/ui/ui-slider": ["libs/ui/ui-slider/src/index.ts"],
+            "@s/ui/ui-submit-modal": ["libs/ui/ui-submit-modal/src/index.ts"],
+            "@s/ui/ui-tab": ["libs/ui/ui-tab/src/index.ts"],
+            "@s/ui/ui-tabs": ["libs/ui/ui-tabs/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
 }
