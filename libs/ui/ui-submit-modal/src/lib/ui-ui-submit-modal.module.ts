@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { UiSubmitComponent } from "./ui-submit/ui-submit.component";
+import { UiSubmitModalComponent } from "./ui-submit-modal/ui-submit-modal.component";
 
 @NgModule({
     imports: [CommonModule],
-    declarations: [UiSubmitComponent],
-    exports: [UiSubmitComponent]
+    declarations: [UiSubmitModalComponent],
+    exports: [UiSubmitModalComponent]
 })
 export class UiSubmitModalModule {}
