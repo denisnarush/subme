@@ -1,10 +1,10 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
-    selector: ".s-ui-submit",
-    templateUrl: "./ui-submit.component.html",
-    styleUrls: ["./ui-submit.component.less"],
+    selector: ".s-ui-submit-modal",
+    templateUrl: "./ui-submit-modal.component.html",
+    styleUrls: ["./ui-submit-modal.component.less"],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UiSubmitComponent {}
+export class UiSubmitModalComponent {}
